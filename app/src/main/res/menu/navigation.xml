@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/newjobs"
+        android:icon="@drawable/ic_old_fashion_briefcase"
+        android:title="New Jobs" />
+
+
+    <item
+        android:id="@+id/applied"
+        android:icon="@drawable/ic_resume"
+        android:title="Applied Jobs" />
+
+
+    <item
+        android:id="@+id/profile"
+        android:icon="@drawable/ic_man_user"
+        android:title="Profile" />
+</menu>

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/linearLayout"
@@ -8,6 +8,9 @@
     android:background="#f5f5f5"
     android:orientation="vertical">
 
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -20,7 +23,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
-        android:text="YOUR NAME" />
+        android:text="YOUR NAME *" />
 
     <EditText
         android:id="@+id/editText"
@@ -87,7 +90,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginTop="16dp"
-        android:text="YOUR D.O.B." />
+        android:text="YOUR D.O.B. *" />
 
     <EditText
         android:id="@+id/editText2"
@@ -96,6 +99,7 @@
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
+        android:focusable="false"
         android:background="@drawable/white_back_round"
         android:hint="tap to enter"
         android:inputType="textPersonName"
@@ -107,7 +111,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginTop="16dp"
-        android:text="YOUR GENDER" />
+        android:text="YOUR GENDER *" />
 
     <RelativeLayout
         android:id="@+id/view2"
@@ -132,7 +136,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginTop="24dp"
-        android:text="YOUR CURRENT ADDRESS"
+        android:text="YOUR CURRENT ADDRESS *"
         android:textColor="#000000" />
 
     <TextView
@@ -141,7 +145,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginTop="16dp"
-        android:text="PIN CODE" />
+        android:text="PIN CODE *" />
 
     <EditText
         android:id="@+id/editText3"
@@ -161,7 +165,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginTop="16dp"
-        android:text="STATE" />
+        android:text="STATE *" />
 
     <EditText
         android:id="@+id/editText4"
@@ -181,7 +185,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginTop="16dp"
-        android:text="DISTRICT" />
+        android:text="DISTRICT *" />
 
     <EditText
         android:id="@+id/editText5"
@@ -201,7 +205,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginTop="16dp"
-        android:text="VILLAGE/ TOWN/ AREA" />
+        android:text="VILLAGE/ TOWN/ AREA *" />
 
     <EditText
         android:id="@+id/editText6"
@@ -221,7 +225,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginTop="16dp"
-        android:text="STREET" />
+        android:text="STREET *" />
 
     <EditText
         android:id="@+id/editText7"
@@ -241,13 +245,14 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginTop="24dp"
-        android:text="YOUR PERMANENT ADDRESS"
+        android:text="YOUR PERMANENT ADDRESS *"
         android:textColor="#000000" />
 
         <CheckBox
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
+            android:id="@+id/check"
             android:text="same as above"
             />
 
@@ -255,6 +260,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/permanent"
+            android:animateLayoutChanges="true"
             android:orientation="vertical"
             >
     <TextView
@@ -263,7 +269,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginTop="16dp"
-        android:text="PIN CODE" />
+        android:text="PIN CODE *" />
 
     <EditText
         android:id="@+id/editText20"
@@ -283,7 +289,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginTop="16dp"
-        android:text="STATE" />
+        android:text="STATE *" />
 
     <EditText
         android:id="@+id/editText22"
@@ -303,7 +309,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginTop="16dp"
-        android:text="DISTRICT" />
+        android:text="DISTRICT *" />
 
     <EditText
         android:id="@+id/editText24"
@@ -323,7 +329,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginTop="16dp"
-        android:text="VILLAGE/ TOWN/ AREA" />
+        android:text="VILLAGE/ TOWN/ AREA *" />
 
     <EditText
         android:id="@+id/editText26"
@@ -343,7 +349,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginTop="16dp"
-        android:text="STREET" />
+        android:text="STREET *" />
 
     <EditText
         android:id="@+id/editText28"
@@ -365,7 +371,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
             android:layout_marginTop="16dp"
-            android:text="YOUR CATEGORY" />
+            android:text="YOUR CATEGORY *" />
 
         <RelativeLayout
             android:layout_width="match_parent"
@@ -388,7 +394,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
             android:layout_marginTop="16dp"
-            android:text="YOUR RELIGION" />
+            android:text="YOUR RELIGION *" />
 
         <RelativeLayout
             android:layout_width="match_parent"
@@ -434,7 +440,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
             android:layout_marginTop="16dp"
-            android:text="YOUR MARITAL STATUS" />
+            android:text="YOUR MARITAL STATUS *" />
 
         <RelativeLayout
             android:layout_width="match_parent"
@@ -465,7 +471,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="16dp"
-                android:text="NUMBER OF CHILDREN" />
+                android:text="NUMBER OF CHILDREN *" />
 
             <RelativeLayout
                 android:layout_width="match_parent"
@@ -488,7 +494,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="16dp"
-                android:text="NUMBER OF CHILDREN BELOW 6 YRS." />
+                android:text="NUMBER OF CHILDREN BELOW 6 YRS. *" />
 
             <RelativeLayout
                 android:layout_width="match_parent"
@@ -511,7 +517,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="16dp"
-                android:text="NUMBER OF CHILDREN B/W 6-14 YRS." />
+                android:text="NUMBER OF CHILDREN B/W 6-14 YRS. *" />
 
             <RelativeLayout
                 android:layout_width="match_parent"
@@ -534,7 +540,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="16dp"
-                android:text="NUMBER OF CHILDREN B/W 15-18 YRS." />
+                android:text="NUMBER OF CHILDREN B/W 15-18 YRS. *" />
 
             <RelativeLayout
                 android:layout_width="match_parent"
@@ -557,7 +563,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="16dp"
-                android:text="NUMBER OF CHILDREN GOING TO SCHOOL" />
+                android:text="NUMBER OF CHILDREN GOING TO SCHOOL *" />
 
             <RelativeLayout
                 android:layout_width="match_parent"
@@ -565,7 +571,6 @@
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="8dp"
                 android:layout_marginEnd="8dp"
-                android:layout_marginBottom="24dp"
                 android:background="@drawable/white_back_round">
 
                 <Spinner
@@ -584,6 +589,8 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
             android:text="SUBMIT"
+            android:id="@+id/submit"
+            android:layout_marginTop="24dp"
             android:background="@drawable/blue_back_round"
             android:minWidth="0dp"
             android:textColor="#ffffff"
@@ -598,5 +605,15 @@
 
     </LinearLayout>
 
+    </androidx.core.widget.NestedScrollView>
 
-</androidx.core.widget.NestedScrollView>
+
+    <ProgressBar
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:id="@+id/progress"
+        android:visibility="gone"
+        />
+
+</RelativeLayout>

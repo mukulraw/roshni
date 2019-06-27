@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/linearLayout"
@@ -8,6 +8,9 @@
     android:background="#f5f5f5"
     android:orientation="vertical">
 
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -23,7 +26,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
             android:layout_marginTop="16dp"
-            android:text="YOUR SECTOR" />
+            android:text="YOUR SECTOR *" />
 
         <RelativeLayout
             android:id="@+id/view2"
@@ -48,7 +51,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
             android:layout_marginTop="16dp"
-            android:text="YOUR SKILLS" />
+            android:text="YOUR SKILLS *" />
 
         <RelativeLayout
             android:layout_width="match_parent"
@@ -71,7 +74,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
             android:layout_marginTop="16dp"
-            android:text="YOUR EXPERIENCE" />
+            android:text="YOUR EXPERIENCE *" />
 
         <RelativeLayout
             android:layout_width="match_parent"
@@ -94,7 +97,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
             android:layout_marginTop="16dp"
-            android:text="YOUR EMPLOYMENT STATUS" />
+            android:text="YOUR EMPLOYMENT STATUS *" />
 
         <RelativeLayout
             android:layout_width="match_parent"
@@ -139,7 +142,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
             android:layout_marginTop="16dp"
-            android:text="OWNS A HOME BASED UNIT" />
+            android:text="OWNS A HOME BASED UNIT *" />
 
         <RelativeLayout
             android:layout_width="match_parent"
@@ -170,7 +173,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="16dp"
-                android:text="NUMBER OF WORKERS" />
+                android:text="NUMBER OF WORKERS *" />
 
             <RelativeLayout
                 android:layout_width="match_parent"
@@ -193,7 +196,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="16dp"
-                android:text="NUMBER OF LOOMS" />
+                android:text="NUMBER OF LOOMS *" />
 
             <RelativeLayout
                 android:layout_width="match_parent"
@@ -220,7 +223,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
             android:layout_marginTop="16dp"
-            android:text="PREFERRED LOCATION FOR WORK" />
+            android:text="PREFERRED LOCATION FOR WORK *" />
 
         <RelativeLayout
             android:layout_width="match_parent"
@@ -244,6 +247,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
             android:text="SUBMIT"
+            android:id="@+id/submit"
             android:background="@drawable/blue_back_round"
             android:minWidth="0dp"
             android:textColor="#ffffff"
@@ -259,5 +263,14 @@
 
     </LinearLayout>
 
+    </androidx.core.widget.NestedScrollView>
 
-</androidx.core.widget.NestedScrollView>
+    <ProgressBar
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:id="@+id/progress"
+        android:visibility="gone"
+        />
+
+</RelativeLayout>
