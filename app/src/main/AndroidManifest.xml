@@ -17,7 +17,8 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-        <activity android:name=".UpdateProfile"></activity>
+        <activity android:name=".Sliders"></activity>
+        <activity android:name=".UpdateProfile" />
         <activity android:name=".REgister" />
         <activity android:name=".OTP2" />
         <activity android:name=".Signup" />

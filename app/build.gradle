@@ -40,4 +40,5 @@ dependencies {
     implementation 'com.squareup.okhttp3:okhttp:3.11.0'
     implementation 'com.squareup.retrofit2:converter-scalars:2.3.0'
     implementation 'com.nostra13.universalimageloader:universal-image-loader:1.9.5'
+    implementation 'me.relex:circleindicator:1.2.2@aar'
 }

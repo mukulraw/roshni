@@ -14,7 +14,7 @@ public class SharePreferenceUtils {
         this.sharedPreferences = context.getSharedPreferences(PREFERENCE_NAME, Context.MODE_PRIVATE);
     }
 
-    public static SharePreferenceUtils getInstance(){
+    static SharePreferenceUtils getInstance(){
         if (sharePreferenceUtils == null){
             sharePreferenceUtils = new SharePreferenceUtils(Bean.getContext());
         }
@@ -22,10 +22,10 @@ public class SharePreferenceUtils {
     }
 
     // login response user_id 1234
-    public void saveString(String key, String Val ){
+    void saveString(String key, String Val){
         SharedPreferences.Editor editor = sharedPreferences.edit();
         editor.putString(key, Val);
-        editor.commit();
+        editor.apply();
     }
 
     public String getString(String key, String defVal){
@@ -33,19 +33,19 @@ public class SharePreferenceUtils {
     }
 
 
-    public String getString(String key){
+    String getString(String key){
         return sharedPreferences.getString(key, "");
     }
 
     public void saveInt(String key, int Val ){
         SharedPreferences.Editor editor = sharedPreferences.edit();
         editor.putInt(key, Val);
-        editor.commit();
+        editor.apply();
     }
 
     public int getInteger(String key){ return sharedPreferences.getInt(key, 0 ); }
 
-    public  void deletePref()
+    void deletePref()
     {
         SharedPreferences.Editor editor = sharedPreferences.edit();
         editor.clear();

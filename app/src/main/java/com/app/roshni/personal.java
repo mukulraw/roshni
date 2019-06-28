@@ -35,6 +35,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.core.content.FileProvider;
 import androidx.fragment.app.Fragment;
+import androidx.localbroadcastmanager.content.LocalBroadcastManager;
 import androidx.viewpager.widget.ViewPager;
 
 import com.app.roshni.R;
@@ -44,7 +45,9 @@ import com.nostra13.universalimageloader.core.DisplayImageOptions;
 import com.nostra13.universalimageloader.core.ImageLoader;
 
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -663,7 +666,16 @@ public class personal extends Fragment {
                                                                                                                     SharePreferenceUtils.getInstance().saveString("looms", item.getLooms());
                                                                                                                     SharePreferenceUtils.getInstance().saveString("location", item.getLocation());
 
+
+                                                                                                                    Intent registrationComplete = new Intent("photo");
+
+                                                                                                                    LocalBroadcastManager.getInstance(getContext()).sendBroadcast(registrationComplete);
+
                                                                                                                     pager.setCurrentItem(1);
+
+
+
+
 
                                                                                                                     Log.d("respo", response.body().getMessage());
 
@@ -770,25 +782,38 @@ public class personal extends Fragment {
         if (requestCode == 2 && resultCode == RESULT_OK && null != data) {
             uri = data.getData();
 
+            Log.d("uri" , String.valueOf(uri));
+
             String ypath = getPath(getContext(), uri);
             f1 = new File(ypath);
 
-            String[] filePath = {MediaStore.Images.Media.DATA};
-            Cursor cursor = getActivity().getContentResolver().query(uri, filePath, null, null, null);
-            cursor.moveToFirst();
-            String imagePath = cursor.getString(cursor.getColumnIndex(filePath[0]));
+            Log.d("path" , ypath);
 
-            BitmapFactory.Options options = new BitmapFactory.Options();
-            options.inPreferredConfig = Bitmap.Config.ARGB_8888;
-            Bitmap bitmap = BitmapFactory.decodeFile(imagePath, options);
+            String[] filePath = {MediaStore.Images.Media.DATA};
+            //Cursor cursor = getActivity().getContentResolver().query(uri, filePath, null, null, null);
+            //cursor.moveToFirst();
+            //String imagePath = cursor.getString(cursor.getColumnIndex(filePath[0]));
+
+            //BitmapFactory.Options options = new BitmapFactory.Options();
+            //options.inPreferredConfig = Bitmap.Config.ARGB_8888;
+            //Bitmap bitmap = BitmapFactory.decodeFile(imagePath, options);
 
             // Do something with the bitmap
 
 
-            // At the end remember to close the cursor or you will end with the RuntimeException!
-            cursor.close();
+            try {
+                InputStream ims = getActivity().getContentResolver().openInputStream(uri);
 
-            image.setImageBitmap(bitmap);
+                image.setImageBitmap(BitmapFactory.decodeStream(ims));
+
+            } catch (FileNotFoundException e) {
+                e.printStackTrace();
+            }
+
+            // At the end remember to close the cursor or you will end with the RuntimeException!
+            //cursor.close();
+
+
         } else if (requestCode == 1 && resultCode == RESULT_OK) {
 
             image.setImageURI(uri);

@@ -6,9 +6,14 @@ import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
+import androidx.localbroadcastmanager.content.LocalBroadcastManager;
 
+import android.content.BroadcastReceiver;
+import android.content.Context;
 import android.content.Intent;
+import android.content.IntentFilter;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
@@ -17,6 +22,8 @@ import android.widget.TextView;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.nostra13.universalimageloader.core.DisplayImageOptions;
 import com.nostra13.universalimageloader.core.ImageLoader;
+
+import java.util.Objects;
 
 import de.hdodenhof.circleimageview.CircleImageView;
 
@@ -125,6 +132,22 @@ public class MainActivity extends AppCompatActivity {
 
         bottom.setSelectedItemId(R.id.newjobs);
 
+        singleReceiver = new BroadcastReceiver() {
+            @Override
+            public void onReceive(Context context, Intent intent) {
+
+                if (Objects.equals(intent.getAction(), "photo")) {
+                    Log.d("local" , "called");
+                    onResume();
+                }
+
+            }
+        };
+
+
+        LocalBroadcastManager.getInstance(this).registerReceiver(singleReceiver,
+                new IntentFilter("photo"));
+
     }
 
     void toggleDrawer() {
@@ -134,6 +157,8 @@ public class MainActivity extends AppCompatActivity {
             drawer.openDrawer(GravityCompat.START);
         }
     }
+
+    BroadcastReceiver singleReceiver;
 
     @Override
     protected void onResume() {
@@ -147,4 +172,13 @@ public class MainActivity extends AppCompatActivity {
         loader.displayImage(SharePreferenceUtils.getInstance().getString("photo") , image , options);
 
     }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+
+        LocalBroadcastManager.getInstance(this).unregisterReceiver(singleReceiver);
+
+    }
+
 }
