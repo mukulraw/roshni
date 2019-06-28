@@ -8,6 +8,7 @@ import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 import androidx.localbroadcastmanager.content.LocalBroadcastManager;
 
+import android.app.Dialog;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
@@ -16,6 +17,8 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.Window;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -72,11 +75,37 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
 
 
-                SharePreferenceUtils.getInstance().deletePref();
+                final Dialog dialog = new Dialog(MainActivity.this);
+                dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
+                dialog.setCancelable(false);
+                dialog.setContentView(R.layout.quit_dialog_layout);
+                dialog.show();
 
-                Intent intent = new Intent(MainActivity.this , SignupLogin.class);
-                startActivity(intent);
-                finishAffinity();
+                Button ookk = dialog.findViewById(R.id.button2);
+                Button canc = dialog.findViewById(R.id.button4);
+
+                canc.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        dialog.dismiss();
+                    }
+                });
+
+                ookk.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+
+                        SharePreferenceUtils.getInstance().deletePref();
+
+                        Intent intent = new Intent(MainActivity.this , SignupLogin.class);
+                        startActivity(intent);
+                        finishAffinity();
+
+                    }
+                });
+
+
+
 
 
             }

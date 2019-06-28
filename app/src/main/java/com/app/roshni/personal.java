@@ -36,13 +36,12 @@ import androidx.annotation.Nullable;
 import androidx.core.content.FileProvider;
 import androidx.fragment.app.Fragment;
 import androidx.localbroadcastmanager.content.LocalBroadcastManager;
-import androidx.viewpager.widget.ViewPager;
 
-import com.app.roshni.R;
 import com.app.roshni.verifyPOJO.Data;
 import com.app.roshni.verifyPOJO.verifyBean;
 import com.nostra13.universalimageloader.core.DisplayImageOptions;
 import com.nostra13.universalimageloader.core.ImageLoader;
+import com.nostra13.universalimageloader.core.decode.ImageDecoder;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -51,6 +50,7 @@ import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import java.util.Objects;
 
 import de.hdodenhof.circleimageview.CircleImageView;
 import okhttp3.MediaType;
@@ -192,22 +192,22 @@ public class personal extends Fragment {
         chi.add("11");
         chi.add("12");
 
-        ArrayAdapter<String> adapter = new ArrayAdapter<String>(getContext(),
+        ArrayAdapter<String> adapter = new ArrayAdapter<>(Objects.requireNonNull(getContext()),
                 R.layout.spinner_model, gen);
 
-        ArrayAdapter<String> adapter1 = new ArrayAdapter<String>(getContext(),
+        ArrayAdapter<String> adapter1 = new ArrayAdapter<>(getContext(),
                 R.layout.spinner_model, cat);
 
-        ArrayAdapter<String> adapter2 = new ArrayAdapter<String>(getContext(),
+        ArrayAdapter<String> adapter2 = new ArrayAdapter<>(getContext(),
                 R.layout.spinner_model, rel);
 
-        ArrayAdapter<String> adapter3 = new ArrayAdapter<String>(getContext(),
+        ArrayAdapter<String> adapter3 = new ArrayAdapter<>(getContext(),
                 R.layout.spinner_model, edu);
 
-        ArrayAdapter<String> adapter4 = new ArrayAdapter<String>(getContext(),
+        ArrayAdapter<String> adapter4 = new ArrayAdapter<>(getContext(),
                 R.layout.spinner_model, mar);
 
-        ArrayAdapter<String> adapter5 = new ArrayAdapter<String>(getContext(),
+        ArrayAdapter<String> adapter5 = new ArrayAdapter<>(getContext(),
                 R.layout.spinner_model, chi);
 
 
@@ -464,7 +464,7 @@ public class personal extends Fragment {
                                 e.printStackTrace();
                             }
 
-                            uri = FileProvider.getUriForFile(getContext(), BuildConfig.APPLICATION_ID + ".provider", f1);
+                            uri = FileProvider.getUriForFile(Objects.requireNonNull(getContext()), BuildConfig.APPLICATION_ID + ".provider", f1);
 
                             Intent getpic = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
                             getpic.putExtra(MediaStore.EXTRA_OUTPUT, uri);
@@ -488,7 +488,7 @@ public class personal extends Fragment {
             @Override
             public void onClick(View view) {
 
-                final Dialog dialog = new Dialog(getActivity());
+                final Dialog dialog = new Dialog(Objects.requireNonNull(getActivity()));
                 dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
                 dialog.setContentView(R.layout.dob_popup);
                 dialog.setCancelable(true);
@@ -501,7 +501,7 @@ public class personal extends Fragment {
                     @Override
                     public void onClick(View v) {
 
-                        String dd = String.valueOf(dp.getDayOfMonth()) + "-" + String.valueOf(dp.getMonth() + 1) + "-" + dp.getYear();
+                        String dd = dp.getDayOfMonth() + "-" + (dp.getMonth() + 1) + "-" + dp.getYear();
 
                         Log.d("dddd", dd);
 
@@ -529,11 +529,11 @@ public class personal extends Fragment {
                 String ca = carea.getText().toString();
                 String cst = cstreet.getText().toString();
 
-                String pp = "";
-                String ps = "";
-                String pd = "";
-                String pa = "";
-                String pst = "";
+                String pp;
+                String ps;
+                String pd;
+                String pa;
+                String pst;
 
                 if (che) {
                     pp = cp;
@@ -587,7 +587,7 @@ public class personal extends Fragment {
 
                                                                                                         progress.setVisibility(View.VISIBLE);
 
-                                                                                                        Bean b = (Bean) getContext().getApplicationContext();
+                                                                                                        Bean b = (Bean) Objects.requireNonNull(getContext()).getApplicationContext();
 
                                                                                                         Retrofit retrofit = new Retrofit.Builder()
                                                                                                                 .baseUrl(b.baseurl)
@@ -628,6 +628,7 @@ public class personal extends Fragment {
                                                                                                             @Override
                                                                                                             public void onResponse(Call<verifyBean> call, Response<verifyBean> response) {
 
+                                                                                                                assert response.body() != null;
                                                                                                                 if (response.body().getStatus().equals("1")) {
                                                                                                                     Data item = response.body().getData();
 
@@ -770,6 +771,7 @@ public class personal extends Fragment {
             }
         });
 
+        setPrevious();
 
         return view;
     }
@@ -785,45 +787,46 @@ public class personal extends Fragment {
             Log.d("uri" , String.valueOf(uri));
 
             String ypath = getPath(getContext(), uri);
+            assert ypath != null;
             f1 = new File(ypath);
 
             Log.d("path" , ypath);
 
-            String[] filePath = {MediaStore.Images.Media.DATA};
-            //Cursor cursor = getActivity().getContentResolver().query(uri, filePath, null, null, null);
-            //cursor.moveToFirst();
-            //String imagePath = cursor.getString(cursor.getColumnIndex(filePath[0]));
-
-            //BitmapFactory.Options options = new BitmapFactory.Options();
-            //options.inPreferredConfig = Bitmap.Config.ARGB_8888;
-            //Bitmap bitmap = BitmapFactory.decodeFile(imagePath, options);
-
-            // Do something with the bitmap
 
 
-            try {
-                InputStream ims = getActivity().getContentResolver().openInputStream(uri);
+            ImageLoader loader = ImageLoader.getInstance();
 
-                image.setImageBitmap(BitmapFactory.decodeStream(ims));
+            Bitmap bmp = loader.loadImageSync(String.valueOf(uri));
 
-            } catch (FileNotFoundException e) {
-                e.printStackTrace();
-            }
+            Log.d("bitmap" , String.valueOf(bmp));
 
-            // At the end remember to close the cursor or you will end with the RuntimeException!
-            //cursor.close();
-
+            image.setImageBitmap(bmp);
 
         } else if (requestCode == 1 && resultCode == RESULT_OK) {
-
             image.setImageURI(uri);
         }
 
 
     }
 
+    private static Bitmap decodeUriToBitmap(Context mContext, Uri sendUri) {
+        Bitmap getBitmap = null;
+        try {
+            InputStream image_stream;
+            try {
+                image_stream = mContext.getContentResolver().openInputStream(sendUri);
+                getBitmap = BitmapFactory.decodeStream(image_stream);
+            } catch (FileNotFoundException e) {
+                e.printStackTrace();
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return getBitmap;
+    }
+
+
     private static String getPath(final Context context, final Uri uri) {
-        final boolean isKitKatOrAbove = true;
 
         // DocumentProvider
         if (DocumentsContract.isDocumentUri(context, uri)) {
@@ -906,31 +909,23 @@ public class personal extends Fragment {
     private static String getDataColumn(Context context, Uri uri, String selection,
                                         String[] selectionArgs) {
 
-        Cursor cursor = null;
         final String column = "_data";
         final String[] projection = {
                 column
         };
-
-        try {
-            cursor = context.getContentResolver().query(uri, projection, selection, selectionArgs,
-                    null);
+        try (Cursor cursor = context.getContentResolver().query(uri, projection, selection, selectionArgs,
+                null)) {
             if (cursor != null && cursor.moveToFirst()) {
                 final int column_index = cursor.getColumnIndexOrThrow(column);
                 return cursor.getString(column_index);
             }
-        } finally {
-            if (cursor != null)
-                cursor.close();
         }
         return null;
     }
 
 
-    @Override
-    public void onResume() {
-        super.onResume();
-
+    void setPrevious()
+    {
         name.setText(SharePreferenceUtils.getInstance().getString("name"));
         DisplayImageOptions options = new DisplayImageOptions.Builder().cacheInMemory(true).cacheOnDisk(true).resetViewBeforeLoading(false).build();
 
@@ -1051,6 +1046,7 @@ public class personal extends Fragment {
         }
         goingtoschool.setSelection(gop);
 
-
     }
+
+
 }

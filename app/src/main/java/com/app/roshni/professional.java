@@ -10,6 +10,7 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.Spinner;
 import android.widget.Toast;
@@ -20,6 +21,8 @@ import androidx.fragment.app.Fragment;
 
 import com.app.roshni.verifyPOJO.Data;
 import com.app.roshni.verifyPOJO.verifyBean;
+import com.nostra13.universalimageloader.core.DisplayImageOptions;
+import com.nostra13.universalimageloader.core.ImageLoader;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -33,17 +36,19 @@ import retrofit2.converter.scalars.ScalarsConverterFactory;
 
 public class professional extends Fragment {
 
-    Spinner sector , skills , experience , employment , home , workers , looms , location;
+    Spinner sector, skills, experience, employment, home, workers, looms, location;
 
-    String sect , skil , expe , empl , hhom , work , loom , loca;
+    String sect, skil, expe, empl, hhom, work, loom, loca;
 
-    List<String> sec , ski , exp , emp , hom , wor , loc;
+    List<String> sec, ski, exp, emp, hom, wor, loc;
 
     ProgressBar progress;
 
     EditText employer;
 
     Button submit;
+
+    LinearLayout yes;
 
     @Nullable
     @Override
@@ -69,7 +74,7 @@ public class professional extends Fragment {
         progress = view.findViewById(R.id.progress);
         employer = view.findViewById(R.id.employer);
         submit = view.findViewById(R.id.submit);
-
+        yes = view.findViewById(R.id.yes);
 
         sec.add("Select one --- ");
         sec.add("Carpet");
@@ -164,12 +169,9 @@ public class professional extends Fragment {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
 
-                if (i > 0)
-                {
-                    sect = sec.get(i-1);
-                }
-                else
-                {
+                if (i > 0) {
+                    sect = sec.get(i);
+                } else {
                     sect = "";
                 }
 
@@ -185,12 +187,9 @@ public class professional extends Fragment {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
 
-                if (i > 0)
-                {
-                    skil = ski.get(i-1);
-                }
-                else
-                {
+                if (i > 0) {
+                    skil = ski.get(i);
+                } else {
                     skil = "";
                 }
 
@@ -206,12 +205,9 @@ public class professional extends Fragment {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
 
-                if (i > 0)
-                {
-                    expe = exp.get(i-1);
-                }
-                else
-                {
+                if (i > 0) {
+                    expe = exp.get(i - 1);
+                } else {
                     expe = "";
                 }
 
@@ -227,12 +223,9 @@ public class professional extends Fragment {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
 
-                if (i > 0)
-                {
-                    empl = emp.get(i-1);
-                }
-                else
-                {
+                if (i > 0) {
+                    empl = emp.get(i);
+                } else {
                     empl = "";
                 }
 
@@ -248,12 +241,21 @@ public class professional extends Fragment {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
 
-                if (i > 0)
-                {
-                    hhom = hom.get(i-1);
-                }
-                else
-                {
+                if (i > 0) {
+                    hhom = hom.get(i);
+
+                    if (hhom.equals("Yes")) {
+
+                        yes.setVisibility(View.VISIBLE);
+
+                    } else {
+
+                        yes.setVisibility(View.GONE);
+                        work = "0";
+                        loom = "0";
+                    }
+
+                } else {
                     hhom = "";
                 }
 
@@ -269,12 +271,9 @@ public class professional extends Fragment {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
 
-                if (i > 0)
-                {
-                    work = wor.get(i-1);
-                }
-                else
-                {
+                if (i > 0) {
+                    work = wor.get(i);
+                } else {
                     work = "";
                 }
 
@@ -290,12 +289,9 @@ public class professional extends Fragment {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
 
-                if (i > 0)
-                {
-                    loom = wor.get(i-1);
-                }
-                else
-                {
+                if (i > 0) {
+                    loom = wor.get(i);
+                } else {
                     loom = "";
                 }
 
@@ -311,12 +307,9 @@ public class professional extends Fragment {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
 
-                if (i > 0)
-                {
-                    loca = loc.get(i-1);
-                }
-                else
-                {
+                if (i > 0) {
+                    loca = loc.get(i);
+                } else {
                     loca = "";
                 }
 
@@ -329,31 +322,21 @@ public class professional extends Fragment {
         });
 
 
-
         submit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
                 String emplo = employer.getText().toString();
 
-                if (sect.length() > 0)
-                {
+                if (sect.length() > 0) {
 
-                    if (skil.length() > 0)
-                    {
-                        if (expe.length() > 0)
-                        {
-                            if (empl.length() > 0)
-                            {
-                                if (hhom.length() > 0)
-                                {
-                                    if (work.length() > 0)
-                                    {
-                                        if (loom.length() > 0)
-                                        {
-                                            if (loca.length() > 0)
-                                            {
-
+                    if (skil.length() > 0) {
+                        if (expe.length() > 0) {
+                            if (empl.length() > 0) {
+                                if (hhom.length() > 0) {
+                                    if (work.length() > 0) {
+                                        if (loom.length() > 0) {
+                                            if (loca.length() > 0) {
 
 
                                                 progress.setVisibility(View.VISIBLE);
@@ -385,48 +368,46 @@ public class professional extends Fragment {
                                                     @Override
                                                     public void onResponse(Call<verifyBean> call, Response<verifyBean> response) {
 
-                                                        if (response.body().getStatus().equals("1"))
-                                                        {
+                                                        if (response.body().getStatus().equals("1")) {
                                                             Data item = response.body().getData();
 
 
+                                                            SharePreferenceUtils.getInstance().saveString("name", item.getName());
+                                                            SharePreferenceUtils.getInstance().saveString("photo", item.getPhoto());
+                                                            SharePreferenceUtils.getInstance().saveString("dob", item.getDob());
+                                                            SharePreferenceUtils.getInstance().saveString("gender", item.getGender());
+                                                            SharePreferenceUtils.getInstance().saveString("phone", item.getPhone());
+                                                            SharePreferenceUtils.getInstance().saveString("cpin", item.getCpin());
+                                                            SharePreferenceUtils.getInstance().saveString("cstate", item.getCstate());
+                                                            SharePreferenceUtils.getInstance().saveString("cdistrict", item.getCdistrict());
+                                                            SharePreferenceUtils.getInstance().saveString("carea", item.getCarea());
+                                                            SharePreferenceUtils.getInstance().saveString("cstreet", item.getCstreet());
+                                                            SharePreferenceUtils.getInstance().saveString("ppin", item.getPpin());
+                                                            SharePreferenceUtils.getInstance().saveString("pstate", item.getPstate());
+                                                            SharePreferenceUtils.getInstance().saveString("pdistrict", item.getPdistrict());
+                                                            SharePreferenceUtils.getInstance().saveString("parea", item.getParea());
+                                                            SharePreferenceUtils.getInstance().saveString("pstreet", item.getPstreet());
+                                                            SharePreferenceUtils.getInstance().saveString("category", item.getCategory());
+                                                            SharePreferenceUtils.getInstance().saveString("religion", item.getReligion());
+                                                            SharePreferenceUtils.getInstance().saveString("educational", item.getEducational());
+                                                            SharePreferenceUtils.getInstance().saveString("marital", item.getMarital());
+                                                            SharePreferenceUtils.getInstance().saveString("children", item.getChildren());
+                                                            SharePreferenceUtils.getInstance().saveString("belowsix", item.getBelowsix());
+                                                            SharePreferenceUtils.getInstance().saveString("sixtofourteen", item.getSixtofourteen());
+                                                            SharePreferenceUtils.getInstance().saveString("fifteentoeighteen", item.getFifteentoeighteen());
+                                                            SharePreferenceUtils.getInstance().saveString("goingtoschool", item.getGoingtoschool());
+                                                            SharePreferenceUtils.getInstance().saveString("sector", item.getSector());
+                                                            SharePreferenceUtils.getInstance().saveString("skills", item.getSkills());
+                                                            SharePreferenceUtils.getInstance().saveString("experience", item.getExperience());
+                                                            SharePreferenceUtils.getInstance().saveString("employment", item.getEmployment());
+                                                            SharePreferenceUtils.getInstance().saveString("employer", item.getEmployer());
+                                                            SharePreferenceUtils.getInstance().saveString("home", item.getHome());
+                                                            SharePreferenceUtils.getInstance().saveString("workers", item.getWorkers());
+                                                            SharePreferenceUtils.getInstance().saveString("looms", item.getLooms());
+                                                            SharePreferenceUtils.getInstance().saveString("location", item.getLocation());
 
-                                                            SharePreferenceUtils.getInstance().saveString("name" , item.getName());
-                                                            SharePreferenceUtils.getInstance().saveString("photo" , item.getPhoto());
-                                                            SharePreferenceUtils.getInstance().saveString("dob" , item.getDob());
-                                                            SharePreferenceUtils.getInstance().saveString("gender" , item.getGender());
-                                                            SharePreferenceUtils.getInstance().saveString("phone" , item.getPhone());
-                                                            SharePreferenceUtils.getInstance().saveString("cpin" , item.getCpin());
-                                                            SharePreferenceUtils.getInstance().saveString("cstate" , item.getCstate());
-                                                            SharePreferenceUtils.getInstance().saveString("cdistrict" , item.getCdistrict());
-                                                            SharePreferenceUtils.getInstance().saveString("carea" , item.getCarea());
-                                                            SharePreferenceUtils.getInstance().saveString("cstreet" , item.getCstreet());
-                                                            SharePreferenceUtils.getInstance().saveString("ppin" , item.getPpin());
-                                                            SharePreferenceUtils.getInstance().saveString("pstate" , item.getPstate());
-                                                            SharePreferenceUtils.getInstance().saveString("pdistrict" , item.getPdistrict());
-                                                            SharePreferenceUtils.getInstance().saveString("parea" , item.getParea());
-                                                            SharePreferenceUtils.getInstance().saveString("pstreet" , item.getPstreet());
-                                                            SharePreferenceUtils.getInstance().saveString("category" , item.getCategory());
-                                                            SharePreferenceUtils.getInstance().saveString("religion" , item.getReligion());
-                                                            SharePreferenceUtils.getInstance().saveString("educational" , item.getEducational());
-                                                            SharePreferenceUtils.getInstance().saveString("marital" , item.getMarital());
-                                                            SharePreferenceUtils.getInstance().saveString("children" , item.getChildren());
-                                                            SharePreferenceUtils.getInstance().saveString("belowsix" , item.getBelowsix());
-                                                            SharePreferenceUtils.getInstance().saveString("sixtofourteen" , item.getSixtofourteen());
-                                                            SharePreferenceUtils.getInstance().saveString("fifteentoeighteen" , item.getFifteentoeighteen());
-                                                            SharePreferenceUtils.getInstance().saveString("goingtoschool" , item.getGoingtoschool());
-                                                            SharePreferenceUtils.getInstance().saveString("sector" , item.getSector());
-                                                            SharePreferenceUtils.getInstance().saveString("skills" , item.getSkills());
-                                                            SharePreferenceUtils.getInstance().saveString("experience" , item.getExperience());
-                                                            SharePreferenceUtils.getInstance().saveString("employment" , item.getEmployment());
-                                                            SharePreferenceUtils.getInstance().saveString("employer" , item.getEmployer());
-                                                            SharePreferenceUtils.getInstance().saveString("home" , item.getHome());
-                                                            SharePreferenceUtils.getInstance().saveString("workers" , item.getWorkers());
-                                                            SharePreferenceUtils.getInstance().saveString("looms" , item.getLooms());
-                                                            SharePreferenceUtils.getInstance().saveString("location" , item.getLocation());
 
-
-                                                            Intent intent = new Intent(getContext() , MainActivity.class);
+                                                            Intent intent = new Intent(getContext(), MainActivity.class);
                                                             startActivity(intent);
                                                             getActivity().finishAffinity();
 
@@ -434,12 +415,9 @@ public class professional extends Fragment {
                                                             Log.d("respo", response.body().getMessage());
 
                                                             Toast.makeText(getContext(), response.body().getMessage(), Toast.LENGTH_SHORT).show();
-                                                        }
-                                                        else
-                                                        {
+                                                        } else {
                                                             Toast.makeText(getContext(), response.body().getMessage(), Toast.LENGTH_SHORT).show();
                                                         }
-
 
 
                                                         progress.setVisibility(View.GONE);
@@ -453,55 +431,115 @@ public class professional extends Fragment {
                                                 });
 
 
-
-                                            }
-                                            else
-                                            {
+                                            } else {
                                                 Toast.makeText(getContext(), "Invalid location", Toast.LENGTH_SHORT).show();
                                             }
-                                        }
-                                        else
-                                        {
+                                        } else {
                                             Toast.makeText(getContext(), "Invalid no. of looms", Toast.LENGTH_SHORT).show();
                                         }
 
-                                    }
-                                    else
-                                    {
+                                    } else {
                                         Toast.makeText(getContext(), "Invalid no. of workers", Toast.LENGTH_SHORT).show();
                                     }
-                                }
-                                else
-                                {
+                                } else {
                                     Toast.makeText(getContext(), "Invalid home based unit", Toast.LENGTH_SHORT).show();
                                 }
-                            }
-                            else
-                            {
+                            } else {
                                 Toast.makeText(getContext(), "Invalid employment status", Toast.LENGTH_SHORT).show();
                             }
-                        }
-                        else
-                        {
+                        } else {
                             Toast.makeText(getContext(), "Invalid experience", Toast.LENGTH_SHORT).show();
                         }
-                    }
-                    else
-                    {
+                    } else {
                         Toast.makeText(getContext(), "Invalid skill", Toast.LENGTH_SHORT).show();
                     }
-                }
-                else
-                {
+                } else {
                     Toast.makeText(getContext(), "Invalid sector", Toast.LENGTH_SHORT).show();
                 }
 
             }
         });
 
-
-
+        setPrevious();
 
         return view;
     }
+
+
+    void setPrevious() {
+        employer.setText(SharePreferenceUtils.getInstance().getString("employer"));
+
+
+        int gp = 0;
+        for (int i = 0; i < sec.size(); i++) {
+            if (SharePreferenceUtils.getInstance().getString("sector").equals(sec.get(i))) {
+                gp = i;
+            }
+        }
+        sector.setSelection(gp);
+
+
+        int cp = 0;
+        for (int i = 0; i < ski.size(); i++) {
+            if (SharePreferenceUtils.getInstance().getString("skills").equals(ski.get(i))) {
+                cp = i;
+            }
+        }
+        skills.setSelection(cp);
+
+
+        int rp = 0;
+        for (int i = 0; i < exp.size(); i++) {
+            if (SharePreferenceUtils.getInstance().getString("experience").equals(exp.get(i))) {
+                rp = i;
+            }
+        }
+        experience.setSelection(rp);
+
+
+        int mp = 0;
+        for (int i = 0; i < emp.size(); i++) {
+            if (SharePreferenceUtils.getInstance().getString("employment").equals(emp.get(i))) {
+                mp = i;
+            }
+        }
+        employment.setSelection(mp);
+
+        int ep = 0;
+        for (int i = 0; i < hom.size(); i++) {
+            if (SharePreferenceUtils.getInstance().getString("home").equals(hom.get(i))) {
+                ep = i;
+            }
+        }
+        home.setSelection(ep);
+
+        int chp = 0;
+        for (int i = 0; i < wor.size(); i++) {
+            if (SharePreferenceUtils.getInstance().getString("workers").equals(wor.get(i))) {
+                chp = i;
+            }
+        }
+        workers.setSelection(chp);
+
+
+        int bp = 0;
+        for (int i = 0; i < wor.size(); i++) {
+            if (SharePreferenceUtils.getInstance().getString("looms").equals(wor.get(i))) {
+                bp = i;
+            }
+        }
+        looms.setSelection(bp);
+
+        int sp = 0;
+        for (int i = 0; i < loc.size(); i++) {
+            if (SharePreferenceUtils.getInstance().getString("location").equals(loc.get(i))) {
+                sp = i;
+            }
+        }
+        location.setSelection(sp);
+
+
+    }
+
+
 }
