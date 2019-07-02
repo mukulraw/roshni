@@ -1,9 +1,11 @@
 package com.app.roshni;
 
+import com.app.roshni.sectorPOJO.sectorBean;
 import com.app.roshni.verifyPOJO.verifyBean;
 
 import okhttp3.MultipartBody;
 import retrofit2.Call;
+import retrofit2.http.GET;
 import retrofit2.http.Multipart;
 import retrofit2.http.POST;
 import retrofit2.http.Part;
@@ -73,5 +75,14 @@ public interface AllApiIneterface {
             @Part("looms") String looms,
             @Part("location") String location
     );
+
+    @GET("roshni/api/getSectors.php")
+    Call<sectorBean> getSectors();
+
+    @GET("roshni/api/getSkills.php")
+    Call<sectorBean> getSkills();
+
+    @GET("roshni/api/getLocations.php")
+    Call<sectorBean> getLocations();
 
 }
