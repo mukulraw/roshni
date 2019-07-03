@@ -21,7 +21,8 @@ public interface AllApiIneterface {
     @Multipart
     @POST("roshni/api/register_worker.php")
     Call<verifyBean> worker_signup(
-            @Part("phone") String client
+            @Part("phone") String client,
+            @Part("type") String type
     );
 
     @Multipart

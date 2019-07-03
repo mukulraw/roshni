@@ -128,10 +128,23 @@ public class OTP2 extends AppCompatActivity {
                                 }
                                 else
                                 {
+                                    if (response.body().getData().getType().equals("worker"))
+                                    {
+                                        Intent intent = new Intent(OTP2.this , REgister.class);
+                                        startActivity(intent);
+                                        finishAffinity();
+                                    }else if (response.body().getData().getType().equals("brand"))
+                                    {
+                                        Intent intent = new Intent(OTP2.this , Register2.class);
+                                        startActivity(intent);
+                                        finishAffinity();
+                                    }
+                                    else
+                                    {
 
-                                    Intent intent = new Intent(OTP2.this , REgister.class);
-                                    startActivity(intent);
-                                    finishAffinity();
+                                    }
+
+
 
                                     Toast.makeText(OTP2.this, "Please complete your profile to continue", Toast.LENGTH_SHORT).show();
 

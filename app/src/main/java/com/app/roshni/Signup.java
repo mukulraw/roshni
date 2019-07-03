@@ -26,10 +26,14 @@ public class Signup extends AppCompatActivity {
     CountryCodePicker code;
     EditText phone;
     ProgressBar progress;
+    String type;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_signup);
+
+        type = getIntent().getStringExtra("type");
 
         login = findViewById(R.id.button2);
         signup = findViewById(R.id.button);
@@ -66,7 +70,7 @@ public class Signup extends AppCompatActivity {
                     AllApiIneterface cr = retrofit.create(AllApiIneterface.class);
 
 
-                    Call<verifyBean> call = cr.worker_signup(pho);
+                    Call<verifyBean> call = cr.worker_signup(pho , type);
                     call.enqueue(new Callback<verifyBean>() {
                         @Override
                         public void onResponse(Call<verifyBean> call, Response<verifyBean> response) {

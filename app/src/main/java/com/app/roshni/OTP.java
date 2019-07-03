@@ -129,9 +129,21 @@ public class OTP extends AppCompatActivity {
                                 else
                                 {
 
-                                    Intent intent = new Intent(OTP.this , REgister.class);
-                                    startActivity(intent);
-                                    finishAffinity();
+                                    if (response.body().getData().getType().equals("worker"))
+                                    {
+                                        Intent intent = new Intent(OTP.this , REgister.class);
+                                        startActivity(intent);
+                                        finishAffinity();
+                                    }else if (response.body().getData().getType().equals("brand"))
+                                    {
+                                        Intent intent = new Intent(OTP.this , Register2.class);
+                                        startActivity(intent);
+                                        finishAffinity();
+                                    }
+                                    else
+                                    {
+
+                                    }
 
                                     Toast.makeText(OTP.this, "Profile is incomplete. Please complete your profile first", Toast.LENGTH_SHORT).show();
 

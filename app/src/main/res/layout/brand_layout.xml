@@ -414,12 +414,21 @@
                 android:layout_marginTop="16dp"
                 android:text="TYPES OF PRODUCTS *" />
 
-            <EditText
+            <mabbas007.tagsedittext.TagsEditText
                 android:id="@+id/products"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="8dp"
+                app:allowSpaceInTag="true"
+                app:tagsBackground="@drawable/blue_back_round"
+                app:tagsTextColor="#ffffff"
+                app:tagsPaddingLeft="20dp"
+                app:tagsPaddingRight="20dp"
+                app:tagsPaddingTop="5dp"
+                android:gravity="center_vertical"
+                app:tagsTextSize="12sp"
+                app:tagsPaddingBottom="5dp"
                 android:layout_marginEnd="8dp"
                 android:background="@drawable/white_back_round"
                 android:hint="tap to enter"
@@ -433,13 +442,22 @@
                 android:layout_marginTop="16dp"
                 android:text="IMPORTING COUNTRIES *" />
 
-            <EditText
+            <mabbas007.tagsedittext.TagsEditText
                 android:id="@+id/countries"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="8dp"
                 android:layout_marginEnd="8dp"
+                app:allowSpaceInTag="true"
+                app:tagsBackground="@drawable/blue_back_round"
+                app:tagsTextColor="#ffffff"
+                app:tagsPaddingLeft="20dp"
+                app:tagsPaddingRight="20dp"
+                app:tagsPaddingTop="5dp"
+                android:gravity="center_vertical"
+                app:tagsTextSize="12sp"
+                app:tagsPaddingBottom="5dp"
                 android:background="@drawable/white_back_round"
                 android:hint="tap to enter"
                 android:inputType="textPostalAddress"

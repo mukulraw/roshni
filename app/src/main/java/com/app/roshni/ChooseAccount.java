@@ -27,12 +27,36 @@ public class ChooseAccount extends AppCompatActivity {
             public void onClick(View view) {
 
                 Intent intent = new Intent(ChooseAccount.this , Signup.class);
+                intent.putExtra("type" , "worker");
                 startActivity(intent);
                 finishAffinity();
 
             }
         });
 
+        contractor.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                Intent intent = new Intent(ChooseAccount.this , Signup.class);
+                intent.putExtra("type" , "contractor");
+                startActivity(intent);
+                finishAffinity();
+
+            }
+        });
+
+        business.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                Intent intent = new Intent(ChooseAccount.this , Signup.class);
+                intent.putExtra("type" , "brand");
+                startActivity(intent);
+                finishAffinity();
+
+            }
+        });
 
     }
 }

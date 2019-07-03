@@ -92,10 +92,11 @@ public class Splash extends AppCompatActivity {
     void startApp() {
 
         String id = SharePreferenceUtils.getInstance().getString("user_id");
+        String name = SharePreferenceUtils.getInstance().getString("name");
 
         Log.d("iidd" , id);
 
-        if (id.length() > 0)
+        if (id.length() > 0 && name.length() > 0)
         {
             Intent intent = new Intent(Splash.this , MainActivity.class);
             startActivity(intent);

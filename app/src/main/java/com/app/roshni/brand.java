@@ -52,6 +52,7 @@ import java.util.List;
 import java.util.Objects;
 
 import de.hdodenhof.circleimageview.CircleImageView;
+import mabbas007.tagsedittext.TagsEditText;
 import okhttp3.MediaType;
 import okhttp3.MultipartBody;
 import okhttp3.RequestBody;
@@ -70,7 +71,9 @@ public class brand extends Fragment {
 
     private String manuf, certi;
 
-    private EditText name, regi, person , cpin, cstate, cdistrict, carea, cstreet, ppin, pstate, pdistrict, parea, pstreet , factory , products , countries , workers , expiry , website , email;
+    private EditText name, regi, person , cpin, cstate, cdistrict, carea, cstreet, ppin, pstate, pdistrict, parea, pstreet , factory , workers , expiry , website , email;
+
+    TagsEditText products , countries;
 
     private CircleImageView image;
 
