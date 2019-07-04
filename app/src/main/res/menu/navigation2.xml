@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/workers"
+        android:icon="@drawable/ic_clerk_with_tie"
+        android:title="Workers" />
+
+    <item
+        android:id="@+id/contractors"
+        android:icon="@drawable/ic_carpenter"
+        android:title="Contractors" />
+
+
+    <item
+        android:id="@+id/jobs"
+        android:icon="@drawable/ic_old_fashion_briefcase"
+        android:title="Jobs" />
+
+
+    <item
+        android:id="@+id/profile"
+        android:icon="@drawable/ic_man_user"
+        android:title="Profile" />
+</menu>

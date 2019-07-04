@@ -116,6 +116,18 @@ public class OTP extends AppCompatActivity {
                                 SharePreferenceUtils.getInstance().saveString("looms" , item.getLooms());
                                 SharePreferenceUtils.getInstance().saveString("location" , item.getLocation());
 
+                                SharePreferenceUtils.getInstance().saveString("logo" , item.getLogo());
+                                SharePreferenceUtils.getInstance().saveString("registration_number" , item.getRegistrationNumber());
+                                SharePreferenceUtils.getInstance().saveString("contact_person" , item.getContactPerson());
+                                SharePreferenceUtils.getInstance().saveString("manufacturing_units" , item.getManufacturingUnits());
+                                SharePreferenceUtils.getInstance().saveString("factory_outlet" , item.getFactoryOutlet());
+                                SharePreferenceUtils.getInstance().saveString("products" , item.getProducts());
+                                SharePreferenceUtils.getInstance().saveString("country" , item.getCountry());
+                                SharePreferenceUtils.getInstance().saveString("certification" , item.getCertification());
+                                SharePreferenceUtils.getInstance().saveString("expiry" , item.getExpiry());
+                                SharePreferenceUtils.getInstance().saveString("email" , item.getEmail());
+                                SharePreferenceUtils.getInstance().saveString("website" , item.getWebsite());
+
                                 if (item.getName().length() > 0)
                                 {
 

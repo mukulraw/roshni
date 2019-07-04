@@ -43,4 +43,5 @@ dependencies {
     implementation 'me.relex:circleindicator:1.2.2@aar'
 
     implementation 'com.github.mabbas007:TagsEditText:1.0.5'
+    implementation 'com.aurelhubert:ahbottomnavigation:2.3.4'
 }

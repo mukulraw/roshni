@@ -113,6 +113,39 @@ public class Data {
     @SerializedName("location")
     @Expose
     private String location;
+    @SerializedName("logo")
+    @Expose
+    private String logo;
+    @SerializedName("registration_number")
+    @Expose
+    private String registrationNumber;
+    @SerializedName("contact_person")
+    @Expose
+    private String contactPerson;
+    @SerializedName("manufacturing_units")
+    @Expose
+    private String manufacturingUnits;
+    @SerializedName("factory_outlet")
+    @Expose
+    private String factoryOutlet;
+    @SerializedName("products")
+    @Expose
+    private String products;
+    @SerializedName("country")
+    @Expose
+    private String country;
+    @SerializedName("certification")
+    @Expose
+    private String certification;
+    @SerializedName("expiry")
+    @Expose
+    private String expiry;
+    @SerializedName("website")
+    @Expose
+    private String website;
+    @SerializedName("email")
+    @Expose
+    private String email;
 
     public String getId() {
         return id;
@@ -400,6 +433,94 @@ public class Data {
 
     public void setLocation(String location) {
         this.location = location;
+    }
+
+    public String getLogo() {
+        return logo;
+    }
+
+    public void setLogo(String logo) {
+        this.logo = logo;
+    }
+
+    public String getRegistrationNumber() {
+        return registrationNumber;
+    }
+
+    public void setRegistrationNumber(String registrationNumber) {
+        this.registrationNumber = registrationNumber;
+    }
+
+    public String getContactPerson() {
+        return contactPerson;
+    }
+
+    public void setContactPerson(String contactPerson) {
+        this.contactPerson = contactPerson;
+    }
+
+    public String getManufacturingUnits() {
+        return manufacturingUnits;
+    }
+
+    public void setManufacturingUnits(String manufacturingUnits) {
+        this.manufacturingUnits = manufacturingUnits;
+    }
+
+    public String getFactoryOutlet() {
+        return factoryOutlet;
+    }
+
+    public void setFactoryOutlet(String factoryOutlet) {
+        this.factoryOutlet = factoryOutlet;
+    }
+
+    public String getProducts() {
+        return products;
+    }
+
+    public void setProducts(String products) {
+        this.products = products;
+    }
+
+    public String getCountry() {
+        return country;
+    }
+
+    public void setCountry(String country) {
+        this.country = country;
+    }
+
+    public String getCertification() {
+        return certification;
+    }
+
+    public void setCertification(String certification) {
+        this.certification = certification;
+    }
+
+    public String getExpiry() {
+        return expiry;
+    }
+
+    public void setExpiry(String expiry) {
+        this.expiry = expiry;
+    }
+
+    public String getWebsite() {
+        return website;
+    }
+
+    public void setWebsite(String website) {
+        this.website = website;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
     }
 
 }
