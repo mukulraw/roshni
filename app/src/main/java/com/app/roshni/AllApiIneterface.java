@@ -109,6 +109,9 @@ public interface AllApiIneterface {
     @GET("roshni/api/getSectors.php")
     Call<sectorBean> getSectors();
 
+    @GET("roshni/api/getRoles.php")
+    Call<sectorBean> getRoles();
+
     @GET("roshni/api/getSkills.php")
     Call<sectorBean> getSkills();
 

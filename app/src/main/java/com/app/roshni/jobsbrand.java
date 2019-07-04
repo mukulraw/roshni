@@ -1,5 +1,6 @@
 package com.app.roshni;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -42,6 +43,17 @@ public class jobsbrand extends Fragment {
 
         tabs.getTabAt(0).setText("ACTIVE");
         tabs.getTabAt(1).setText("INACTIVE");
+
+        add.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+
+                Intent intent = new Intent(getContext() , PostJob.class);
+                startActivity(intent);
+
+            }
+        });
 
         return view;
     }

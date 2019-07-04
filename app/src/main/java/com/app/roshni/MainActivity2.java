@@ -57,7 +57,7 @@ public class MainActivity2 extends AppCompatActivity {
 
         bottom.setBehaviorTranslationEnabled(false);
         bottom.setTitleState(AHBottomNavigation.TitleState.ALWAYS_SHOW);
-        bottom.setAccentColor(R.color.colorAccent);
+        bottom.setAccentColor(getResources().getColor(R.color.colorPrimary));
 
         AHBottomNavigationAdapter navigationAdapter = new AHBottomNavigationAdapter(this, R.menu.navigation2);
         navigationAdapter.setupWithBottomNavigation(bottom);
