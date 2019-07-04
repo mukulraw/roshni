@@ -13,6 +13,7 @@ import android.os.Bundle;
 import android.os.Environment;
 import android.provider.DocumentsContract;
 import android.provider.MediaStore;
+import android.text.TextUtils;
 import android.text.format.DateFormat;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -177,6 +178,18 @@ public class brand extends Fragment {
 
                 if (i > 0) {
                     certi = cer.get(i);
+
+                    if (certi.equals("Yes"))
+                    {
+                        cert.setVisibility(View.VISIBLE);
+                        expiry.setText("");
+                    }
+                    else
+                    {
+                        cert.setVisibility(View.GONE);
+                        expiry.setText("---");
+                    }
+
                 } else {
                     certi = "";
                 }
@@ -312,18 +325,41 @@ public class brand extends Fragment {
         });
 
 
-        /*submit.setOnClickListener(new View.OnClickListener() {
+        submit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
 
                 String n = name.getText().toString();
-                String d = expiry.getText().toString();
+                String r = regi.getText().toString();
+                String p = person.getText().toString();
+
                 String cp = cpin.getText().toString();
                 String cs = cstate.getText().toString();
                 String cd = cdistrict.getText().toString();
                 String ca = carea.getText().toString();
                 String cst = cstreet.getText().toString();
+
+                String f = factory.getText().toString();
+
+                List<String> pro = products.getTags();
+
+
+                String pr = TextUtils.join(",", pro);
+
+                List<String> cou = countries.getTags();
+
+
+                String co = TextUtils.join(",", cou);
+
+
+
+                String w = workers.getText().toString();
+                String e = expiry.getText().toString();
+                String we = website.getText().toString();
+                String em = email.getText().toString();
+
+
 
                 String pp;
                 String ps;
@@ -346,9 +382,17 @@ public class brand extends Fragment {
                 }
 
 
+
+
+
+
+
+
+
+
                 if (n.length() > 0) {
-                    if (d.length() > 0) {
-                        if (gend.length() > 0) {
+                    if (r.length() > 0) {
+                        if (p.length() > 0) {
                             if (cp.length() > 0) {
                                 if (cs.length() > 0) {
                                     if (cd.length() > 0) {
@@ -359,7 +403,7 @@ public class brand extends Fragment {
                                                         if (pd.length() > 0) {
                                                             if (pa.length() > 0) {
                                                                 if (pst.length() > 0) {
-                                                                    if (cate.length() > 0) {
+                                                                    if (manuf.length() > 0) {
                                                                         if (reli.length() > 0) {
                                                                             if (educ.length() > 0) {
                                                                                 if (mari.length() > 0) {
@@ -518,7 +562,7 @@ public class brand extends Fragment {
                                                                             Toast.makeText(getActivity(), "Invalid religion", Toast.LENGTH_SHORT).show();
                                                                         }
                                                                     } else {
-                                                                        Toast.makeText(getActivity(), "Invalid category", Toast.LENGTH_SHORT).show();
+                                                                        Toast.makeText(getActivity(), "Invalid manufacturing units", Toast.LENGTH_SHORT).show();
                                                                     }
                                                                 } else {
                                                                     Toast.makeText(getContext(), "Invalid permanent street", Toast.LENGTH_SHORT).show();
@@ -552,12 +596,12 @@ public class brand extends Fragment {
                                 Toast.makeText(getContext(), "Invalid current PIN", Toast.LENGTH_SHORT).show();
                             }
                         } else {
-                            Toast.makeText(getContext(), "Invalid gender", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(getContext(), "Invalid contact person name", Toast.LENGTH_SHORT).show();
                         }
 
 
                     } else {
-                        Toast.makeText(getContext(), "Invalid D.O.B.", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(getContext(), "Invalid registration no.", Toast.LENGTH_SHORT).show();
                     }
                 } else {
                     Toast.makeText(getContext(), "Invalid name", Toast.LENGTH_SHORT).show();
@@ -565,7 +609,7 @@ public class brand extends Fragment {
 
 
             }
-        });*/
+        });
 
         setPrevious();
 
