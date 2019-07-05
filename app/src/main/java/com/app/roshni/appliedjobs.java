@@ -3,7 +3,6 @@ package com.app.roshni;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.ContextMenu;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -30,7 +29,7 @@ import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 import retrofit2.converter.scalars.ScalarsConverterFactory;
 
-public class newjobs extends Fragment {
+public class appliedjobs extends Fragment {
 
     RecyclerView grid;
     GridLayoutManager manager;
@@ -42,7 +41,7 @@ public class newjobs extends Fragment {
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.jobs_layout, container, false);
+        View view = inflater.inflate(R.layout.applied_jobs_layout, container, false);
 
         list = new ArrayList<>();
 
@@ -77,7 +76,7 @@ public class newjobs extends Fragment {
         AllApiIneterface cr = retrofit.create(AllApiIneterface.class);
 
 
-        Call<workerJobListBean> call = cr.getJobListForWorker(SharePreferenceUtils.getInstance().getString("user_id"));
+        Call<workerJobListBean> call = cr.getAppliedListForWorker(SharePreferenceUtils.getInstance().getString("user_id"));
 
         call.enqueue(new Callback<workerJobListBean>() {
             @Override
@@ -91,7 +90,6 @@ public class newjobs extends Fragment {
                 {
                     nodata.setVisibility(View.VISIBLE);
                 }
-
 
                 adapter.setData(response.body().getData());
 
@@ -141,7 +139,6 @@ public class newjobs extends Fragment {
             holder.title.setText(item.getTitle());
             holder.salary.setText("Salary: " + item.getSalary());
             holder.address.setText(item.getBrandStreet() + ", " + item.getBrandArea());
-
 
             holder.itemView.setOnClickListener(new View.OnClickListener() {
                 @Override

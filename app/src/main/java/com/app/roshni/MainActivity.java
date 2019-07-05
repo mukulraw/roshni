@@ -129,7 +129,7 @@ public class MainActivity extends AppCompatActivity {
                     case R.id.applied:
                         FragmentManager fm2 = getSupportFragmentManager();
                         FragmentTransaction ft2 = fm2.beginTransaction();
-                        newjobs test2 = new newjobs();
+                        appliedjobs test2 = new appliedjobs();
                         ft2.replace(R.id.replace, test2);
                         ft2.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_CLOSE);
                         //ft.addToBackStack(null);

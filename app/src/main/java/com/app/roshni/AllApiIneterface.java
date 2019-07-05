@@ -2,6 +2,8 @@ package com.app.roshni;
 
 import com.app.roshni.sectorPOJO.sectorBean;
 import com.app.roshni.verifyPOJO.verifyBean;
+import com.app.roshni.workerJobListPOJO.workerJobDetailBean;
+import com.app.roshni.workerJobListPOJO.workerJobListBean;
 
 import okhttp3.MultipartBody;
 import retrofit2.Call;
@@ -92,6 +94,30 @@ public interface AllApiIneterface {
     );
 
     @Multipart
+    @POST("roshni/api/post_job.php")
+    Call<verifyBean> postjob(
+            @Part("brand_id") String brand_id,
+            @Part("title") String title,
+            @Part("skills") String skills,
+            @Part("preferred") String preferred,
+            @Part("location") String location,
+            @Part("experience") String experience,
+            @Part("role") String role,
+            @Part("gender") String gender,
+            @Part("education") String education,
+            @Part("hours") String hours,
+            @Part("salary") String salary,
+            @Part("stype") String stype
+    );
+
+    @Multipart
+    @POST("roshni/api/apply_job.php")
+    Call<verifyBean> apply_job(
+            @Part("job_id") String job_id,
+            @Part("user_id") String user_id
+    );
+
+    @Multipart
     @POST("roshni/api/update_worker_professional.php")
     Call<verifyBean> updateWorkerProfessional(
             @Part("user_id") String user_id,
@@ -104,6 +130,25 @@ public interface AllApiIneterface {
             @Part("workers") String workers,
             @Part("looms") String looms,
             @Part("location") String location
+    );
+
+    @Multipart
+    @POST("roshni/api/getJobListForWorker.php")
+    Call<workerJobListBean> getJobListForWorker(
+            @Part("user_id") String user_id
+    );
+
+    @Multipart
+    @POST("roshni/api/getAppliedListForWorker.php")
+    Call<workerJobListBean> getAppliedListForWorker(
+            @Part("user_id") String user_id
+    );
+
+    @Multipart
+    @POST("roshni/api/getJobDetailsForWorker.php")
+    Call<workerJobDetailBean> getJobDetailForWorker(
+            @Part("user_id") String user_id,
+            @Part("jid") String jid
     );
 
     @GET("roshni/api/getSectors.php")

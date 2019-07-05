@@ -13,8 +13,10 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ProgressBar;
 import android.widget.Spinner;
+import android.widget.Toast;
 
 import com.app.roshni.sectorPOJO.sectorBean;
+import com.app.roshni.verifyPOJO.verifyBean;
 import com.borax12.materialdaterangepicker.time.RadialPickerLayout;
 import com.borax12.materialdaterangepicker.time.TimePickerDialog;
 
@@ -33,16 +35,16 @@ import retrofit2.converter.scalars.ScalarsConverterFactory;
 public class PostJob extends AppCompatActivity implements TimePickerDialog.OnTimeSetListener {
 
     Toolbar toolbar;
-    EditText title , preferred , hours , salary;
-    Spinner skills , location , experience , role , gender , education , stype;
+    EditText title, preferred, hours, salary;
+    Spinner skills, location, experience, role, gender, education, stype;
 
     Button submit;
     ProgressBar progress;
 
-    String skil, expe, loca , gend , educ , jrole , styp;
+    String skil, expe, loca, gend, educ, jrole, styp;
 
-    List<String> ski, exp, loc , gen , edu , rol , sty;
-    List<String> ski1, loc1 , rol1;
+    List<String> ski, exp, loc, gen, edu, rol, sty;
+    List<String> ski1, loc1, rol1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -199,7 +201,7 @@ public class PostJob extends AppCompatActivity implements TimePickerDialog.OnTim
             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
 
                 if (i > 0) {
-                    skil = ski1.get(i-1);
+                    skil = ski1.get(i - 1);
                 } else {
                     skil = "";
                 }
@@ -247,9 +249,6 @@ public class PostJob extends AppCompatActivity implements TimePickerDialog.OnTim
 
             }
         });
-
-
-
 
 
         location.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
@@ -302,15 +301,14 @@ public class PostJob extends AppCompatActivity implements TimePickerDialog.OnTim
         AllApiIneterface cr = retrofit.create(AllApiIneterface.class);
 
 
-        Call<sectorBean> call = cr.getRoles();
+        final Call<sectorBean> call = cr.getRoles();
 
         call.enqueue(new Callback<sectorBean>() {
             @Override
             public void onResponse(Call<sectorBean> call, Response<sectorBean> response) {
 
 
-                if (response.body().getStatus().equals("1"))
-                {
+                if (response.body().getStatus().equals("1")) {
 
                     rol.add("Select one --- ");
 
@@ -327,8 +325,7 @@ public class PostJob extends AppCompatActivity implements TimePickerDialog.OnTim
 
                     role.setAdapter(adapter);
 
-                    Log.d("sec" , SharePreferenceUtils.getInstance().getString("sector"));
-
+                    Log.d("sec", SharePreferenceUtils.getInstance().getString("sector"));
 
 
                 }
@@ -350,8 +347,7 @@ public class PostJob extends AppCompatActivity implements TimePickerDialog.OnTim
             public void onResponse(Call<sectorBean> call, Response<sectorBean> response) {
 
 
-                if (response.body().getStatus().equals("1"))
-                {
+                if (response.body().getStatus().equals("1")) {
 
                     ski.add("Select one --- ");
 
@@ -367,7 +363,6 @@ public class PostJob extends AppCompatActivity implements TimePickerDialog.OnTim
                             R.layout.spinner_model, ski);
 
                     skills.setAdapter(adapter);
-
 
 
                 }
@@ -390,8 +385,7 @@ public class PostJob extends AppCompatActivity implements TimePickerDialog.OnTim
             public void onResponse(Call<sectorBean> call, Response<sectorBean> response) {
 
 
-                if (response.body().getStatus().equals("1"))
-                {
+                if (response.body().getStatus().equals("1")) {
 
                     loc.add("Select one --- ");
 
@@ -409,7 +403,6 @@ public class PostJob extends AppCompatActivity implements TimePickerDialog.OnTim
                     location.setAdapter(adapter);
 
 
-
                 }
 
                 progress.setVisibility(View.GONE);
@@ -423,7 +416,111 @@ public class PostJob extends AppCompatActivity implements TimePickerDialog.OnTim
         });
 
 
+        submit.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
 
+                String t = title.getText().toString();
+                String p = preferred.getText().toString();
+                String h = hours.getText().toString();
+                String s = salary.getText().toString();
+
+
+                if (t.length() > 0) {
+
+                    if (skil.length() > 0) {
+                        if (loca.length() > 0) {
+                            if (expe.length() > 0) {
+
+                                if (jrole.length() > 0) {
+
+                                    if (h.length() > 0) {
+                                        if (s.length() > 0) {
+                                            if (styp.length() > 0) {
+
+
+
+
+                                                progress.setVisibility(View.VISIBLE);
+
+                                                Bean b = (Bean) getApplicationContext();
+
+                                                Retrofit retrofit = new Retrofit.Builder()
+                                                        .baseUrl(b.baseurl)
+                                                        .addConverterFactory(ScalarsConverterFactory.create())
+                                                        .addConverterFactory(GsonConverterFactory.create())
+                                                        .build();
+
+                                                AllApiIneterface cr = retrofit.create(AllApiIneterface.class);
+
+                                                Call<verifyBean> call1 = cr.postjob(
+                                                        SharePreferenceUtils.getInstance().getString("user_id"),
+                                                        t,
+                                                        skil,
+                                                        p,
+                                                        loca,
+                                                        expe,
+                                                        jrole,
+                                                        gend,
+                                                        educ,
+                                                        h,
+                                                        s,
+                                                        styp
+                                                );
+
+                                                call1.enqueue(new Callback<verifyBean>() {
+                                                    @Override
+                                                    public void onResponse(Call<verifyBean> call, Response<verifyBean> response) {
+
+                                                        if (response.body().getStatus().equals("1"))
+                                                        {
+                                                            Toast.makeText(PostJob.this, response.body().getMessage(), Toast.LENGTH_SHORT).show();
+
+                                                            finish();
+
+                                                        }
+
+
+                                                        progress.setVisibility(View.GONE);
+
+                                                    }
+
+                                                    @Override
+                                                    public void onFailure(Call<verifyBean> call, Throwable t) {
+                                                        progress.setVisibility(View.GONE);
+                                                    }
+                                                });
+
+
+
+                                            } else {
+                                                Toast.makeText(PostJob.this, "Invalid salary type", Toast.LENGTH_SHORT).show();
+                                            }
+                                        } else {
+                                            Toast.makeText(PostJob.this, "Invalid salary package", Toast.LENGTH_SHORT).show();
+                                        }
+                                    } else {
+                                        Toast.makeText(PostJob.this, "Invalid working hours", Toast.LENGTH_SHORT).show();
+                                    }
+                                } else {
+                                    Toast.makeText(PostJob.this, "Invalid job role", Toast.LENGTH_SHORT).show();
+                                }
+                            } else {
+                                Toast.makeText(PostJob.this, "Invalid experience", Toast.LENGTH_SHORT).show();
+                            }
+                        } else {
+                            Toast.makeText(PostJob.this, "Invalid location", Toast.LENGTH_SHORT).show();
+                        }
+                    } else {
+                        Toast.makeText(PostJob.this, "Invalid skill", Toast.LENGTH_SHORT).show();
+                    }
+                } else {
+                    Toast.makeText(PostJob.this, "Invalid job title", Toast.LENGTH_SHORT).show();
+                }
+
+
+            }
+        });
 
 
     }
@@ -431,8 +528,8 @@ public class PostJob extends AppCompatActivity implements TimePickerDialog.OnTim
     @Override
     public void onTimeSet(RadialPickerLayout view, int hourOfDay, int minute, int hourOfDayEnd, int minuteEnd) {
 
-        String time1 =  ((hourOfDay > 12) ? hourOfDay % 12 : hourOfDay) + ":" + (minute < 10 ? ("0" + minute) : minute) + " " + ((hourOfDay >= 12) ? "PM" : "AM");
-        String time2 =  ((hourOfDayEnd > 12) ? hourOfDayEnd % 12 : hourOfDayEnd) + ":" + (minuteEnd < 10 ? ("0" + minuteEnd) : minuteEnd) + " " + ((hourOfDayEnd >= 12) ? "PM" : "AM");
+        String time1 = ((hourOfDay > 12) ? hourOfDay % 12 : hourOfDay) + ":" + (minute < 10 ? ("0" + minute) : minute) + " " + ((hourOfDay >= 12) ? "PM" : "AM");
+        String time2 = ((hourOfDayEnd > 12) ? hourOfDayEnd % 12 : hourOfDayEnd) + ":" + (minuteEnd < 10 ? ("0" + minuteEnd) : minuteEnd) + " " + ((hourOfDayEnd >= 12) ? "PM" : "AM");
 
 
         hours.setText(time1 + " to " + time2);
