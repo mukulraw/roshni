@@ -31,13 +31,15 @@ import retrofit2.converter.scalars.ScalarsConverterFactory;
 public class JobDetails extends AppCompatActivity {
 
     ImageButton back;
-    TextView title, company, address, skills, preferred, location, experience, role, gender, education, hours, salary, stype;
+    TextView title, company, address, skills, preferred, location, experience, role, gender, education, hours, salary, stype , commp;
 
     Button apply;
 
     ProgressBar progress;
     CircleImageView image;
     String jid;
+
+    View header;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -63,6 +65,8 @@ public class JobDetails extends AppCompatActivity {
         stype = findViewById(R.id.stype);
         apply = findViewById(R.id.button8);
         progress = findViewById(R.id.progressBar4);
+        header = findViewById(R.id.constraintLayout);
+        commp = findViewById(R.id.company);
 
 
         back.setOnClickListener(new View.OnClickListener() {
@@ -136,6 +140,34 @@ public class JobDetails extends AppCompatActivity {
             }
         });
 
+
+        header.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                bottomBrand bottom = bottomBrand.newInstance();
+                Bundle b = new Bundle();
+                b.putString("jid" , jid);
+                bottom.setArguments(b);
+                bottom.show(getSupportFragmentManager() , "bottomBrand");
+
+
+            }
+        });
+
+        commp.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                bottomBrand bottom = bottomBrand.newInstance();
+                Bundle b = new Bundle();
+                b.putString("jid" , jid);
+                bottom.setArguments(b);
+                bottom.show(getSupportFragmentManager() , "bottomBrand");
+
+
+            }
+        });
 
     }
 

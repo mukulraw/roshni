@@ -240,7 +240,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="24dp"
-                android:text="YOUR PERMANENT ADDRESS *"
+                android:text="HEAD OFFICE ADDRESS *"
                 android:textColor="#000000" />
 
             <CheckBox
@@ -431,7 +431,7 @@
                 app:tagsPaddingBottom="5dp"
                 android:layout_marginEnd="8dp"
                 android:background="@drawable/white_back_round"
-                android:hint="tap to enter"
+                android:hint="hit enter to add products"
                 android:inputType="textPostalAddress"
                 android:padding="10dp" />
 
@@ -459,7 +459,7 @@
                 app:tagsTextSize="12sp"
                 app:tagsPaddingBottom="5dp"
                 android:background="@drawable/white_back_round"
-                android:hint="tap to enter"
+                android:hint="hit enter to add countries"
                 android:inputType="textPostalAddress"
                 android:padding="10dp" />
 
