@@ -1,16 +1,16 @@
 package com.app.roshni;
 
+import android.os.Bundle;
+import android.widget.LinearLayout;
+
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentStatePagerAdapter;
 
-import android.os.Bundle;
-import android.widget.LinearLayout;
-
 import com.google.android.material.tabs.TabLayout;
 
-public class Register2 extends AppCompatActivity {
+public class Register3 extends AppCompatActivity {
 
     TabLayout tabs;
     CustomViewPager pager;
@@ -18,7 +18,7 @@ public class Register2 extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_register2);
+        setContentView(R.layout.activity_register3);
 
         tabs = findViewById(R.id.tabLayout2);
         pager = findViewById(R.id.pager);
@@ -54,8 +54,7 @@ public class Register2 extends AppCompatActivity {
         @Override
         public Fragment getItem(int position) {
 
-                return new brand();
-
+            return new contractor();
 
         }
 
@@ -64,5 +63,6 @@ public class Register2 extends AppCompatActivity {
             return 1;
         }
     }
+
 
 }

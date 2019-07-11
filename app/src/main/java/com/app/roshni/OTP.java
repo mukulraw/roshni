@@ -170,7 +170,9 @@ public class OTP extends AppCompatActivity {
                                     }
                                     else
                                     {
-
+                                        Intent intent = new Intent(OTP.this , Register3.class);
+                                        startActivity(intent);
+                                        finishAffinity();
                                     }
 
                                     Toast.makeText(OTP.this, "Profile is incomplete. Please complete your profile first", Toast.LENGTH_SHORT).show();

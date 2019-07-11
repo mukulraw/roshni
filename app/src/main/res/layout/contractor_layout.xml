@@ -43,7 +43,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="16dp"
-                android:text="YOUR LOGO" />
+                android:text="YOUR PHOTO" />
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -56,7 +56,7 @@
                     android:layout_height="90dp"
                     android:layout_marginStart="8dp"
                     android:layout_marginTop="8dp"
-                    android:src="@drawable/nologo" />
+                    android:src="@drawable/download" />
 
                 <RelativeLayout
                     android:layout_width="match_parent"
@@ -90,7 +90,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="16dp"
-                android:text="REGISTRATION NO. (IF ANY)" />
+                android:text="YOUR D.O.B. *" />
 
             <EditText
                 android:id="@+id/editText2"
@@ -100,8 +100,55 @@
                 android:layout_marginTop="8dp"
                 android:layout_marginEnd="8dp"
                 android:background="@drawable/white_back_round"
+                android:focusable="false"
                 android:hint="tap to enter"
-                android:inputType="textCapCharacters"
+                android:inputType="textPersonName"
+                android:padding="10dp" />
+
+            <TextView
+                android:id="@+id/textView11"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="16dp"
+                android:text="YOUR GENDER *" />
+
+            <RelativeLayout
+                android:id="@+id/view2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="8dp"
+                android:background="@drawable/white_back_round">
+
+                <Spinner
+                    android:id="@+id/gender"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true" />
+
+            </RelativeLayout>
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="16dp"
+                android:text="NAME OF BUSINESS (IF ANY)" />
+
+            <EditText
+                android:id="@+id/business"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="8dp"
+                android:background="@drawable/white_back_round"
+                android:focusable="false"
+                android:hint="tap to enter"
+                android:inputType="textPersonName"
                 android:padding="10dp" />
 
 
@@ -110,19 +157,23 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="16dp"
-                android:text="CONTACT PERSON *" />
+                android:text="YEAR OF ESTABLISHMENT" />
 
-            <EditText
-                android:id="@+id/person"
+            <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="8dp"
                 android:layout_marginEnd="8dp"
-                android:background="@drawable/white_back_round"
-                android:hint="tap to enter"
-                android:inputType="textPersonName"
-                android:padding="10dp" />
+                android:background="@drawable/white_back_round">
+
+                <Spinner
+                    android:id="@+id/establishment"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true" />
+
+            </RelativeLayout>
 
 
             <TextView
@@ -240,7 +291,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="24dp"
-                android:text="HEAD OFFICE ADDRESS *"
+                android:text="YOUR PERMANENT ADDRESS *"
                 android:textColor="#000000" />
 
             <CheckBox
@@ -365,34 +416,10 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="16dp"
-                android:text="MANUFACTURING UNITS *" />
-
-            <RelativeLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="8dp"
-                android:layout_marginTop="8dp"
-                android:layout_marginEnd="8dp"
-                android:background="@drawable/white_back_round">
-
-                <Spinner
-                    android:id="@+id/manufacturing"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_centerVertical="true" />
-
-            </RelativeLayout>
-
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="8dp"
-                android:layout_marginTop="16dp"
-                android:text="FACTORY OUTLET" />
+                android:text="NO. OF HOME BASED UNITS *" />
 
             <EditText
-                android:id="@+id/factory"
+                android:id="@+id/home_based"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
@@ -400,19 +427,18 @@
                 android:layout_marginEnd="8dp"
                 android:background="@drawable/white_back_round"
                 android:hint="tap to enter"
-                android:inputType="text"
+                android:inputType="textPostalAddress"
                 android:padding="10dp" />
-
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="16dp"
-                android:text="TYPES OF PRODUCTS *" />
+                android:text="LOCATION OF HOME BASED UNITS *" />
 
             <mabbas007.tagsedittext.TagsEditText
-                android:id="@+id/products"
+                android:id="@+id/location"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
@@ -437,57 +463,31 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="16dp"
-                android:text="IMPORTING COUNTRIES *" />
+                android:text="TOTAL WORKERS" />
 
-            <mabbas007.tagsedittext.TagsEditText
-                android:id="@+id/countries"
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="8dp"
                 android:layout_marginEnd="8dp"
-                android:background="@drawable/white_back_round"
-                android:gravity="center_vertical"
-                android:hint="hit enter to add countries"
-                android:inputType="textPostalAddress"
-                android:padding="10dp"
-                app:allowSpaceInTag="true"
-                app:tagsBackground="@drawable/blue_back_round"
-                app:tagsPaddingBottom="5dp"
-                app:tagsPaddingLeft="20dp"
-                app:tagsPaddingRight="20dp"
-                app:tagsPaddingTop="5dp"
-                app:tagsTextColor="#ffffff"
-                app:tagsTextSize="12sp" />
+                android:orientation="horizontal"
+                android:background="@drawable/white_back_round">
 
+                <Spinner
+                    android:id="@+id/educational"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true" />
+
+            </LinearLayout>
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="16dp"
-                android:text="TOTAL WORKERS *" />
-
-            <EditText
-                android:id="@+id/workers"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="8dp"
-                android:layout_marginTop="8dp"
-                android:layout_marginEnd="8dp"
-                android:background="@drawable/white_back_round"
-                android:digits="0123456789"
-                android:hint="tap to enter"
-                android:inputType="number"
-                android:padding="10dp" />
-
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="8dp"
-                android:layout_marginTop="16dp"
-                android:text="GOODWEAVE CERTIFICATION *" />
+                android:text="YOUR MARITAL STATUS *" />
 
             <RelativeLayout
                 android:layout_width="match_parent"
@@ -498,7 +498,7 @@
                 android:background="@drawable/white_back_round">
 
                 <Spinner
-                    android:id="@+id/certification"
+                    android:id="@+id/marital"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_centerVertical="true" />
@@ -507,7 +507,7 @@
 
 
             <LinearLayout
-                android:id="@+id/cert"
+                android:id="@+id/child"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical">
@@ -517,62 +517,117 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="8dp"
                     android:layout_marginTop="16dp"
-                    android:text="CERTIFICATE EXPIRY DATE *" />
+                    android:text="NUMBER OF CHILDREN *" />
 
-                <EditText
-                    android:id="@+id/expiry"
+                <RelativeLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="8dp"
                     android:layout_marginTop="8dp"
                     android:layout_marginEnd="8dp"
-                    android:background="@drawable/white_back_round"
-                    android:focusable="false"
-                    android:hint="tap to enter"
-                    android:inputType="text"
-                    android:padding="10dp" />
+                    android:background="@drawable/white_back_round">
+
+                    <Spinner
+                        android:id="@+id/children"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true" />
+
+                </RelativeLayout>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="16dp"
+                    android:text="NUMBER OF CHILDREN BELOW 6 YRS. *" />
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginEnd="8dp"
+                    android:background="@drawable/white_back_round">
+
+                    <Spinner
+                        android:id="@+id/belowsix"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true" />
+
+                </RelativeLayout>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="16dp"
+                    android:text="NUMBER OF CHILDREN B/W 6-14 YRS. *" />
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginEnd="8dp"
+                    android:background="@drawable/white_back_round">
+
+                    <Spinner
+                        android:id="@+id/sixto14"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true" />
+
+                </RelativeLayout>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="16dp"
+                    android:text="NUMBER OF CHILDREN B/W 15-18 YRS. *" />
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginEnd="8dp"
+                    android:background="@drawable/white_back_round">
+
+                    <Spinner
+                        android:id="@+id/fifteento18"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true" />
+
+                </RelativeLayout>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="16dp"
+                    android:text="NUMBER OF CHILDREN GOING TO SCHOOL *" />
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginEnd="8dp"
+                    android:background="@drawable/white_back_round">
+
+                    <Spinner
+                        android:id="@+id/goingtoschool"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true" />
+
+                </RelativeLayout>
 
             </LinearLayout>
-
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="8dp"
-                android:layout_marginTop="16dp"
-                android:text="WEBSITE ADDRESS *" />
-
-            <EditText
-                android:id="@+id/website"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="8dp"
-                android:layout_marginTop="8dp"
-                android:layout_marginEnd="8dp"
-                android:background="@drawable/white_back_round"
-                android:hint="tap to enter"
-                android:inputType="textWebEmailAddress"
-                android:padding="10dp" />
-
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="8dp"
-                android:layout_marginTop="16dp"
-                android:text="EMAIL ADDRESS *" />
-
-            <EditText
-                android:id="@+id/email"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="8dp"
-                android:layout_marginTop="8dp"
-                android:layout_marginEnd="8dp"
-                android:background="@drawable/white_back_round"
-                android:hint="tap to enter"
-                android:inputType="textEmailAddress"
-                android:padding="10dp" />
 
 
             <Button

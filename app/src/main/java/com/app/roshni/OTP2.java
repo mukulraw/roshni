@@ -153,7 +153,9 @@ public class OTP2 extends AppCompatActivity {
                                     }
                                     else
                                     {
-
+                                        Intent intent = new Intent(OTP2.this , Register3.class);
+                                        startActivity(intent);
+                                        finishAffinity();
                                     }
 
 
