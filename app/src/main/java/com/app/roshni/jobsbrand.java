@@ -49,7 +49,7 @@ public class jobsbrand extends Fragment {
             public void onClick(View view) {
 
 
-                Intent intent = new Intent(getContext() , PostJob.class);
+                Intent intent = new Intent(getContext() , ChooseJob.class);
                 startActivity(intent);
 
             }

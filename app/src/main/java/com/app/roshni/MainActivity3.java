@@ -54,7 +54,7 @@ public class MainActivity3 extends AppCompatActivity {
         bottom.setTitleState(AHBottomNavigation.TitleState.ALWAYS_SHOW);
         bottom.setAccentColor(getResources().getColor(R.color.colorPrimary));
 
-        AHBottomNavigationAdapter navigationAdapter = new AHBottomNavigationAdapter(this, R.menu.navigation2);
+        AHBottomNavigationAdapter navigationAdapter = new AHBottomNavigationAdapter(this, R.menu.navigation3);
         navigationAdapter.setupWithBottomNavigation(bottom);
 
 
@@ -126,7 +126,7 @@ public class MainActivity3 extends AppCompatActivity {
                     case 0:
                         FragmentManager fm = getSupportFragmentManager();
                         FragmentTransaction ft = fm.beginTransaction();
-                        newjobs test = new newjobs();
+                        workers test = new workers();
                         ft.replace(R.id.replace, test);
                         ft.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_CLOSE);
                         //ft.addToBackStack(null);
@@ -146,7 +146,7 @@ public class MainActivity3 extends AppCompatActivity {
                     case 2:
                         FragmentManager fm3 = getSupportFragmentManager();
                         FragmentTransaction ft3 = fm3.beginTransaction();
-                        jobsbrand test3 = new jobsbrand();
+                        appliedjobs test3 = new appliedjobs();
                         ft3.replace(R.id.replace, test3);
                         ft3.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_CLOSE);
                         //ft.addToBackStack(null);

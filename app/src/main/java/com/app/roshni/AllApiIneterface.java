@@ -4,6 +4,7 @@ import com.app.roshni.sectorPOJO.sectorBean;
 import com.app.roshni.verifyPOJO.verifyBean;
 import com.app.roshni.workerJobListPOJO.workerJobDetailBean;
 import com.app.roshni.workerJobListPOJO.workerJobListBean;
+import com.app.roshni.workerListPOJO.workerListBean;
 
 import okhttp3.MultipartBody;
 import retrofit2.Call;
@@ -143,6 +144,17 @@ public interface AllApiIneterface {
     );
 
     @Multipart
+    @POST("roshni/api/post_job_contractor.php")
+    Call<verifyBean> post_job_contractor(
+            @Part("contractor_id") String contractor_id,
+            @Part("job_type") String job_type,
+            @Part("experience") String experience,
+            @Part("days") String days,
+            @Part("rate") String rate,
+            @Part MultipartBody.Part file1
+    );
+
+    @Multipart
     @POST("roshni/api/apply_job.php")
     Call<verifyBean> apply_job(
             @Part("job_id") String job_id,
@@ -194,5 +206,11 @@ public interface AllApiIneterface {
 
     @GET("roshni/api/getLocations.php")
     Call<sectorBean> getLocations();
+
+    @GET("roshni/api/getAllWorkers.php")
+    Call<workerListBean> getAllWorkers();
+
+    @GET("roshni/api/getAllConttractors.php")
+    Call<workerListBean> getAllConttractors();
 
 }
