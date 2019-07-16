@@ -117,7 +117,7 @@ public class Splash extends AppCompatActivity {
                 }
                 else
                 {
-                    Intent intent = new Intent(Splash.this , MainActivity.class);
+                    Intent intent = new Intent(Splash.this , MainActivity3.class);
                     startActivity(intent);
                     finishAffinity();
                 }
@@ -128,13 +128,13 @@ public class Splash extends AppCompatActivity {
 
                 if (type.equals("brand"))
                 {
-                    Intent intent = new Intent(Splash.this , REgister.class);
+                    Intent intent = new Intent(Splash.this , Register2.class);
                     startActivity(intent);
                     finishAffinity();
                 }
                 else if (type.equals("worker"))
                 {
-                    Intent intent = new Intent(Splash.this , Register2.class);
+                    Intent intent = new Intent(Splash.this , REgister.class);
                     startActivity(intent);
                     finishAffinity();
                 }

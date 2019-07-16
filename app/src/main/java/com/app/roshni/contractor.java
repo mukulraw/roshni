@@ -301,7 +301,48 @@ public class contractor extends Fragment {
             }
         });
 
+
+        work.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+
+                if (i > 0) {
+                    wtyp = wty.get(i);
+                } else {
+                    wtyp = "";
+                }
+
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> adapterView) {
+
+            }
+        });
+
+
+        availability.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+
+                if (i > 0) {
+                    avai = ava.get(i);
+                } else {
+                    avai = "";
+                }
+
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> adapterView) {
+
+            }
+        });
+
+
+
         check.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
 
@@ -563,7 +604,7 @@ public class contractor extends Fragment {
 
                                                                                                             LocalBroadcastManager.getInstance(getContext()).sendBroadcast(registrationComplete);
 
-                                                                                                            Intent intent = new Intent(getContext(), MainActivity2.class);
+                                                                                                            Intent intent = new Intent(getContext(), MainActivity3.class);
                                                                                                             startActivity(intent);
                                                                                                             getActivity().finishAffinity();
 

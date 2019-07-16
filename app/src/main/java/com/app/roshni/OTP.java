@@ -148,7 +148,11 @@ public class OTP extends AppCompatActivity {
                                     }
                                     else
                                     {
+                                        Intent intent = new Intent(OTP.this , MainActivity3.class);
+                                        startActivity(intent);
+                                        finishAffinity();
 
+                                        Toast.makeText(OTP.this, "Welcome " + item.getName(), Toast.LENGTH_SHORT).show();
                                     }
 
 

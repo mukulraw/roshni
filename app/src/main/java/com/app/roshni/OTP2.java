@@ -131,11 +131,29 @@ public class OTP2 extends AppCompatActivity {
                                 if (item.getName().length() > 0)
                                 {
 
-                                    Intent intent = new Intent(OTP2.this , MainActivity.class);
-                                    startActivity(intent);
-                                    finishAffinity();
+                                    if (response.body().getData().getType().equals("worker"))
+                                    {
+                                        Intent intent = new Intent(OTP2.this , MainActivity.class);
+                                        startActivity(intent);
+                                        finishAffinity();
 
-                                    Toast.makeText(OTP2.this, "Welcome " + item.getName(), Toast.LENGTH_SHORT).show();
+                                        Toast.makeText(OTP2.this, "Welcome " + item.getName(), Toast.LENGTH_SHORT).show();
+                                    }else if (response.body().getData().getType().equals("brand"))
+                                    {
+                                        Intent intent = new Intent(OTP2.this , MainActivity2.class);
+                                        startActivity(intent);
+                                        finishAffinity();
+
+                                        Toast.makeText(OTP2.this, "Welcome " + item.getName(), Toast.LENGTH_SHORT).show();
+                                    }
+                                    else
+                                    {
+                                        Intent intent = new Intent(OTP2.this , MainActivity3.class);
+                                        startActivity(intent);
+                                        finishAffinity();
+
+                                        Toast.makeText(OTP2.this, "Welcome " + item.getName(), Toast.LENGTH_SHORT).show();
+                                    }
 
                                 }
                                 else

@@ -426,7 +426,8 @@
                 android:layout_marginEnd="8dp"
                 android:background="@drawable/white_back_round"
                 android:hint="tap to enter"
-                android:inputType="textPostalAddress"
+                android:inputType="number"
+                android:digits="0123456789"
                 android:padding="10dp" />
 
             <TextView
