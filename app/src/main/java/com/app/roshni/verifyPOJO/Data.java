@@ -146,6 +146,31 @@ public class Data {
     @SerializedName("email")
     @Expose
     private String email;
+    @SerializedName("business_name")
+    @Expose
+    private String business_name;
+    @SerializedName("establishment_year")
+    @Expose
+    private String establishment_year;
+    @SerializedName("home_units")
+    @Expose
+    private String home_units;
+    @SerializedName("home_location")
+    @Expose
+    private String home_location;
+    @SerializedName("workers_male")
+    @Expose
+    private String workers_male;
+    @SerializedName("workers_female")
+    @Expose
+    private String workers_female;
+    @SerializedName("work_type")
+    @Expose
+    private String work_type;
+    @SerializedName("availability")
+    @Expose
+    private String availability;
+
 
     public String getId() {
         return id;
@@ -523,4 +548,67 @@ public class Data {
         this.email = email;
     }
 
+    public String getAvailability() {
+        return availability;
+    }
+
+    public String getBusiness_name() {
+        return business_name;
+    }
+
+    public String getEstablishment_year() {
+        return establishment_year;
+    }
+
+    public String getHome_location() {
+        return home_location;
+    }
+
+    public String getHome_units() {
+        return home_units;
+    }
+
+    public String getWork_type() {
+        return work_type;
+    }
+
+    public String getWorkers_female() {
+        return workers_female;
+    }
+
+    public String getWorkers_male() {
+        return workers_male;
+    }
+
+    public void setAvailability(String availability) {
+        this.availability = availability;
+    }
+
+    public void setBusiness_name(String business_name) {
+        this.business_name = business_name;
+    }
+
+    public void setEstablishment_year(String establishment_year) {
+        this.establishment_year = establishment_year;
+    }
+
+    public void setHome_location(String home_location) {
+        this.home_location = home_location;
+    }
+
+    public void setHome_units(String home_units) {
+        this.home_units = home_units;
+    }
+
+    public void setWork_type(String work_type) {
+        this.work_type = work_type;
+    }
+
+    public void setWorkers_female(String workers_female) {
+        this.workers_female = workers_female;
+    }
+
+    public void setWorkers_male(String workers_male) {
+        this.workers_male = workers_male;
+    }
 }

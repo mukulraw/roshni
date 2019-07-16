@@ -93,6 +93,38 @@ public interface AllApiIneterface {
             @Part MultipartBody.Part file1
     );
 
+
+    @Multipart
+    @POST("roshni/api/update_contractor.php")
+    Call<verifyBean> update_contractor(
+            @Part("user_id") String user_id,
+            @Part("name") String name,
+            @Part("dob") String dob,
+            @Part("gender") String gender,
+            @Part("business_name") String business_name,
+            @Part("establishment_year") String establishment_year,
+            @Part("cpin") String cpin,
+            @Part("cstate") String cstate,
+            @Part("cdistrict") String cdistrict,
+            @Part("carea") String carea,
+            @Part("cstreet") String cstreet,
+            @Part("ppin") String ppin,
+            @Part("pstate") String pstate,
+            @Part("pdistrict") String pdistrict,
+            @Part("parea") String parea,
+            @Part("pstreet") String pstreet,
+            @Part("home_units") String home_units,
+            @Part("home_location") String home_location,
+            @Part("workers_male") String workers_male,
+            @Part("workers_female") String workers_female,
+            @Part("experience") String experience,
+            @Part("work_type") String work_type,
+            @Part("availability") String availability,
+            @Part("employer") String employer,
+            @Part MultipartBody.Part file1
+    );
+
+
     @Multipart
     @POST("roshni/api/post_job.php")
     Call<verifyBean> postjob(

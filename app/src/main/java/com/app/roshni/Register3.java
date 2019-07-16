@@ -23,7 +23,7 @@ public class Register3 extends AppCompatActivity {
         tabs = findViewById(R.id.tabLayout2);
         pager = findViewById(R.id.pager);
 
-        tabs.addTab(tabs.newTab().setText("COMPANY"));
+        tabs.addTab(tabs.newTab().setText("CONTRACTOR"));
 
 
         PagerAdapter adapter = new PagerAdapter(getSupportFragmentManager());
@@ -38,7 +38,7 @@ public class Register3 extends AppCompatActivity {
             tabStrip.getChildAt(i).setClickable(false);
         }
 
-        tabs.getTabAt(0).setText("COMPANY");
+        tabs.getTabAt(0).setText("CONTRACTOR");
 
     }
 

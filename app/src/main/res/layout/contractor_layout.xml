@@ -93,7 +93,7 @@
                 android:text="YOUR D.O.B. *" />
 
             <EditText
-                android:id="@+id/editText2"
+                android:id="@+id/dob"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
@@ -146,7 +146,6 @@
                 android:layout_marginTop="8dp"
                 android:layout_marginEnd="8dp"
                 android:background="@drawable/white_back_round"
-                android:focusable="false"
                 android:hint="tap to enter"
                 android:inputType="textPersonName"
                 android:padding="10dp" />
@@ -463,7 +462,9 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="16dp"
-                android:text="TOTAL WORKERS" />
+                android:textColor="#000000"
+                android:text="TOTAL WORKERS *" />
+
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -472,13 +473,66 @@
                 android:layout_marginTop="8dp"
                 android:layout_marginEnd="8dp"
                 android:orientation="horizontal"
-                android:background="@drawable/white_back_round">
+                android:weightSum="2">
 
-                <Spinner
-                    android:id="@+id/educational"
-                    android:layout_width="match_parent"
+                <LinearLayout
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_centerVertical="true" />
+                    android:layout_weight="1"
+                    android:layout_marginEnd="4dp"
+                    android:orientation="vertical"
+                    >
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_vertical"
+                        android:text="MALE"
+                        android:layout_marginBottom="8dp"
+                        />
+
+                    <EditText
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/male"
+                        android:background="@drawable/white_back_round"
+                        android:hint="tap to enter"
+                        android:digits="0123456789"
+                        android:inputType="number"
+                        android:padding="10dp"
+                        />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:layout_marginStart="4dp"
+                    android:orientation="vertical"
+                    >
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_vertical"
+                        android:text="FEMALE"
+                        android:layout_marginBottom="8dp"
+                        />
+
+                    <EditText
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/female"
+                        android:background="@drawable/white_back_round"
+                        android:hint="tap to enter"
+                        android:digits="0123456789"
+                        android:inputType="number"
+                        android:padding="10dp"
+                        />
+
+                </LinearLayout>
+
 
             </LinearLayout>
 
@@ -487,7 +541,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="16dp"
-                android:text="YOUR MARITAL STATUS *" />
+                android:text="EXPERIENCE *" />
 
             <RelativeLayout
                 android:layout_width="match_parent"
@@ -498,7 +552,7 @@
                 android:background="@drawable/white_back_round">
 
                 <Spinner
-                    android:id="@+id/marital"
+                    android:id="@+id/experience"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_centerVertical="true" />
@@ -506,128 +560,71 @@
             </RelativeLayout>
 
 
-            <LinearLayout
-                android:id="@+id/child"
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="16dp"
+                android:text="TYPES OF WORK *" />
+
+            <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical">
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="8dp"
+                android:background="@drawable/white_back_round">
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="8dp"
-                    android:layout_marginTop="16dp"
-                    android:text="NUMBER OF CHILDREN *" />
-
-                <RelativeLayout
+                <Spinner
+                    android:id="@+id/work"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="8dp"
-                    android:layout_marginTop="8dp"
-                    android:layout_marginEnd="8dp"
-                    android:background="@drawable/white_back_round">
+                    android:layout_centerVertical="true" />
 
-                    <Spinner
-                        android:id="@+id/children"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_centerVertical="true" />
+            </RelativeLayout>
 
-                </RelativeLayout>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="16dp"
+                android:text="AVAILABILITY *" />
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="8dp"
-                    android:layout_marginTop="16dp"
-                    android:text="NUMBER OF CHILDREN BELOW 6 YRS. *" />
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="8dp"
+                android:background="@drawable/white_back_round">
 
-                <RelativeLayout
+                <Spinner
+                    android:id="@+id/availability"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="8dp"
-                    android:layout_marginTop="8dp"
-                    android:layout_marginEnd="8dp"
-                    android:background="@drawable/white_back_round">
+                    android:layout_centerVertical="true" />
 
-                    <Spinner
-                        android:id="@+id/belowsix"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_centerVertical="true" />
+            </RelativeLayout>
 
-                </RelativeLayout>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="16dp"
+                android:text="PREVIOUS EMPLOYER OR BRANDS" />
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="8dp"
-                    android:layout_marginTop="16dp"
-                    android:text="NUMBER OF CHILDREN B/W 6-14 YRS. *" />
+            <EditText
+                android:id="@+id/employer"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="8dp"
+                android:background="@drawable/white_back_round"
+                android:hint="tap to enter"
+                android:inputType="textPostalAddress"
+                android:padding="10dp" />
 
-                <RelativeLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="8dp"
-                    android:layout_marginTop="8dp"
-                    android:layout_marginEnd="8dp"
-                    android:background="@drawable/white_back_round">
-
-                    <Spinner
-                        android:id="@+id/sixto14"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_centerVertical="true" />
-
-                </RelativeLayout>
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="8dp"
-                    android:layout_marginTop="16dp"
-                    android:text="NUMBER OF CHILDREN B/W 15-18 YRS. *" />
-
-                <RelativeLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="8dp"
-                    android:layout_marginTop="8dp"
-                    android:layout_marginEnd="8dp"
-                    android:background="@drawable/white_back_round">
-
-                    <Spinner
-                        android:id="@+id/fifteento18"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_centerVertical="true" />
-
-                </RelativeLayout>
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="8dp"
-                    android:layout_marginTop="16dp"
-                    android:text="NUMBER OF CHILDREN GOING TO SCHOOL *" />
-
-                <RelativeLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="8dp"
-                    android:layout_marginTop="8dp"
-                    android:layout_marginEnd="8dp"
-                    android:background="@drawable/white_back_round">
-
-                    <Spinner
-                        android:id="@+id/goingtoschool"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_centerVertical="true" />
-
-                </RelativeLayout>
-
-            </LinearLayout>
 
 
             <Button

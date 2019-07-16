@@ -96,29 +96,57 @@ public class Splash extends AppCompatActivity {
 
         Log.d("iidd" , id);
 
-        if (id.length() > 0 && name.length() > 0)
+        if (id.length() > 0)
         {
 
-            String type = SharePreferenceUtils.getInstance().getString("type");
+            if (name.length() > 0)
+            {
+                String type = SharePreferenceUtils.getInstance().getString("type");
 
-            if (type.equals("brand"))
-            {
-                Intent intent = new Intent(Splash.this , MainActivity2.class);
-                startActivity(intent);
-                finishAffinity();
-            }
-            else if (type.equals("worker"))
-            {
-                Intent intent = new Intent(Splash.this , MainActivity.class);
-                startActivity(intent);
-                finishAffinity();
+                if (type.equals("brand"))
+                {
+                    Intent intent = new Intent(Splash.this , MainActivity2.class);
+                    startActivity(intent);
+                    finishAffinity();
+                }
+                else if (type.equals("worker"))
+                {
+                    Intent intent = new Intent(Splash.this , MainActivity.class);
+                    startActivity(intent);
+                    finishAffinity();
+                }
+                else
+                {
+                    Intent intent = new Intent(Splash.this , MainActivity.class);
+                    startActivity(intent);
+                    finishAffinity();
+                }
             }
             else
             {
-                Intent intent = new Intent(Splash.this , MainActivity.class);
-                startActivity(intent);
-                finishAffinity();
+                String type = SharePreferenceUtils.getInstance().getString("type");
+
+                if (type.equals("brand"))
+                {
+                    Intent intent = new Intent(Splash.this , REgister.class);
+                    startActivity(intent);
+                    finishAffinity();
+                }
+                else if (type.equals("worker"))
+                {
+                    Intent intent = new Intent(Splash.this , Register2.class);
+                    startActivity(intent);
+                    finishAffinity();
+                }
+                else
+                {
+                    Intent intent = new Intent(Splash.this , Register3.class);
+                    startActivity(intent);
+                    finishAffinity();
+                }
             }
+
+
 
 
         }
