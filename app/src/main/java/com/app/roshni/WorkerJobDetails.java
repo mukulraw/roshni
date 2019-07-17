@@ -4,7 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.Dialog;
 import android.content.DialogInterface;
-import android.media.Image;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.view.Window;
@@ -28,31 +28,28 @@ import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 import retrofit2.converter.scalars.ScalarsConverterFactory;
 
-public class JobDetails extends AppCompatActivity {
+public class WorkerJobDetails extends AppCompatActivity {
 
     ImageButton back;
-    TextView title, company, address, skills, preferred, location, experience, role, gender, education, hours, salary, stype , commp;
+    TextView title, skills, preferred, location, experience, role, gender, education, hours, salary, stype , commp;
 
-    Button apply;
+    Button active , edit;
 
     ProgressBar progress;
-    CircleImageView image;
-    String jid;
-
-    View header;
+    String jid , status;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_job_details);
+        setContentView(R.layout.activity_worker_job_details);
 
         jid = getIntent().getStringExtra("jid");
+        status = getIntent().getStringExtra("status");
 
         back = findViewById(R.id.imageButton3);
-        image = findViewById(R.id.imageView6);
+        edit = findViewById(R.id.button9);
+
         title = findViewById(R.id.textView30);
-        company = findViewById(R.id.textView31);
-        address = findViewById(R.id.textView32);
         skills = findViewById(R.id.skills);
         preferred = findViewById(R.id.preferred);
         location = findViewById(R.id.location);
@@ -63,9 +60,9 @@ public class JobDetails extends AppCompatActivity {
         hours = findViewById(R.id.hours);
         salary = findViewById(R.id.salary);
         stype = findViewById(R.id.stype);
-        apply = findViewById(R.id.button8);
+        active = findViewById(R.id.button8);
         progress = findViewById(R.id.progressBar4);
-        header = findViewById(R.id.constraintLayout);
+
         commp = findViewById(R.id.company);
 
 
@@ -77,13 +74,13 @@ public class JobDetails extends AppCompatActivity {
         });
 
 
-        apply.setOnClickListener(new View.OnClickListener() {
+        active.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
-                String t = apply.getText().toString();
+                String t = active.getText().toString();
 
-                if (t.equals("APPLY NOW"))
+                if (t.equals("ACTIVE"))
                 {
 
                     progress.setVisibility(View.VISIBLE);
@@ -99,30 +96,18 @@ public class JobDetails extends AppCompatActivity {
                     AllApiIneterface cr = retrofit.create(AllApiIneterface.class);
 
 
-                    Call<verifyBean> call = cr.apply_job(jid , SharePreferenceUtils.getInstance().getString("user_id"));
+                    Call<verifyBean> call = cr.worker_ac_inac(jid , "Active");
 
                     call.enqueue(new Callback<verifyBean>() {
                         @Override
                         public void onResponse(Call<verifyBean> call, Response<verifyBean> response) {
 
 
-                            final Dialog dialog = new Dialog(JobDetails.this);
-                            dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
-                            dialog.setCancelable(true);
-                            dialog.setContentView(R.layout.apply_dialog);
-                            dialog.show();
-
-                            dialog.setOnCancelListener(new DialogInterface.OnCancelListener() {
-                                @Override
-                                public void onCancel(DialogInterface dialogInterface) {
-                                    dialog.dismiss();
-                                    finish();
-                                }
-                            });
-
-
+                            Toast.makeText(WorkerJobDetails.this, response.body().getMessage(), Toast.LENGTH_SHORT).show();
 
                             progress.setVisibility(View.GONE);
+
+                            finish();
                         }
 
                         @Override
@@ -134,26 +119,56 @@ public class JobDetails extends AppCompatActivity {
                 }
                 else
                 {
-                    Toast.makeText(JobDetails.this, "You have already applied for this job" , Toast.LENGTH_SHORT).show();
+                    progress.setVisibility(View.VISIBLE);
+
+                    Bean b = (Bean) getApplicationContext();
+
+                    Retrofit retrofit = new Retrofit.Builder()
+                            .baseUrl(b.baseurl)
+                            .addConverterFactory(ScalarsConverterFactory.create())
+                            .addConverterFactory(GsonConverterFactory.create())
+                            .build();
+
+                    AllApiIneterface cr = retrofit.create(AllApiIneterface.class);
+
+
+                    Call<verifyBean> call = cr.worker_ac_inac(jid , "Inactive");
+
+                    call.enqueue(new Callback<verifyBean>() {
+                        @Override
+                        public void onResponse(Call<verifyBean> call, Response<verifyBean> response) {
+
+
+                            Toast.makeText(WorkerJobDetails.this, response.body().getMessage(), Toast.LENGTH_SHORT).show();
+
+                            progress.setVisibility(View.GONE);
+
+                            finish();
+
+                        }
+
+                        @Override
+                        public void onFailure(Call<verifyBean> call, Throwable t) {
+                            progress.setVisibility(View.GONE);
+                        }
+                    });
                 }
 
             }
         });
 
 
-        header.setOnClickListener(new View.OnClickListener() {
+        edit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
-                bottomBrand bottom = bottomBrand.newInstance();
-                Bundle b = new Bundle();
-                b.putString("jid" , jid);
-                bottom.setArguments(b);
-                bottom.show(getSupportFragmentManager() , "bottomBrand");
-
+                Intent intent = new Intent(WorkerJobDetails.this , UpdateWorkerJob.class);
+                intent.putExtra("jid" , jid);
+                startActivity(intent);
 
             }
         });
+
 
         commp.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -168,6 +183,7 @@ public class JobDetails extends AppCompatActivity {
 
             }
         });
+
 
     }
 
@@ -198,13 +214,7 @@ public class JobDetails extends AppCompatActivity {
 
                     Datum item = response.body().getData();
 
-                    DisplayImageOptions options = new DisplayImageOptions.Builder().cacheOnDisk(true).cacheInMemory(true).resetViewBeforeLoading(false).build();
-                    ImageLoader loader = ImageLoader.getInstance();
-                    loader.displayImage(item.getLogo() , image , options);
-
                     title.setText(item.getTitle());
-                    company.setText(item.getBrandName());
-                    address.setText(item.getBrandStreet() + ", " + item.getBrandArea());
                     skills.setText(item.getSkills());
                     preferred.setText(item.getPreferred());
                     location.setText(item.getLocation());
@@ -216,14 +226,14 @@ public class JobDetails extends AppCompatActivity {
                     salary.setText(item.getSalary());
                     stype.setText(item.getStype());
 
-                    if (item.getStatus().equals("1"))
+                    if (status.equals("Active"))
                     {
-                        apply.setText("APPLIED");
+                        active.setText("INACTIVE");
                         //apply.setEnabled(false);
                     }
                     else
                     {
-                        apply.setText("APPLY NOW");
+                        active.setText("ACTIVE");
                         //apply.setEnabled(true);
                     }
 
@@ -241,4 +251,5 @@ public class JobDetails extends AppCompatActivity {
 
 
     }
+
 }

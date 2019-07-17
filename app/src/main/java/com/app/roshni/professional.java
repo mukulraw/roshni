@@ -612,7 +612,7 @@ public class professional extends Fragment {
     }
 
 
-    void setPrevious() {
+    private void setPrevious() {
         employer.setText(SharePreferenceUtils.getInstance().getString("employer"));
 
 

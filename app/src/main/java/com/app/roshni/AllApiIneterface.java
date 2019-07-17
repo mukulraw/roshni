@@ -1,5 +1,6 @@
 package com.app.roshni;
 
+import com.app.roshni.allWorkContrJobListPOJO.allWorkContrJobBean;
 import com.app.roshni.sectorPOJO.sectorBean;
 import com.app.roshni.verifyPOJO.verifyBean;
 import com.app.roshni.workerJobListPOJO.workerJobDetailBean;
@@ -144,6 +145,23 @@ public interface AllApiIneterface {
     );
 
     @Multipart
+    @POST("roshni/api/post_job.php")
+    Call<verifyBean> UpdateWorkerJob(
+            @Part("brand_id") String brand_id,
+            @Part("title") String title,
+            @Part("skills") String skills,
+            @Part("preferred") String preferred,
+            @Part("location") String location,
+            @Part("experience") String experience,
+            @Part("role") String role,
+            @Part("gender") String gender,
+            @Part("education") String education,
+            @Part("hours") String hours,
+            @Part("salary") String salary,
+            @Part("stype") String stype
+    );
+
+    @Multipart
     @POST("roshni/api/post_job_contractor.php")
     Call<verifyBean> post_job_contractor(
             @Part("contractor_id") String contractor_id,
@@ -160,6 +178,14 @@ public interface AllApiIneterface {
             @Part("job_id") String job_id,
             @Part("user_id") String user_id
     );
+
+    @Multipart
+    @POST("roshni/api/worker_ac_inac.php")
+    Call<verifyBean> worker_ac_inac(
+            @Part("jid") String jid,
+            @Part("status") String status
+    );
+
 
     @Multipart
     @POST("roshni/api/update_worker_professional.php")
@@ -181,6 +207,22 @@ public interface AllApiIneterface {
     Call<workerJobListBean> getJobListForWorker(
             @Part("user_id") String user_id
     );
+
+
+    @Multipart
+    @POST("roshni/api/getAllWorkerJobs.php")
+    Call<allWorkContrJobBean> getAllWorkerJobs(
+            @Part("brand_id") String brand_id,
+            @Part("status") String status
+    );
+
+    @Multipart
+    @POST("roshni/api/getAllContractorJobs.php")
+    Call<allWorkContrJobBean> getAllContractorJobs(
+            @Part("brand_id") String brand_id,
+            @Part("status") String status
+    );
+
 
     @Multipart
     @POST("roshni/api/getAppliedListForWorker.php")
