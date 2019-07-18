@@ -1,7 +1,14 @@
 package com.app.roshni;
 
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
+import androidx.recyclerview.widget.GridLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -10,15 +17,8 @@ import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.fragment.app.Fragment;
-import androidx.recyclerview.widget.GridLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
-
 import com.app.roshni.allWorkContrJobListPOJO.Datum;
 import com.app.roshni.allWorkContrJobListPOJO.allWorkContrJobBean;
-import com.app.roshni.workerJobListPOJO.workerJobListBean;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -30,7 +30,9 @@ import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 import retrofit2.converter.scalars.ScalarsConverterFactory;
 
-public class workerActive extends Fragment {
+public class WorkerJobByCompany extends AppCompatActivity {
+
+    Toolbar toolbar;
 
     RecyclerView grid;
     GridLayoutManager manager;
@@ -39,26 +41,45 @@ public class workerActive extends Fragment {
     ProgressBar progress;
     ImageView nodata;
 
-    @Nullable
+    String bid;
+
     @Override
-    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.jobs_layout, container, false);
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_worker_job_by_company);
+
+        bid = getIntent().getStringExtra("bid");
 
         list = new ArrayList<>();
+        toolbar = findViewById(R.id.toolbar3);
 
-        grid = view.findViewById(R.id.grid);
-        progress = view.findViewById(R.id.progressBar3);
-        nodata = view.findViewById(R.id.imageView5);
 
-        adapter = new JobsAdapter(getContext() , list);
-        manager = new GridLayoutManager(getContext(), 1);
+        grid = findViewById(R.id.grid);
+        progress = findViewById(R.id.progressBar3);
+        nodata = findViewById(R.id.imageView5);
+
+        setSupportActionBar(toolbar);
+        getSupportActionBar().setDisplayShowTitleEnabled(false);
+        toolbar.setNavigationIcon(R.drawable.ic_arrow_back_black_24dp);
+        toolbar.setNavigationOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                finish();
+            }
+        });
+
+        toolbar.setTitleTextColor(Color.WHITE);
+        toolbar.setTitle("COMPANY JOBS");
+
+        adapter = new JobsAdapter(this , list);
+        manager = new GridLayoutManager(this, 1);
 
         grid.setAdapter(adapter);
         grid.setLayoutManager(manager);
 
-        return view;
-    }
 
+    }
 
     @Override
     public void onResume() {
@@ -66,7 +87,7 @@ public class workerActive extends Fragment {
 
         progress.setVisibility(View.VISIBLE);
 
-        Bean b = (Bean) getContext().getApplicationContext();
+        Bean b = (Bean) getApplicationContext();
 
         Retrofit retrofit = new Retrofit.Builder()
                 .baseUrl(b.baseurl)
@@ -77,7 +98,7 @@ public class workerActive extends Fragment {
         AllApiIneterface cr = retrofit.create(AllApiIneterface.class);
 
 
-        Call<allWorkContrJobBean> call = cr.getAllWorkerJobs(SharePreferenceUtils.getInstance().getString("user_id") , "Active");
+        Call<allWorkContrJobBean> call = cr.getAllWorkerJobs(bid , "Active");
 
         call.enqueue(new Callback<allWorkContrJobBean>() {
             @Override
@@ -144,8 +165,10 @@ public class workerActive extends Fragment {
 
             holder.applied.setText(item.getApplied() + " Applied");
 
+            holder.details.setVisibility(View.GONE);
+            holder.applicants.setVisibility(View.GONE);
 
-            holder.details.setOnClickListener(new View.OnClickListener() {
+            /*holder.details.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
 
@@ -163,15 +186,10 @@ public class workerActive extends Fragment {
 
                     Intent intent = new Intent(context , WorkerApplicants.class);
                     intent.putExtra("jid" , item.getId());
-                    intent.putExtra("title" , item.getTitle());
-                    intent.putExtra("category" , item.getRole());
-                    intent.putExtra("salary" , item.getSalary());
-                    intent.putExtra("posted" , item.getCreated());
-                    intent.putExtra("sts" , "Active");
                     startActivity(intent);
 
                 }
-            });
+            });*/
 
         }
 

@@ -10,6 +10,9 @@ public class Datum {
     @SerializedName("brand_id")
     @Expose
     private String brandId;
+    @SerializedName("logo")
+    @Expose
+    private String logo;
     @SerializedName("brand_name")
     @Expose
     private String brandName;
@@ -19,6 +22,15 @@ public class Datum {
     @SerializedName("brand_area")
     @Expose
     private String brandArea;
+    @SerializedName("brand_district")
+    @Expose
+    private String brandDistrict;
+    @SerializedName("brand_state")
+    @Expose
+    private String brandState;
+    @SerializedName("brand_pin")
+    @Expose
+    private String brandPin;
     @SerializedName("job_type")
     @Expose
     private String jobType;
@@ -58,12 +70,57 @@ public class Datum {
     @SerializedName("created")
     @Expose
     private String created;
+    @SerializedName("products")
+    @Expose
+    private String products;
+    @SerializedName("reg")
+    @Expose
+    private String reg;
+    @SerializedName("contact_person")
+    @Expose
+    private String contactPerson;
+    @SerializedName("phone")
+    @Expose
+    private String phone;
+    @SerializedName("ppin")
+    @Expose
+    private String ppin;
+    @SerializedName("pstate")
+    @Expose
+    private String pstate;
+    @SerializedName("pdistrict")
+    @Expose
+    private String pdistrict;
+    @SerializedName("parea")
+    @Expose
+    private String parea;
+    @SerializedName("pstreet")
+    @Expose
+    private String pstreet;
+    @SerializedName("manufacturing_units")
+    @Expose
+    private String manufacturingUnits;
+    @SerializedName("factory_outlet")
+    @Expose
+    private String factoryOutlet;
+    @SerializedName("country")
+    @Expose
+    private String country;
+    @SerializedName("workers")
+    @Expose
+    private String workers;
+    @SerializedName("certification")
+    @Expose
+    private String certification;
+    @SerializedName("website")
+    @Expose
+    private String website;
+    @SerializedName("email")
+    @Expose
+    private String email;
     @SerializedName("status")
     @Expose
     private String status;
-    @SerializedName("logo")
-    @Expose
-    private String logo;
 
     public String getId() {
         return id;
@@ -79,6 +136,14 @@ public class Datum {
 
     public void setBrandId(String brandId) {
         this.brandId = brandId;
+    }
+
+    public String getLogo() {
+        return logo;
+    }
+
+    public void setLogo(String logo) {
+        this.logo = logo;
     }
 
     public String getBrandName() {
@@ -103,6 +168,30 @@ public class Datum {
 
     public void setBrandArea(String brandArea) {
         this.brandArea = brandArea;
+    }
+
+    public String getBrandDistrict() {
+        return brandDistrict;
+    }
+
+    public void setBrandDistrict(String brandDistrict) {
+        this.brandDistrict = brandDistrict;
+    }
+
+    public String getBrandState() {
+        return brandState;
+    }
+
+    public void setBrandState(String brandState) {
+        this.brandState = brandState;
+    }
+
+    public String getBrandPin() {
+        return brandPin;
+    }
+
+    public void setBrandPin(String brandPin) {
+        this.brandPin = brandPin;
     }
 
     public String getJobType() {
@@ -209,6 +298,133 @@ public class Datum {
         this.created = created;
     }
 
+    public String getProducts() {
+        return products;
+    }
+
+    public void setProducts(String products) {
+        this.products = products;
+    }
+
+    public String getReg() {
+        return reg;
+    }
+
+    public void setReg(String reg) {
+        this.reg = reg;
+    }
+
+    public String getContactPerson() {
+        return contactPerson;
+    }
+
+    public void setContactPerson(String contactPerson) {
+        this.contactPerson = contactPerson;
+    }
+
+    public String getPhone() {
+        return phone;
+    }
+
+    public void setPhone(String phone) {
+        this.phone = phone;
+    }
+
+    public String getPpin() {
+        return ppin;
+    }
+
+    public void setPpin(String ppin) {
+        this.ppin = ppin;
+    }
+
+    public String getPstate() {
+        return pstate;
+    }
+
+    public void setPstate(String pstate) {
+        this.pstate = pstate;
+    }
+
+    public String getPdistrict() {
+        return pdistrict;
+    }
+
+    public void setPdistrict(String pdistrict) {
+        this.pdistrict = pdistrict;
+    }
+
+    public String getParea() {
+        return parea;
+    }
+
+    public void setParea(String parea) {
+        this.parea = parea;
+    }
+
+    public String getPstreet() {
+        return pstreet;
+    }
+
+    public void setPstreet(String pstreet) {
+        this.pstreet = pstreet;
+    }
+
+    public String getManufacturingUnits() {
+        return manufacturingUnits;
+    }
+
+    public void setManufacturingUnits(String manufacturingUnits) {
+        this.manufacturingUnits = manufacturingUnits;
+    }
+
+    public String getFactoryOutlet() {
+        return factoryOutlet;
+    }
+
+    public void setFactoryOutlet(String factoryOutlet) {
+        this.factoryOutlet = factoryOutlet;
+    }
+
+    public String getCountry() {
+        return country;
+    }
+
+    public void setCountry(String country) {
+        this.country = country;
+    }
+
+    public String getWorkers() {
+        return workers;
+    }
+
+    public void setWorkers(String workers) {
+        this.workers = workers;
+    }
+
+    public String getCertification() {
+        return certification;
+    }
+
+    public void setCertification(String certification) {
+        this.certification = certification;
+    }
+
+    public String getWebsite() {
+        return website;
+    }
+
+    public void setWebsite(String website) {
+        this.website = website;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
 
     public String getStatus() {
         return status;
@@ -216,13 +432,5 @@ public class Datum {
 
     public void setStatus(String status) {
         this.status = status;
-    }
-
-    public String getLogo() {
-        return logo;
-    }
-
-    public void setLogo(String logo) {
-        this.logo = logo;
     }
 }

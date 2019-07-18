@@ -164,6 +164,11 @@ public class workerInActive extends Fragment {
 
                     Intent intent = new Intent(context , WorkerApplicants.class);
                     intent.putExtra("jid" , item.getId());
+                    intent.putExtra("title" , item.getTitle());
+                    intent.putExtra("category" , item.getRole());
+                    intent.putExtra("salary" , item.getSalary());
+                    intent.putExtra("posted" , item.getCreated());
+                    intent.putExtra("sts" , "Inactive");
                     startActivity(intent);
 
                 }

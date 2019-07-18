@@ -99,7 +99,7 @@ public class SingleWorker extends AppCompatActivity {
                 loader.displayImage(item.getPhoto() , image , options);
 
                 name.setText(item.getName());
-                phone.setText("+" + item.getName());
+                phone.setText("+" + item.getPhone());
                 skill.setText(item.getSkills());
                 experience.setText(item.getExperience());
                 employment.setText(item.getEmployment());

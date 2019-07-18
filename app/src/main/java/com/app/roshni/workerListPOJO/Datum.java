@@ -85,6 +85,13 @@ public class Datum {
     @SerializedName("created")
     @Expose
     private String created;
+    @SerializedName("phone")
+    @Expose
+    private String phone;
+    @SerializedName("status")
+    @Expose
+    private String status;
+
 
     public String getId() {
         return id;
@@ -300,5 +307,21 @@ public class Datum {
 
     public void setCreated(String created) {
         this.created = created;
+    }
+
+    public String getPhone() {
+        return phone;
+    }
+
+    public void setPhone(String phone) {
+        this.phone = phone;
+    }
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
     }
 }

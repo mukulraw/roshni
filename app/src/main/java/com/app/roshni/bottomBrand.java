@@ -1,5 +1,6 @@
 package com.app.roshni;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -33,7 +34,9 @@ public class bottomBrand extends BottomSheetDialogFragment {
 
     ProgressBar progress;
 
-    public static bottomBrand newInstance() {
+    String bid;
+
+    static bottomBrand newInstance() {
 
         return new bottomBrand();
     }
@@ -42,17 +45,17 @@ public class bottomBrand extends BottomSheetDialogFragment {
 
     @Nullable
     @Override
-    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+    public View onCreateView(@NonNull final LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.bottom_layout , container , false);
 
 
         jid = getArguments().getString("jid");
 
         progress = view.findViewById(R.id.progressBar4);
-        company = view.findViewById(R.id.company);
-        products = view.findViewById(R.id.products);
+        company = view.findViewById(R.id.textView30);
+        products = view.findViewById(R.id.textView31);
         allJobs = view.findViewById(R.id.textView33);
-        certification = view.findViewById(R.id.certification);
+        certification = view.findViewById(R.id.textView32);
         reg = view.findViewById(R.id.reg);
         person = view.findViewById(R.id.person);
         phone = view.findViewById(R.id.phone);
@@ -64,8 +67,24 @@ public class bottomBrand extends BottomSheetDialogFragment {
         workers = view.findViewById(R.id.workers);
         website = view.findViewById(R.id.website);
         email = view.findViewById(R.id.email);
+        image = view.findViewById(R.id.imageView6);
 
 
+        allJobs.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                if (bid.length() > 0)
+                {
+
+                    Intent intent = new Intent(getContext() , WorkerJobByCompany.class);
+                    intent.putExtra("bid" , bid);
+                    startActivity(intent);
+
+                }
+
+            }
+        });
 
 
 
@@ -103,9 +122,32 @@ public class bottomBrand extends BottomSheetDialogFragment {
                     ImageLoader loader = ImageLoader.getInstance();
                     loader.displayImage(item.getLogo() , image , options);
 
+                    bid = item.getBrandId();
+
                     company.setText(item.getBrandName());
-                    address.setText(item.getBrandStreet() + ", " + item.getBrandArea());
-                    products.setText(item.getSkills());
+                    address.setText(item.getBrandStreet() + ", " + item.getBrandArea() + ", " + item.getBrandDistrict() + ", " + item.getBrandState() + "-" + item.getBrandPin());
+                    products.setText(item.getProducts());
+
+                    if (item.getCertification().equals("Yes"))
+                    {
+                        certification.setVisibility(View.VISIBLE);
+                    }
+                    else
+                    {
+                        certification.setVisibility(View.GONE);
+                    }
+
+                    reg.setText(item.getReg());
+                    person.setText(item.getContactPerson());
+                    phone.setText("+" + item.getPhone());
+                    headOffice.setText(item.getPstreet() + ", " + item.getParea() + ", " + item.getPdistrict() + ", " + item.getPstate() + "-" + item.getPpin());
+                    manufacturing.setText(item.getManufacturingUnits());
+                    factory.setText(item.getFactoryOutlet());
+                    countries.setText(item.getCountry());
+                    workers.setText(item.getWorkers());
+                    website.setText(item.getWebsite());
+                    email.setText(item.getEmail());
+
                     /*preferred.setText(item.getPreferred());
                     location.setText(item.getLocation());
                     experience.setText(item.getExperience());

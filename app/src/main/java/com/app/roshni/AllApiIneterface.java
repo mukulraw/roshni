@@ -186,6 +186,13 @@ public interface AllApiIneterface {
             @Part("status") String status
     );
 
+    @Multipart
+    @POST("roshni/api/worker_acept_reject.php")
+    Call<verifyBean> worker_acept_reject(
+            @Part("jid") String jid,
+            @Part("id") String id,
+            @Part("status") String status
+    );
 
     @Multipart
     @POST("roshni/api/update_worker_professional.php")

@@ -7,6 +7,7 @@ import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -38,7 +39,7 @@ public class WorkerApplicants extends AppCompatActivity {
     ProgressBar progress;
     ImageView nodata;
     Toolbar toolbar;
-    String jid;
+    String jid , title , category , salary , posted , sts;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,6 +47,11 @@ public class WorkerApplicants extends AppCompatActivity {
         setContentView(R.layout.activity_worker_applicants);
 
         jid = getIntent().getStringExtra("jid");
+        title = getIntent().getStringExtra("title");
+        category = getIntent().getStringExtra("category");
+        salary = getIntent().getStringExtra("salary");
+        posted = getIntent().getStringExtra("posted");
+        sts = getIntent().getStringExtra("sts");
 
         list = new ArrayList<>();
 
@@ -154,25 +160,33 @@ public class WorkerApplicants extends AppCompatActivity {
 
             final Datum item = list.get(position);
 
+            holder.reg.setAllCaps(true);
 
             holder.name.setText(item.getName());
             holder.skill.setText(item.getSkills());
             holder.exp.setText(item.getExperience());
             holder.emp.setText(item.getEmployment());
-            holder.reg.setText("Reg: " + item.getCreated());
+            holder.reg.setText(item.getStatus());
             holder.address.setText(item.getCstreet() + ", " + item.getCarea() + ", " + item.getCdistrict() + ", " + item.getCstate() + "-" + item.getCpin());
 
 
-            /*holder.itemView.setOnClickListener(new View.OnClickListener() {
+            holder.itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
 
-                    Intent intent = new Intent(context , JobDetails.class);
-                    intent.putExtra("jid" , item.getId());
+                    Intent intent = new Intent(context , WorkerApplicantDetails.class);
+                    intent.putExtra("jid" , item.getUserId());
+                    intent.putExtra("id" , jid);
+                    intent.putExtra("status" , item.getStatus());
+                    intent.putExtra("title" , title);
+                    intent.putExtra("category" , category);
+                    intent.putExtra("salary" , salary);
+                    intent.putExtra("posted" , posted);
+                    intent.putExtra("sts" , sts);
                     startActivity(intent);
 
                 }
-            });*/
+            });
 
         }
 
