@@ -162,7 +162,7 @@ public class workerInActive extends Fragment {
                 @Override
                 public void onClick(View view) {
 
-                    Intent intent = new Intent(context , UpdateWorkerJob.class);
+                    Intent intent = new Intent(context , WorkerApplicants.class);
                     intent.putExtra("jid" , item.getId());
                     startActivity(intent);
 

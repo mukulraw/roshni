@@ -16,7 +16,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".UpdateWorkerJob"></activity>
+        <activity android:name=".SingleWorker"></activity>
+        <activity android:name=".WorkerApplicants" />
+        <activity android:name=".UpdateWorkerJob" />
         <activity android:name=".WorkerJobDetails" />
         <activity android:name=".PostJobContractor" />
         <activity android:name=".ChooseJob" />

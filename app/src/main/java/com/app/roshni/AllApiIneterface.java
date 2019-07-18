@@ -145,9 +145,9 @@ public interface AllApiIneterface {
     );
 
     @Multipart
-    @POST("roshni/api/post_job.php")
+    @POST("roshni/api/update_job.php")
     Call<verifyBean> UpdateWorkerJob(
-            @Part("brand_id") String brand_id,
+            @Part("id") String id,
             @Part("title") String title,
             @Part("skills") String skills,
             @Part("preferred") String preferred,
@@ -254,5 +254,17 @@ public interface AllApiIneterface {
 
     @GET("roshni/api/getAllConttractors.php")
     Call<workerListBean> getAllConttractors();
+
+    @Multipart
+    @POST("roshni/api/getAppliedWorkers.php")
+    Call<workerListBean> getAppliedWorkers(
+            @Part("jid") String jid
+    );
+
+    @Multipart
+    @POST("roshni/api/getWorkerById.php")
+    Call<workerListBean> getWorkerById(
+            @Part("id") String id
+    );
 
 }

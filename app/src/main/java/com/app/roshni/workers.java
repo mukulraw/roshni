@@ -142,19 +142,19 @@ public class workers extends Fragment {
             holder.exp.setText(item.getExperience());
             holder.emp.setText(item.getEmployment());
             holder.reg.setText("Reg: " + item.getCreated());
-            holder.address.setText(item.getCstreet() + ", " + item.getCarea());
+            holder.address.setText(item.getCstreet() + ", " + item.getCarea() + ", " + item.getCdistrict() + ", " + item.getCstate() + "-" + item.getCpin());
 
 
-            /*holder.itemView.setOnClickListener(new View.OnClickListener() {
+            holder.itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
 
-                    Intent intent = new Intent(context , JobDetails.class);
-                    intent.putExtra("jid" , item.getId());
+                    Intent intent = new Intent(context , SingleWorker.class);
+                    intent.putExtra("jid" , item.getUserId());
                     startActivity(intent);
 
                 }
-            });*/
+            });
 
         }
 

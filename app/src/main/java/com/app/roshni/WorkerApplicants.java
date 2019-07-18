@@ -1,7 +1,13 @@
 package com.app.roshni;
 
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
+import androidx.recyclerview.widget.GridLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+
 import android.content.Context;
-import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -10,15 +16,8 @@ import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.fragment.app.Fragment;
-import androidx.recyclerview.widget.GridLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
-
-import com.app.roshni.allWorkContrJobListPOJO.Datum;
-import com.app.roshni.allWorkContrJobListPOJO.allWorkContrJobBean;
-import com.app.roshni.workerJobListPOJO.workerJobListBean;
+import com.app.roshni.workerListPOJO.Datum;
+import com.app.roshni.workerListPOJO.workerListBean;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -30,7 +29,7 @@ import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 import retrofit2.converter.scalars.ScalarsConverterFactory;
 
-public class workerActive extends Fragment {
+public class WorkerApplicants extends AppCompatActivity {
 
     RecyclerView grid;
     GridLayoutManager manager;
@@ -38,27 +37,46 @@ public class workerActive extends Fragment {
     List<Datum> list;
     ProgressBar progress;
     ImageView nodata;
+    Toolbar toolbar;
+    String jid;
 
-    @Nullable
     @Override
-    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.jobs_layout, container, false);
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_worker_applicants);
+
+        jid = getIntent().getStringExtra("jid");
 
         list = new ArrayList<>();
 
-        grid = view.findViewById(R.id.grid);
-        progress = view.findViewById(R.id.progressBar3);
-        nodata = view.findViewById(R.id.imageView5);
+        toolbar = findViewById(R.id.toolbar);
+        grid = findViewById(R.id.grid);
+        progress = findViewById(R.id.progressBar3);
+        nodata = findViewById(R.id.imageView5);
 
-        adapter = new JobsAdapter(getContext() , list);
-        manager = new GridLayoutManager(getContext(), 1);
+
+        setSupportActionBar(toolbar);
+        getSupportActionBar().setDisplayShowTitleEnabled(false);
+        toolbar.setNavigationIcon(R.drawable.ic_arrow_back_black_24dp);
+        toolbar.setNavigationOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                finish();
+            }
+        });
+
+        toolbar.setTitleTextColor(Color.WHITE);
+        toolbar.setTitle("APPLICANTS");
+
+
+        adapter = new JobsAdapter(this , list);
+        manager = new GridLayoutManager(this, 1);
 
         grid.setAdapter(adapter);
         grid.setLayoutManager(manager);
 
-        return view;
     }
-
 
     @Override
     public void onResume() {
@@ -66,7 +84,7 @@ public class workerActive extends Fragment {
 
         progress.setVisibility(View.VISIBLE);
 
-        Bean b = (Bean) getContext().getApplicationContext();
+        Bean b = (Bean) getApplicationContext();
 
         Retrofit retrofit = new Retrofit.Builder()
                 .baseUrl(b.baseurl)
@@ -77,11 +95,11 @@ public class workerActive extends Fragment {
         AllApiIneterface cr = retrofit.create(AllApiIneterface.class);
 
 
-        Call<allWorkContrJobBean> call = cr.getAllWorkerJobs(SharePreferenceUtils.getInstance().getString("user_id") , "Active");
+        Call<workerListBean> call = cr.getAppliedWorkers(jid);
 
-        call.enqueue(new Callback<allWorkContrJobBean>() {
+        call.enqueue(new Callback<workerListBean>() {
             @Override
-            public void onResponse(Call<allWorkContrJobBean> call, Response<allWorkContrJobBean> response) {
+            public void onResponse(Call<workerListBean> call, Response<workerListBean> response) {
 
                 if (response.body().getData().size() > 0)
                 {
@@ -100,7 +118,7 @@ public class workerActive extends Fragment {
             }
 
             @Override
-            public void onFailure(Call<allWorkContrJobBean> call, Throwable t) {
+            public void onFailure(Call<workerListBean> call, Throwable t) {
                 progress.setVisibility(View.GONE);
             }
         });
@@ -127,7 +145,7 @@ public class workerActive extends Fragment {
         @Override
         public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
             LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-            View view = inflater.inflate(R.layout.worker_active_list_model, parent, false);
+            View view = inflater.inflate(R.layout.worker_list_model, parent, false);
             return new ViewHolder(view);
         }
 
@@ -137,36 +155,24 @@ public class workerActive extends Fragment {
             final Datum item = list.get(position);
 
 
-            holder.category.setText("Job category: " + item.getRole());
-            holder.title.setText(item.getTitle());
-            holder.salary.setText("Salary: " + item.getSalary());
-            holder.posted.setText("Posted on: " + item.getCreated());
+            holder.name.setText(item.getName());
+            holder.skill.setText(item.getSkills());
+            holder.exp.setText(item.getExperience());
+            holder.emp.setText(item.getEmployment());
+            holder.reg.setText("Reg: " + item.getCreated());
+            holder.address.setText(item.getCstreet() + ", " + item.getCarea() + ", " + item.getCdistrict() + ", " + item.getCstate() + "-" + item.getCpin());
 
-            holder.applied.setText(item.getApplied() + " Applied");
 
-
-            holder.details.setOnClickListener(new View.OnClickListener() {
+            /*holder.itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
 
-                    Intent intent = new Intent(context , WorkerJobDetails.class);
-                    intent.putExtra("jid" , item.getId());
-                    intent.putExtra("status" , item.getStatus());
-                    startActivity(intent);
-
-                }
-            });
-
-            holder.applicants.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-
-                    Intent intent = new Intent(context , WorkerApplicants.class);
+                    Intent intent = new Intent(context , JobDetails.class);
                     intent.putExtra("jid" , item.getId());
                     startActivity(intent);
 
                 }
-            });
+            });*/
 
         }
 
@@ -177,17 +183,16 @@ public class workerActive extends Fragment {
 
         class ViewHolder extends RecyclerView.ViewHolder {
 
-            TextView title , category , salary , posted , applied , applicants , details;
+            TextView name , address, skill , exp , emp , reg;
 
             ViewHolder(@NonNull View itemView) {
                 super(itemView);
-                title = itemView.findViewById(R.id.textView20);
-                category = itemView.findViewById(R.id.textView26);
-                salary = itemView.findViewById(R.id.textView28);
-                posted = itemView.findViewById(R.id.textView22);
-                applied = itemView.findViewById(R.id.textView29);
-                applicants = itemView.findViewById(R.id.textView38);
-                details = itemView.findViewById(R.id.textView39);
+                name = itemView.findViewById(R.id.textView20);
+                address = itemView.findViewById(R.id.textView26);
+                skill = itemView.findViewById(R.id.textView28);
+                exp = itemView.findViewById(R.id.textView34);
+                emp = itemView.findViewById(R.id.textView35);
+                reg = itemView.findViewById(R.id.textView22);
 
             }
         }

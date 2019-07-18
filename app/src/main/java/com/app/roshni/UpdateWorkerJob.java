@@ -471,7 +471,7 @@ public class UpdateWorkerJob extends AppCompatActivity implements TimePickerDial
                                                 AllApiIneterface cr = retrofit.create(AllApiIneterface.class);
 
                                                 Call<verifyBean> call1 = cr.UpdateWorkerJob(
-                                                        SharePreferenceUtils.getInstance().getString("user_id"),
+                                                        jid,
                                                         t,
                                                         skil,
                                                         p,

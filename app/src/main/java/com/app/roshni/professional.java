@@ -89,7 +89,7 @@ public class professional extends Fragment {
         exp.add("0 to 2 years");
         exp.add("3 to 5 years");
         exp.add("5 to 10 years");
-        exp.add("more then 10 years");
+        exp.add("more than 10 years");
 
         emp.add("Select one --- ");
         emp.add("Employed");

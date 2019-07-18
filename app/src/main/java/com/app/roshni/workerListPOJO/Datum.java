@@ -16,6 +16,9 @@ public class Datum {
     @SerializedName("photo")
     @Expose
     private String photo;
+    @SerializedName("dob")
+    @Expose
+    private String dob;
     @SerializedName("gender")
     @Expose
     private String gender;
@@ -34,15 +37,51 @@ public class Datum {
     @SerializedName("cstreet")
     @Expose
     private String cstreet;
+    @SerializedName("ppin")
+    @Expose
+    private String ppin;
+    @SerializedName("pstate")
+    @Expose
+    private String pstate;
+    @SerializedName("pdistrict")
+    @Expose
+    private String pdistrict;
+    @SerializedName("parea")
+    @Expose
+    private String parea;
+    @SerializedName("pstreet")
+    @Expose
+    private String pstreet;
     @SerializedName("experience")
     @Expose
     private String experience;
     @SerializedName("employment")
     @Expose
     private String employment;
+    @SerializedName("category")
+    @Expose
+    private String category;
+    @SerializedName("religion")
+    @Expose
+    private String religion;
+    @SerializedName("educational")
+    @Expose
+    private String educational;
+    @SerializedName("marital")
+    @Expose
+    private String marital;
+    @SerializedName("employer")
+    @Expose
+    private String employer;
+    @SerializedName("home")
+    @Expose
+    private String home;
     @SerializedName("skills")
     @Expose
     private String skills;
+    @SerializedName("sector")
+    @Expose
+    private String sector;
     @SerializedName("created")
     @Expose
     private String created;
@@ -77,6 +116,14 @@ public class Datum {
 
     public void setPhoto(String photo) {
         this.photo = photo;
+    }
+
+    public String getDob() {
+        return dob;
+    }
+
+    public void setDob(String dob) {
+        this.dob = dob;
     }
 
     public String getGender() {
@@ -127,6 +174,46 @@ public class Datum {
         this.cstreet = cstreet;
     }
 
+    public String getPpin() {
+        return ppin;
+    }
+
+    public void setPpin(String ppin) {
+        this.ppin = ppin;
+    }
+
+    public String getPstate() {
+        return pstate;
+    }
+
+    public void setPstate(String pstate) {
+        this.pstate = pstate;
+    }
+
+    public String getPdistrict() {
+        return pdistrict;
+    }
+
+    public void setPdistrict(String pdistrict) {
+        this.pdistrict = pdistrict;
+    }
+
+    public String getParea() {
+        return parea;
+    }
+
+    public void setParea(String parea) {
+        this.parea = parea;
+    }
+
+    public String getPstreet() {
+        return pstreet;
+    }
+
+    public void setPstreet(String pstreet) {
+        this.pstreet = pstreet;
+    }
+
     public String getExperience() {
         return experience;
     }
@@ -143,12 +230,68 @@ public class Datum {
         this.employment = employment;
     }
 
+    public String getCategory() {
+        return category;
+    }
+
+    public void setCategory(String category) {
+        this.category = category;
+    }
+
+    public String getReligion() {
+        return religion;
+    }
+
+    public void setReligion(String religion) {
+        this.religion = religion;
+    }
+
+    public String getEducational() {
+        return educational;
+    }
+
+    public void setEducational(String educational) {
+        this.educational = educational;
+    }
+
+    public String getMarital() {
+        return marital;
+    }
+
+    public void setMarital(String marital) {
+        this.marital = marital;
+    }
+
+    public String getEmployer() {
+        return employer;
+    }
+
+    public void setEmployer(String employer) {
+        this.employer = employer;
+    }
+
+    public String getHome() {
+        return home;
+    }
+
+    public void setHome(String home) {
+        this.home = home;
+    }
+
     public String getSkills() {
         return skills;
     }
 
     public void setSkills(String skills) {
         this.skills = skills;
+    }
+
+    public String getSector() {
+        return sector;
+    }
+
+    public void setSector(String sector) {
+        this.sector = sector;
     }
 
     public String getCreated() {

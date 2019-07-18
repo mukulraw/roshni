@@ -140,7 +140,7 @@ public class contractors extends Fragment {
             holder.exp.setText(item.getExperience());
             holder.emp.setText(item.getEmployment());
             holder.reg.setText("Reg: " + item.getCreated());
-            holder.address.setText(item.getCstreet() + ", " + item.getCarea());
+            holder.address.setText(item.getCstreet() + ", " + item.getCarea() + ", " + item.getCdistrict() + ", " + item.getCstate() + "-" + item.getCpin());
 
 
             /*holder.itemView.setOnClickListener(new View.OnClickListener() {
