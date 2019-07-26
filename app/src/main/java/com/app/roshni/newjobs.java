@@ -24,6 +24,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.app.roshni.workerJobListPOJO.Datum;
 import com.app.roshni.workerJobListPOJO.workerJobListBean;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -49,6 +50,8 @@ public class newjobs extends Fragment {
     TextView date;
     String dd;
 
+    FloatingActionButton filter;
+
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -57,6 +60,7 @@ public class newjobs extends Fragment {
         list = new ArrayList<>();
 
         grid = view.findViewById(R.id.grid);
+        filter = view.findViewById(R.id.floatingActionButton2);
         date = view.findViewById(R.id.date);
         progress = view.findViewById(R.id.progressBar3);
         nodata = view.findViewById(R.id.imageView5);
@@ -151,6 +155,16 @@ public class newjobs extends Fragment {
                     }
                 });
 
+
+            }
+        });
+
+        filter.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                Intent intent = new Intent(getContext() , FilterWorkerJob.class);
+                startActivity(intent);
 
             }
         });
