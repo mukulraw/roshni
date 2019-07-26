@@ -98,7 +98,7 @@ public class WorkerJobByCompany extends AppCompatActivity {
         AllApiIneterface cr = retrofit.create(AllApiIneterface.class);
 
 
-        Call<allWorkContrJobBean> call = cr.getAllWorkerJobs(bid , "Active");
+        Call<allWorkContrJobBean> call = cr.getAllWorkerJobs(bid , "Active" , "");
 
         call.enqueue(new Callback<allWorkContrJobBean>() {
             @Override

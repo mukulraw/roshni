@@ -212,7 +212,8 @@ public interface AllApiIneterface {
     @Multipart
     @POST("roshni/api/getJobListForWorker.php")
     Call<workerJobListBean> getJobListForWorker(
-            @Part("user_id") String user_id
+            @Part("user_id") String user_id,
+            @Part("date") String date
     );
 
 
@@ -220,21 +221,24 @@ public interface AllApiIneterface {
     @POST("roshni/api/getAllWorkerJobs.php")
     Call<allWorkContrJobBean> getAllWorkerJobs(
             @Part("brand_id") String brand_id,
-            @Part("status") String status
+            @Part("status") String status,
+            @Part("date") String date
     );
 
     @Multipart
     @POST("roshni/api/getAllContractorJobs.php")
     Call<allWorkContrJobBean> getAllContractorJobs(
             @Part("brand_id") String brand_id,
-            @Part("status") String status
+            @Part("status") String status,
+            @Part("date") String date
     );
 
 
     @Multipart
     @POST("roshni/api/getAppliedListForWorker.php")
     Call<workerJobListBean> getAppliedListForWorker(
-            @Part("user_id") String user_id
+            @Part("user_id") String user_id,
+            @Part("date") String date
     );
 
     @Multipart
