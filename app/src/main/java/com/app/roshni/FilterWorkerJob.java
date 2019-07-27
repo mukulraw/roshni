@@ -446,13 +446,6 @@ public class FilterWorkerJob extends AppCompatActivity {
                 String jobr = TextUtils.join(",", jo);
                 String sala = TextUtils.join(",", sa);
 
-                Log.d("skills" , skil);
-                Log.d("location" , lcoa);
-                Log.d("experience" , expe);
-                Log.d("education" , educ);
-                Log.d("job_role" , jobr);
-                Log.d("salary_type" , sala);
-
                 Intent intent = new Intent();
                 intent.putExtra("skill" , skil);
                 intent.putExtra("location" , lcoa);

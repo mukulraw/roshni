@@ -133,7 +133,7 @@ public class newjobs extends Fragment {
                         AllApiIneterface cr = retrofit.create(AllApiIneterface.class);
 
 
-                        Call<workerJobListBean> call = cr.getJobListForWorker(SharePreferenceUtils.getInstance().getString("user_id") , strDate);
+                        Call<workerJobListBean> call = cr.getJobListForWorker(SharePreferenceUtils.getInstance().getString("user_id") , dd);
 
                         call.enqueue(new Callback<workerJobListBean>() {
                             @Override
@@ -149,7 +149,8 @@ public class newjobs extends Fragment {
                                 }
 
 
-                                adapter.setData(response.body().getData());
+                                list = response.body().getData();
+                                adapter.setData(list);
 
                                 progress.setVisibility(View.GONE);
 
@@ -201,14 +202,6 @@ public class newjobs extends Fragment {
             }
         });
 
-        return view;
-    }
-
-
-    @Override
-    public void onResume() {
-        super.onResume();
-
         Date c = Calendar.getInstance().getTime();
         SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd");
         String formattedDate = df.format(c);
@@ -218,6 +211,16 @@ public class newjobs extends Fragment {
         date.setText("Date - " + formattedDate + " (click to change)");
 
         dd = formattedDate;
+
+        return view;
+    }
+
+
+    @Override
+    public void onResume() {
+        super.onResume();
+
+
 
         progress.setVisibility(View.VISIBLE);
 
@@ -232,7 +235,7 @@ public class newjobs extends Fragment {
         AllApiIneterface cr = retrofit.create(AllApiIneterface.class);
 
 
-        Call<workerJobListBean> call = cr.getJobListForWorker(SharePreferenceUtils.getInstance().getString("user_id") , formattedDate);
+        Call<workerJobListBean> call = cr.getJobListForWorker(SharePreferenceUtils.getInstance().getString("user_id") , dd);
 
         call.enqueue(new Callback<workerJobListBean>() {
             @Override
@@ -248,7 +251,183 @@ public class newjobs extends Fragment {
                 }
 
 
-                adapter.setData(response.body().getData());
+
+
+
+
+
+                list = response.body().getData();
+                List<Datum> ll1 = new ArrayList<>();
+                List<Datum> ll2 = new ArrayList<>();
+
+                ll1 = list;
+
+                if (skil1.length() > 0)
+                {
+                    String [] ski1 = skil1.split(",");
+                    sk.addAll(Arrays.asList(ski1));
+
+                    ll2.clear();
+
+                    for (int i = 0 ; i < ll1.size() ; i++)
+                    {
+                        for (int j = 0 ; j < sk.size() ; j++)
+                        {
+                            if (ll1.get(i).getSkills().equals(sk.get(j)))
+                            {
+                                ll2.add(ll1.get(i));
+                            }
+                        }
+                    }
+
+                    ll1 = ll2;
+
+                }
+                else
+                {
+                    sk.clear();
+                    ll1 = list;
+                }
+
+
+
+                if (loca1.length() > 0)
+                {
+                    String [] loc1 = loca1.split(",");
+                    lo.addAll(Arrays.asList(loc1));
+
+                    ll2.clear();
+
+                    for (int i = 0 ; i < ll1.size() ; i++)
+                    {
+                        for (int j = 0 ; j < lo.size() ; j++)
+                        {
+                            if (ll1.get(i).getLocation().equals(lo.get(j)))
+                            {
+                                ll2.add(ll1.get(i));
+                            }
+                        }
+                    }
+
+                    ll1 = ll2;
+
+                }
+                else
+                {
+                    lo.clear();
+                }
+
+
+
+                if (expe1.length() > 0)
+                {
+                    String [] exp1 = expe1.split(",");
+                    ex.addAll(Arrays.asList(exp1));
+
+                    ll2.clear();
+
+                    for (int i = 0 ; i < ll1.size() ; i++)
+                    {
+                        for (int j = 0 ; j < ex.size() ; j++)
+                        {
+                            if (ll1.get(i).getExperience().equals(ex.get(j)))
+                            {
+                                ll2.add(ll1.get(i));
+                            }
+                        }
+                    }
+
+                    ll1 = ll2;
+
+                }
+                else
+                {
+                    ex.clear();
+                }
+
+
+
+                if (jobr1.length() > 0)
+                {
+                    String [] job1 = jobr1.split(",");
+                    jo.addAll(Arrays.asList(job1));
+
+                    ll2.clear();
+
+                    for (int i = 0 ; i < ll1.size() ; i++)
+                    {
+                        for (int j = 0 ; j < jo.size() ; j++)
+                        {
+                            if (ll1.get(i).getRole().equals(jo.get(j)))
+                            {
+                                ll2.add(ll1.get(i));
+                            }
+                        }
+                    }
+
+                    ll1 = ll2;
+
+                }
+                else
+                {
+                    jo.clear();
+                }
+
+                if (educ1.length() > 0)
+                {
+                    String [] edu1 = educ1.split(",");
+                    ed.addAll(Arrays.asList(edu1));
+
+                    ll2.clear();
+
+                    for (int i = 0 ; i < ll1.size() ; i++)
+                    {
+                        for (int j = 0 ; j < ed.size() ; j++)
+                        {
+                            if (ll1.get(i).getEducation().equals(ed.get(j)))
+                            {
+                                ll2.add(ll1.get(i));
+                            }
+                        }
+                    }
+
+                    ll1 = ll2;
+
+                }
+                else
+                {
+                    ed.clear();
+                }
+
+                if (sala1.length() > 0)
+                {
+                    String [] sal1 = sala1.split(",");
+                    sa.addAll(Arrays.asList(sal1));
+
+                    ll2.clear();
+
+                    for (int i = 0 ; i < ll1.size() ; i++)
+                    {
+                        for (int j = 0 ; j < sa.size() ; j++)
+                        {
+                            if (ll1.get(i).getSalary().equals(sa.get(j)))
+                            {
+                                ll2.add(ll1.get(i));
+                            }
+                        }
+                    }
+
+                    ll1 = ll2;
+
+                }
+                else
+                {
+                    sa.clear();
+                }
+
+                Log.d("lll1" , String.valueOf(ll1.size()));
+
+                adapter.setData(ll1);
 
                 progress.setVisibility(View.GONE);
 
@@ -336,75 +515,28 @@ public class newjobs extends Fragment {
         if (requestCode == 123 && resultCode == RESULT_OK)
         {
 
-            String skil1 = data.getStringExtra("skill");
-            String loca1 = data.getStringExtra("location");
-            String expe1 = data.getStringExtra("experience");
-            String jobr1 = data.getStringExtra("job_role");
-            String educ1 = data.getStringExtra("education");
-            String sala1 = data.getStringExtra("salary_type");
+            skil1 = data.getStringExtra("skill");
+            loca1 = data.getStringExtra("location");
+            expe1 = data.getStringExtra("experience");
+            jobr1 = data.getStringExtra("job_role");
+            educ1 = data.getStringExtra("education");
+            sala1 = data.getStringExtra("salary_type");
 
-            if (skil1.length() > 0)
-            {
-                String [] ski1 = skil1.split(",");
-                sk.addAll(Arrays.asList(ski1));
-            }
-            else
-            {
-                sk.clear();
-            }
 
-            if (loca1.length() > 0)
-            {
-                String [] loc1 = loca1.split(",");
-                lo.addAll(Arrays.asList(loc1));
-            }
-            else
-            {
-                lo.clear();
-            }
 
-            if (expe1.length() > 0)
-            {
-                String [] exp1 = expe1.split(",");
-                ex.addAll(Arrays.asList(exp1));
-            }
-            else
-            {
-                ex.clear();
-            }
+            Log.d("skills" , skil1);
+            Log.d("location" , loca1);
+            Log.d("experience" , expe1);
+            Log.d("education" , educ1);
+            Log.d("job_role" , jobr1);
+            Log.d("salary_type" , sala1);
 
-            if (jobr1.length() > 0)
-            {
-                String [] job1 = jobr1.split(",");
-                jo.addAll(Arrays.asList(job1));
-            }
-            else
-            {
-                jo.clear();
-            }
-
-            if (educ1.length() > 0)
-            {
-                String [] edu1 = educ1.split(",");
-                ed.addAll(Arrays.asList(edu1));
-            }
-            else
-            {
-                ed.clear();
-            }
-
-            if (sala1.length() > 0)
-            {
-                String [] sal1 = sala1.split(",");
-                sa.addAll(Arrays.asList(sal1));
-            }
-            else
-            {
-                sa.clear();
-            }
 
 
 
         }
     }
+
+    private String skil1 = "" , loca1 = "" , expe1 = "", jobr1 = "", educ1 = "", sala1 = "";
+
 }
