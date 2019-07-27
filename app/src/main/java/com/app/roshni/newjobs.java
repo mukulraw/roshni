@@ -343,19 +343,67 @@ public class newjobs extends Fragment {
             String educ1 = data.getStringExtra("education");
             String sala1 = data.getStringExtra("salary_type");
 
-            String [] ski1 = skil1.split(",");
-            String [] loc1 = loca1.split(",");
-            String [] exp1 = expe1.split(",");
-            String [] job1 = jobr1.split(",");
-            String [] edu1 = educ1.split(",");
-            String [] sal1 = sala1.split(",");
+            if (skil1.length() > 0)
+            {
+                String [] ski1 = skil1.split(",");
+                sk.addAll(Arrays.asList(ski1));
+            }
+            else
+            {
+                sk.clear();
+            }
 
-            sk.addAll(Arrays.asList(ski1));
-            lo.addAll(Arrays.asList(loc1));
-            ex.addAll(Arrays.asList(exp1));
-            jo.addAll(Arrays.asList(job1));
-            ed.addAll(Arrays.asList(edu1));
-            sa.addAll(Arrays.asList(sal1));
+            if (loca1.length() > 0)
+            {
+                String [] loc1 = loca1.split(",");
+                lo.addAll(Arrays.asList(loc1));
+            }
+            else
+            {
+                lo.clear();
+            }
+
+            if (expe1.length() > 0)
+            {
+                String [] exp1 = expe1.split(",");
+                ex.addAll(Arrays.asList(exp1));
+            }
+            else
+            {
+                ex.clear();
+            }
+
+            if (jobr1.length() > 0)
+            {
+                String [] job1 = jobr1.split(",");
+                jo.addAll(Arrays.asList(job1));
+            }
+            else
+            {
+                jo.clear();
+            }
+
+            if (educ1.length() > 0)
+            {
+                String [] edu1 = educ1.split(",");
+                ed.addAll(Arrays.asList(edu1));
+            }
+            else
+            {
+                ed.clear();
+            }
+
+            if (sala1.length() > 0)
+            {
+                String [] sal1 = sala1.split(",");
+                sa.addAll(Arrays.asList(sal1));
+            }
+            else
+            {
+                sa.clear();
+            }
+
+
 
         }
     }

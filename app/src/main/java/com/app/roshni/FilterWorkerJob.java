@@ -461,6 +461,7 @@ public class FilterWorkerJob extends AppCompatActivity {
                 intent.putExtra("job_role" , jobr);
                 intent.putExtra("salary_type" , sala);
                 setResult(RESULT_OK,intent);
+                finish();
 
             }
         });
