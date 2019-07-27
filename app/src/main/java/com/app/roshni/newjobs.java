@@ -4,6 +4,7 @@ import android.app.Dialog;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.util.Log;
 import android.view.ContextMenu;
 import android.view.LayoutInflater;
@@ -28,7 +29,9 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Calendar;
+import java.util.Collections;
 import java.util.Date;
 import java.util.List;
 
@@ -38,6 +41,8 @@ import retrofit2.Response;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 import retrofit2.converter.scalars.ScalarsConverterFactory;
+
+import static android.app.Activity.RESULT_OK;
 
 public class newjobs extends Fragment {
 
@@ -49,7 +54,7 @@ public class newjobs extends Fragment {
     ImageView nodata;
     TextView date;
     String dd;
-
+    List<String> sk , lo , ex , jo , ed , sa;
     FloatingActionButton filter;
 
     @Nullable
@@ -58,6 +63,12 @@ public class newjobs extends Fragment {
         View view = inflater.inflate(R.layout.jobs_layout1, container, false);
 
         list = new ArrayList<>();
+        sk = new ArrayList<>();
+        lo = new ArrayList<>();
+        ex = new ArrayList<>();
+        jo = new ArrayList<>();
+        ed = new ArrayList<>();
+        sa = new ArrayList<>();
 
         grid = view.findViewById(R.id.grid);
         filter = view.findViewById(R.id.floatingActionButton2);
@@ -163,8 +174,29 @@ public class newjobs extends Fragment {
             @Override
             public void onClick(View view) {
 
+                String skil = TextUtils.join(",", sk);
+                String lcoa = TextUtils.join(",", lo);
+                String expe = TextUtils.join(",", ex);
+                String educ = TextUtils.join(",", ed);
+                String jobr = TextUtils.join(",", jo);
+                String sala = TextUtils.join(",", sa);
+
+                Log.d("skills1" , skil);
+                Log.d("location1" , lcoa);
+                Log.d("experience1" , expe);
+                Log.d("education1" , educ);
+                Log.d("job_role1" , jobr);
+                Log.d("salary_type1" , sala);
+
+
                 Intent intent = new Intent(getContext() , FilterWorkerJob.class);
-                startActivity(intent);
+                intent.putExtra("skill" , skil);
+                intent.putExtra("location" , lcoa);
+                intent.putExtra("experience" , expe);
+                intent.putExtra("education" , educ);
+                intent.putExtra("job_role" , jobr);
+                intent.putExtra("salary_type" , sala);
+                startActivityForResult(intent , 123);
 
             }
         });
@@ -299,4 +331,32 @@ public class newjobs extends Fragment {
         }
     }
 
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        if (requestCode == 123 && resultCode == RESULT_OK)
+        {
+
+            String skil1 = data.getStringExtra("skill");
+            String loca1 = data.getStringExtra("location");
+            String expe1 = data.getStringExtra("experience");
+            String jobr1 = data.getStringExtra("job_role");
+            String educ1 = data.getStringExtra("education");
+            String sala1 = data.getStringExtra("salary_type");
+
+            String [] ski1 = skil1.split(",");
+            String [] loc1 = loca1.split(",");
+            String [] exp1 = expe1.split(",");
+            String [] job1 = jobr1.split(",");
+            String [] edu1 = educ1.split(",");
+            String [] sal1 = sala1.split(",");
+
+            sk.addAll(Arrays.asList(ski1));
+            lo.addAll(Arrays.asList(loc1));
+            ex.addAll(Arrays.asList(exp1));
+            jo.addAll(Arrays.asList(job1));
+            ed.addAll(Arrays.asList(edu1));
+            sa.addAll(Arrays.asList(sal1));
+
+        }
+    }
 }

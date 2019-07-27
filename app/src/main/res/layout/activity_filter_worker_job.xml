@@ -10,7 +10,7 @@
         android:id="@+id/imageButton4"
         android:layout_width="wrap_content"
         android:layout_height="0dp"
-        android:layout_marginStart="16dp"
+        android:layout_marginStart="24dp"
         android:layout_marginTop="8dp"
         android:layout_marginBottom="8dp"
         android:adjustViewBounds="true"
@@ -36,10 +36,11 @@
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginTop="8dp"
+        android:layout_marginBottom="8dp"
         android:fillViewport="true"
         android:paddingStart="8dp"
         android:paddingEnd="8dp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/button14"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView41">
@@ -47,91 +48,91 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical" >
+            android:orientation="vertical">
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Skills"
-                android:layout_marginTop="16dp"
-                />
+                android:layout_marginTop="24dp"
+                android:textStyle="bold"
+                android:textColor="@color/colorPrimary"
+                android:text="Skills" />
 
             <com.google.android.material.chip.ChipGroup
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
                 android:id="@+id/skills"
-                android:layout_marginTop="8dp"
-                />
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Location"
-                android:layout_marginTop="16dp"
-                />
+                android:layout_marginTop="24dp"
+                android:textStyle="bold"
+                android:textColor="@color/colorPrimary"
+                android:text="Location" />
 
             <com.google.android.material.chip.ChipGroup
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
                 android:id="@+id/location"
-                android:layout_marginTop="8dp"
-                />
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Experience"
-                android:layout_marginTop="16dp"
-                />
+                android:layout_marginTop="24dp"
+                android:textStyle="bold"
+                android:textColor="@color/colorPrimary"
+                android:text="Experience" />
 
             <com.google.android.material.chip.ChipGroup
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
                 android:id="@+id/experience"
-                android:layout_marginTop="8dp"
-                />
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Job Role"
-                android:layout_marginTop="16dp"
-                />
+                android:layout_marginTop="24dp"
+                android:textStyle="bold"
+                android:textColor="@color/colorPrimary"
+                android:text="Job Role" />
 
             <com.google.android.material.chip.ChipGroup
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
                 android:id="@+id/job_role"
-                android:layout_marginTop="8dp"
-                />
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Education"
-                android:layout_marginTop="16dp"
-                />
+                android:layout_marginTop="24dp"
+                android:textStyle="bold"
+                android:textColor="@color/colorPrimary"
+                android:text="Education" />
 
             <com.google.android.material.chip.ChipGroup
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
                 android:id="@+id/education"
-                android:layout_marginTop="8dp"
-                />
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Salary Type"
-                android:layout_marginTop="16dp"
-                />
+                android:layout_marginTop="24dp"
+                android:textStyle="bold"
+                android:textColor="@color/colorPrimary"
+                android:text="Salary Type" />
 
             <com.google.android.material.chip.ChipGroup
+                android:id="@+id/salary_type"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:id="@+id/salary_type"
-                android:layout_marginTop="8dp"
-                />
+                android:layout_marginTop="8dp" />
 
         </LinearLayout>
     </androidx.core.widget.NestedScrollView>
@@ -144,11 +145,46 @@
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
-        android:visibility="gone"
         android:layout_marginBottom="8dp"
+        android:visibility="gone"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/button13"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="4dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
+        android:text="FILTER"
+        android:textColor="#ffffff"
+        android:minHeight="0dp"
+        android:paddingTop="8dp"
+        android:paddingBottom="8dp"
+        android:background="@drawable/blue_back_round"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/button14" />
+
+    <Button
+        android:id="@+id/button14"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="4dp"
+        android:layout_marginBottom="8dp"
+        android:text="CLEAR"
+        android:minHeight="0dp"
+        android:paddingTop="8dp"
+        android:paddingBottom="8dp"
+        android:background="@drawable/white_back_round"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/button13"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
