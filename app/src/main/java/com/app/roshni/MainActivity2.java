@@ -25,9 +25,11 @@ import android.widget.TextView;
 import com.aurelhubert.ahbottomnavigation.AHBottomNavigation;
 import com.aurelhubert.ahbottomnavigation.AHBottomNavigationAdapter;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.firebase.iid.FirebaseInstanceId;
 import com.nostra13.universalimageloader.core.DisplayImageOptions;
 import com.nostra13.universalimageloader.core.ImageLoader;
 
+import java.io.IOException;
 import java.util.Objects;
 
 import de.hdodenhof.circleimageview.CircleImageView;
@@ -35,7 +37,7 @@ import de.hdodenhof.circleimageview.CircleImageView;
 public class MainActivity2 extends AppCompatActivity {
 
     DrawerLayout drawer;
-    ImageView toggle;
+    ImageView toggle , notification;
     AHBottomNavigation bottom;
 
     TextView logout;
@@ -50,6 +52,7 @@ public class MainActivity2 extends AppCompatActivity {
 
         drawer = findViewById(R.id.drawer);
         toggle = findViewById(R.id.imageButton);
+        notification = findViewById(R.id.imageButton2);
         bottom = findViewById(R.id.bottomNavigationView);
         logout = findViewById(R.id.textView25);
         image = findViewById(R.id.imageView1);
@@ -81,6 +84,17 @@ public class MainActivity2 extends AppCompatActivity {
             }
         });*/
 
+        notification.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                Intent intent = new Intent(MainActivity2.this , Notifications.class);
+                startActivity(intent);
+                drawer.closeDrawer(GravityCompat.START);
+
+            }
+        });
+
         logout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -106,9 +120,22 @@ public class MainActivity2 extends AppCompatActivity {
                     @Override
                     public void onClick(View v) {
 
+                        dialog.dismiss();
+
+                        new Thread(new Runnable() {
+                            @Override
+                            public void run() {
+                                try {
+                                    FirebaseInstanceId.getInstance().deleteInstanceId();
+                                } catch (IOException e) {
+                                    e.printStackTrace();
+                                }
+                            }
+                        }).start();
+
                         SharePreferenceUtils.getInstance().deletePref();
 
-                        Intent intent = new Intent(MainActivity2.this , SignupLogin.class);
+                        Intent intent = new Intent(MainActivity2.this , Splash.class);
                         startActivity(intent);
                         finishAffinity();
 
@@ -178,13 +205,13 @@ public class MainActivity2 extends AppCompatActivity {
 
         FragmentManager fm = getSupportFragmentManager();
         FragmentTransaction ft = fm.beginTransaction();
-        newjobs test = new newjobs();
+        jobsbrand test = new jobsbrand();
         ft.replace(R.id.replace, test);
         ft.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_CLOSE);
         //ft.addToBackStack(null);
         ft.commit();
 
-        bottom.setCurrentItem(0);
+        bottom.setCurrentItem(2);
 
         singleReceiver = new BroadcastReceiver() {
             @Override

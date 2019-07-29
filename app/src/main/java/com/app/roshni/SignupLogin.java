@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -65,8 +66,9 @@ public class SignupLogin extends AppCompatActivity {
 
                     AllApiIneterface cr = retrofit.create(AllApiIneterface.class);
 
+                    Log.d("token" , SharePreferenceUtils.getInstance().getString("token"));
 
-                    Call<verifyBean> call = cr.login(pho);
+                    Call<verifyBean> call = cr.login(pho , SharePreferenceUtils.getInstance().getString("token"));
                     call.enqueue(new Callback<verifyBean>() {
                         @Override
                         public void onResponse(Call<verifyBean> call, Response<verifyBean> response) {

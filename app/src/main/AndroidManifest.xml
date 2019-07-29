@@ -16,29 +16,76 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".FilterWorkerJob"></activity>
-        <activity android:name=".WorkerApplicantDetails" />
-        <activity android:name=".WorkerJobByCompany" />
-        <activity android:name=".SingleWorker" />
-        <activity android:name=".WorkerApplicants" />
-        <activity android:name=".UpdateWorkerJob" />
-        <activity android:name=".WorkerJobDetails" />
-        <activity android:name=".PostJobContractor" />
-        <activity android:name=".ChooseJob" />
-        <activity android:name=".MainActivity3" />
-        <activity android:name=".Register3" />
-        <activity android:name=".JobDetails" />
-        <activity android:name=".PostJob" />
-        <activity android:name=".MainActivity2" />
-        <activity android:name=".Register2" />
-        <activity android:name=".Sliders" />
-        <activity android:name=".UpdateProfile" />
-        <activity android:name=".REgister" />
-        <activity android:name=".OTP2" />
-        <activity android:name=".Signup" />
-        <activity android:name=".ChooseAccount" />
-        <activity android:name=".OTP" />
-        <activity android:name=".SignupLogin" />
+        <activity android:name=".Notifications"></activity>
+        <activity
+            android:name=".FilterWorkerJob"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".WorkerApplicantDetails"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".WorkerJobByCompany"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".SingleWorker"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".WorkerApplicants"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".UpdateWorkerJob"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".WorkerJobDetails"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".PostJobContractor"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ChooseJob"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".MainActivity3"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".Register3"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".JobDetails"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".PostJob"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".MainActivity2"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".Register2"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".Sliders"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".UpdateProfile"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".REgister"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".OTP2"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".Signup"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ChooseAccount"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".OTP"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".SignupLogin"
+            android:screenOrientation="portrait" />
         <activity
             android:name=".Splash"
             android:screenOrientation="portrait">
@@ -61,6 +108,29 @@
                 android:name="android.support.FILE_PROVIDER_PATHS"
                 android:resource="@xml/provider_paths" />
         </provider>
+
+        <service android:name=".MyFirebaseMessagingService">
+            <intent-filter>
+                <action android:name="com.google.firebase.MESSAGING_EVENT" />
+            </intent-filter>
+        </service>
+        <!--
+ Set custom default icon. This is used when no icon is set for incoming notification messages.
+     See README(https://goo.gl/l4GJaQ) for more.
+        -->
+        <meta-data
+            android:name="com.google.firebase.messaging.default_notification_icon"
+            android:resource="@drawable/logo" />
+        <!--
+ Set color used with incoming notification messages. This is used when no color is set for the incoming
+             notification message. See README(https://goo.gl/6BKBk7) for more.
+        -->
+        <meta-data
+            android:name="com.google.firebase.messaging.default_notification_color"
+            android:resource="@color/colorAccent" />
+        <meta-data
+            android:name="com.google.firebase.messaging.default_notification_channel_id"
+            android:value="@string/default_notification_channel_id" />
     </application>
 
 </manifest>

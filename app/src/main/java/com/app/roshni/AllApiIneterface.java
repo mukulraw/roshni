@@ -1,6 +1,7 @@
 package com.app.roshni;
 
 import com.app.roshni.allWorkContrJobListPOJO.allWorkContrJobBean;
+import com.app.roshni.notificationBean.notificationBean;
 import com.app.roshni.sectorPOJO.sectorBean;
 import com.app.roshni.verifyPOJO.verifyBean;
 import com.app.roshni.workerJobListPOJO.workerJobDetailBean;
@@ -19,14 +20,16 @@ public interface AllApiIneterface {
     @Multipart
     @POST("roshni/api/login.php")
     Call<verifyBean> login(
-            @Part("phone") String client
+            @Part("phone") String client,
+            @Part("token") String token
     );
 
     @Multipart
     @POST("roshni/api/register_worker.php")
     Call<verifyBean> worker_signup(
             @Part("phone") String client,
-            @Part("type") String type
+            @Part("type") String type,
+            @Part("token") String token
     );
 
     @Multipart
@@ -276,6 +279,18 @@ public interface AllApiIneterface {
     @POST("roshni/api/getWorkerById.php")
     Call<workerListBean> getWorkerById(
             @Part("id") String id
+    );
+
+    @Multipart
+    @POST("roshni/api/getBrandNoti.php")
+    Call<notificationBean> getBrandNoti(
+            @Part("user_id") String user_id
+    );
+
+    @Multipart
+    @POST("roshni/api/getWorkerNoti.php")
+    Call<notificationBean> getWorkerNoti(
+            @Part("user_id") String user_id
     );
 
 }

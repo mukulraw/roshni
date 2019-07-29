@@ -70,7 +70,7 @@ public class Signup extends AppCompatActivity {
                     AllApiIneterface cr = retrofit.create(AllApiIneterface.class);
 
 
-                    Call<verifyBean> call = cr.worker_signup(pho , type);
+                    Call<verifyBean> call = cr.worker_signup(pho , type , SharePreferenceUtils.getInstance().getString("token"));
                     call.enqueue(new Callback<verifyBean>() {
                         @Override
                         public void onResponse(Call<verifyBean> call, Response<verifyBean> response) {

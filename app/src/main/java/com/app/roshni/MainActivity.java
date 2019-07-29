@@ -23,16 +23,18 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.firebase.iid.FirebaseInstanceId;
 import com.nostra13.universalimageloader.core.DisplayImageOptions;
 import com.nostra13.universalimageloader.core.ImageLoader;
 
+import java.io.IOException;
 import java.util.Objects;
 
 import de.hdodenhof.circleimageview.CircleImageView;
 
 public class MainActivity extends AppCompatActivity {
     DrawerLayout drawer;
-    ImageView toggle;
+    ImageView toggle , notification;
     BottomNavigationView bottom;
 
     TextView logout;
@@ -47,6 +49,7 @@ public class MainActivity extends AppCompatActivity {
 
         drawer = findViewById(R.id.drawer);
         toggle = findViewById(R.id.imageButton);
+        notification = findViewById(R.id.imageButton2);
         bottom = findViewById(R.id.bottomNavigationView);
         logout = findViewById(R.id.textView25);
         image = findViewById(R.id.imageView1);
@@ -69,6 +72,17 @@ public class MainActivity extends AppCompatActivity {
 
             }
         });*/
+
+        notification.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                Intent intent = new Intent(MainActivity.this , Notifications.class);
+                startActivity(intent);
+                drawer.closeDrawer(GravityCompat.START);
+
+            }
+        });
 
         logout.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -94,10 +108,21 @@ public class MainActivity extends AppCompatActivity {
                 ookk.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
+                        dialog.dismiss();
+                        new Thread(new Runnable() {
+                            @Override
+                            public void run() {
+                                try {
+                                    FirebaseInstanceId.getInstance().deleteInstanceId();
+                                } catch (IOException e) {
+                                    e.printStackTrace();
+                                }
+                            }
+                        }).start();
 
                         SharePreferenceUtils.getInstance().deletePref();
 
-                        Intent intent = new Intent(MainActivity.this , SignupLogin.class);
+                        Intent intent = new Intent(MainActivity.this , Splash.class);
                         startActivity(intent);
                         finishAffinity();
 

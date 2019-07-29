@@ -118,7 +118,7 @@ public class appliedjobs extends Fragment {
                         AllApiIneterface cr = retrofit.create(AllApiIneterface.class);
 
 
-                        Call<workerJobListBean> call = cr.getAppliedListForWorker(SharePreferenceUtils.getInstance().getString("user_id") , strDate);
+                        Call<workerJobListBean> call = cr.getAppliedListForWorker(SharePreferenceUtils.getInstance().getString("user_id") , dd);
 
                         call.enqueue(new Callback<workerJobListBean>() {
                             @Override
@@ -153,14 +153,6 @@ public class appliedjobs extends Fragment {
             }
         });
 
-        return view;
-    }
-
-
-    @Override
-    public void onResume() {
-        super.onResume();
-
         Date c = Calendar.getInstance().getTime();
         SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd");
         String formattedDate = df.format(c);
@@ -170,6 +162,16 @@ public class appliedjobs extends Fragment {
         date.setText("Date - " + formattedDate + " (click to change)");
 
         dd = formattedDate;
+
+
+        return view;
+    }
+
+
+    @Override
+    public void onResume() {
+        super.onResume();
+
 
         progress.setVisibility(View.VISIBLE);
 
@@ -184,7 +186,7 @@ public class appliedjobs extends Fragment {
         AllApiIneterface cr = retrofit.create(AllApiIneterface.class);
 
 
-        Call<workerJobListBean> call = cr.getAppliedListForWorker(SharePreferenceUtils.getInstance().getString("user_id") , formattedDate);
+        Call<workerJobListBean> call = cr.getAppliedListForWorker(SharePreferenceUtils.getInstance().getString("user_id") , dd);
 
         call.enqueue(new Callback<workerJobListBean>() {
             @Override

@@ -118,7 +118,7 @@ public class contractorInActive extends Fragment {
                         AllApiIneterface cr = retrofit.create(AllApiIneterface.class);
 
 
-                        Call<allWorkContrJobBean> call = cr.getAllContractorJobs(SharePreferenceUtils.getInstance().getString("user_id") , "Inactive" , strDate);
+                        Call<allWorkContrJobBean> call = cr.getAllContractorJobs(SharePreferenceUtils.getInstance().getString("user_id") , "Inactive" , dd);
 
                         call.enqueue(new Callback<allWorkContrJobBean>() {
                             @Override
@@ -154,14 +154,6 @@ public class contractorInActive extends Fragment {
             }
         });
 
-        return view;
-    }
-
-
-    @Override
-    public void onResume() {
-        super.onResume();
-
         Date c = Calendar.getInstance().getTime();
         SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd");
         String formattedDate = df.format(c);
@@ -171,6 +163,16 @@ public class contractorInActive extends Fragment {
         date.setText("Date - " + formattedDate + " (click to change)");
 
         dd = formattedDate;
+
+
+        return view;
+    }
+
+
+    @Override
+    public void onResume() {
+        super.onResume();
+
 
         progress.setVisibility(View.VISIBLE);
 
@@ -185,7 +187,7 @@ public class contractorInActive extends Fragment {
         AllApiIneterface cr = retrofit.create(AllApiIneterface.class);
 
 
-        Call<allWorkContrJobBean> call = cr.getAllContractorJobs(SharePreferenceUtils.getInstance().getString("user_id") , "Inactive" , formattedDate);
+        Call<allWorkContrJobBean> call = cr.getAllContractorJobs(SharePreferenceUtils.getInstance().getString("user_id") , "Inactive" , dd);
 
         call.enqueue(new Callback<allWorkContrJobBean>() {
             @Override
