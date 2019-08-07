@@ -1,6 +1,7 @@
 package com.app.roshni;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -143,16 +144,16 @@ public class contractors extends Fragment {
             holder.address.setText(item.getCstreet() + ", " + item.getCarea() + ", " + item.getCdistrict() + ", " + item.getCstate() + "-" + item.getCpin());
 
 
-            /*holder.itemView.setOnClickListener(new View.OnClickListener() {
+            holder.itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
 
-                    Intent intent = new Intent(context , JobDetails.class);
+                    Intent intent = new Intent(context , SingleContgractor.class);
                     intent.putExtra("jid" , item.getId());
                     startActivity(intent);
 
                 }
-            });*/
+            });
 
         }
 
