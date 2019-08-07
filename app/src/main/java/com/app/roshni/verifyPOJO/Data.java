@@ -170,7 +170,9 @@ public class Data {
     @SerializedName("availability")
     @Expose
     private String availability;
-
+    @SerializedName("about")
+    @Expose
+    private String about;
 
     public String getId() {
         return id;
@@ -610,5 +612,13 @@ public class Data {
 
     public void setWorkers_male(String workers_male) {
         this.workers_male = workers_male;
+    }
+
+    public String getAbout() {
+        return about;
+    }
+
+    public void setAbout(String about) {
+        this.about = about;
     }
 }

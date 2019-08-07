@@ -72,7 +72,7 @@ public class contractor extends Fragment {
 
     private String gend, esta, expe, wtyp, avai;
 
-    private EditText name, dob, business, cpin, cstate, cdistrict, carea, cstreet, ppin, pstate, pdistrict, parea, pstreet, home_based, employer, male, female;
+    private EditText name, dob, business, cpin, cstate, cdistrict, carea, cstreet, ppin, pstate, pdistrict, parea, pstreet, home_based, employer, male, female , about;
 
     TagsEditText location;
 
@@ -124,6 +124,7 @@ public class contractor extends Fragment {
         location = view.findViewById(R.id.location);
         male = view.findViewById(R.id.male);
         female = view.findViewById(R.id.female);
+        about = view.findViewById(R.id.about);
 
         gen.add("Select one --- ");
         gen.add("Male");
@@ -455,6 +456,7 @@ public class contractor extends Fragment {
                 String cd = cdistrict.getText().toString();
                 String ca = carea.getText().toString();
                 String cst = cstreet.getText().toString();
+                String ab = about.getText().toString();
 
                 String h = home_based.getText().toString();
 
@@ -561,6 +563,7 @@ public class contractor extends Fragment {
                                                                                                         wtyp,
                                                                                                         avai,
                                                                                                         e,
+                                                                                                        ab,
                                                                                                         body
                                                                                                 );
 
@@ -598,6 +601,7 @@ public class contractor extends Fragment {
                                                                                                             SharePreferenceUtils.getInstance().saveString("availability", item.getAvailability());
                                                                                                             SharePreferenceUtils.getInstance().saveString("employer", item.getEmployer());
                                                                                                             SharePreferenceUtils.getInstance().saveString("experience", item.getExperience());
+                                                                                                            SharePreferenceUtils.getInstance().saveString("about", item.getAbout());
 
 
                                                                                                             Intent registrationComplete = new Intent("photo");
@@ -879,6 +883,7 @@ public class contractor extends Fragment {
         cdistrict.setText(SharePreferenceUtils.getInstance().getString("cdistrict"));
         carea.setText(SharePreferenceUtils.getInstance().getString("carea"));
         cstreet.setText(SharePreferenceUtils.getInstance().getString("cstreet"));
+        about.setText(SharePreferenceUtils.getInstance().getString("about"));
 
 
         int gp = 0;

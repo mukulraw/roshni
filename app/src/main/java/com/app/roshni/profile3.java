@@ -25,6 +25,7 @@ public class profile3 extends Fragment {
         pager = view.findViewById(R.id.pager);
 
         tabs.addTab(tabs.newTab().setText("CONTRACTOR"));
+        tabs.addTab(tabs.newTab().setText("SAMPLES"));
 
 
         PagerAdapter adapter = new PagerAdapter(getChildFragmentManager());
@@ -35,6 +36,7 @@ public class profile3 extends Fragment {
 
 
         tabs.getTabAt(0).setText("CONTRACTOR");
+        tabs.getTabAt(1).setText("SAMPLES");
 
         return view;
     }
@@ -51,14 +53,20 @@ public class profile3 extends Fragment {
         @Override
         public Fragment getItem(int position) {
 
-            return new contractor();
-
+            if (position == 0)
+            {
+                return new contractor();
+            }
+            else
+            {
+                return new Samples();
+            }
 
         }
 
         @Override
         public int getCount() {
-            return 1;
+            return 2;
         }
     }
 

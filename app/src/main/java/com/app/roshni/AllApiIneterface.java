@@ -2,6 +2,7 @@ package com.app.roshni;
 
 import com.app.roshni.allWorkContrJobListPOJO.allWorkContrJobBean;
 import com.app.roshni.notificationBean.notificationBean;
+import com.app.roshni.samplePOJO.sampleBean;
 import com.app.roshni.sectorPOJO.sectorBean;
 import com.app.roshni.verifyPOJO.verifyBean;
 import com.app.roshni.workerJobListPOJO.workerJobDetailBean;
@@ -126,6 +127,7 @@ public interface AllApiIneterface {
             @Part("work_type") String work_type,
             @Part("availability") String availability,
             @Part("employer") String employer,
+            @Part("about") String about,
             @Part MultipartBody.Part file1
     );
 
@@ -291,6 +293,25 @@ public interface AllApiIneterface {
     @POST("roshni/api/getWorkerNoti.php")
     Call<notificationBean> getWorkerNoti(
             @Part("user_id") String user_id
+    );
+
+    @Multipart
+    @POST("roshni/api/getSamples.php")
+    Call<sampleBean> getSamples(
+            @Part("user_id") String user_id
+    );
+
+    @Multipart
+    @POST("roshni/api/uploadSample.php")
+    Call<sampleBean> uploadSample(
+            @Part("user_id") String user_id,
+            @Part MultipartBody.Part file1
+    );
+
+    @Multipart
+    @POST("roshni/api/deleteSample.php")
+    Call<sampleBean> deleteSample(
+            @Part("id") String id
     );
 
 }

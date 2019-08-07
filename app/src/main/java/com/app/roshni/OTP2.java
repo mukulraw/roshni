@@ -127,6 +127,7 @@ public class OTP2 extends AppCompatActivity {
                                 SharePreferenceUtils.getInstance().saveString("expiry" , item.getExpiry());
                                 SharePreferenceUtils.getInstance().saveString("email" , item.getEmail());
                                 SharePreferenceUtils.getInstance().saveString("website" , item.getWebsite());
+                                SharePreferenceUtils.getInstance().saveString("about", item.getAbout());
 
                                 if (item.getName().length() > 0)
                                 {
