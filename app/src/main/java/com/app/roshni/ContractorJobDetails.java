@@ -1,7 +1,5 @@
 package com.app.roshni;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -12,9 +10,13 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.appcompat.app.AppCompatActivity;
+
+import com.app.roshni.contractorJobDetailsPOJO.Data;
+import com.app.roshni.contractorJobDetailsPOJO.contractorJobDetailsBean;
 import com.app.roshni.verifyPOJO.verifyBean;
-import com.app.roshni.workerJobListPOJO.Datum;
-import com.app.roshni.workerJobListPOJO.workerJobDetailBean;
+import com.nostra13.universalimageloader.core.DisplayImageOptions;
+import com.nostra13.universalimageloader.core.ImageLoader;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -52,7 +54,7 @@ public class ContractorJobDetails extends AppCompatActivity {
         rate = findViewById(R.id.rate);
         active = findViewById(R.id.button8);
         progress = findViewById(R.id.progressBar4);
-        sample = findViewById(R.id.sample)
+        sample = findViewById(R.id.sample);
 
         back.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -83,7 +85,7 @@ public class ContractorJobDetails extends AppCompatActivity {
                     AllApiIneterface cr = retrofit.create(AllApiIneterface.class);
 
 
-                    Call<verifyBean> call = cr.worker_ac_inac(jid , "Active");
+                    Call<verifyBean> call = cr.contractor_ac_inac(jid , "Active");
 
                     call.enqueue(new Callback<verifyBean>() {
                         @Override
@@ -119,7 +121,7 @@ public class ContractorJobDetails extends AppCompatActivity {
                     AllApiIneterface cr = retrofit.create(AllApiIneterface.class);
 
 
-                    Call<verifyBean> call = cr.worker_ac_inac(jid , "Inactive");
+                    Call<verifyBean> call = cr.contractor_ac_inac(jid , "Inactive");
 
                     call.enqueue(new Callback<verifyBean>() {
                         @Override
@@ -149,7 +151,7 @@ public class ContractorJobDetails extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
-                Intent intent = new Intent(ContractorJobDetails.this , UpdateWorkerJob.class);
+                Intent intent = new Intent(ContractorJobDetails.this , UpdateContractorJob.class);
                 intent.putExtra("jid" , jid);
                 startActivity(intent);
 
@@ -175,28 +177,28 @@ public class ContractorJobDetails extends AppCompatActivity {
 
         AllApiIneterface cr = retrofit.create(AllApiIneterface.class);
 
-        Call<workerJobDetailBean> call = cr.getJobDetailForWorker(SharePreferenceUtils.getInstance().getString("user_id"), jid);
+        Call<contractorJobDetailsBean> call = cr.getJobDetailsForContractor(SharePreferenceUtils.getInstance().getString("user_id"), jid);
 
-        call.enqueue(new Callback<workerJobDetailBean>() {
+        call.enqueue(new Callback<contractorJobDetailsBean>() {
             @Override
-            public void onResponse(Call<workerJobDetailBean> call, Response<workerJobDetailBean> response) {
+            public void onResponse(Call<contractorJobDetailsBean> call, Response<contractorJobDetailsBean> response) {
 
 
                 if (response.body().getStatus().equals("1")) {
 
-                    Datum item = response.body().getData();
+                    Data item = response.body().getData();
+
+
+                    DisplayImageOptions options = new DisplayImageOptions.Builder().cacheInMemory(true).cacheOnDisk(true).resetViewBeforeLoading(false).build();
+                    ImageLoader loader = ImageLoader.getInstance();
+                    loader.displayImage(item.getSample() , sample , options);
+
 
                     title.setText(item.getTitle());
-                    skills.setText(item.getSkills());
-                    preferred.setText(item.getPreferred());
-                    location.setText(item.getLocation());
+                    type.setText(item.getJobType());
+                    days.setText(item.getDays());
                     experience.setText(item.getExperience());
-                    role.setText(item.getRole());
-                    gender.setText(item.getGender());
-                    education.setText(item.getEducation());
-                    hours.setText(item.getHours());
-                    salary.setText(item.getSalary());
-                    stype.setText(item.getStype());
+                    rate.setText(item.getRate());
 
                     if (status.equals("Active"))
                     {
@@ -216,7 +218,7 @@ public class ContractorJobDetails extends AppCompatActivity {
             }
 
             @Override
-            public void onFailure(Call<workerJobDetailBean> call, Throwable t) {
+            public void onFailure(Call<contractorJobDetailsBean> call, Throwable t) {
                 progress.setVisibility(View.GONE);
             }
         });

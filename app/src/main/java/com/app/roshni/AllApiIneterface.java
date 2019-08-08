@@ -1,6 +1,7 @@
 package com.app.roshni;
 
 import com.app.roshni.allWorkContrJobListPOJO.allWorkContrJobBean;
+import com.app.roshni.contractorJobDetailsPOJO.contractorJobDetailsBean;
 import com.app.roshni.contractorPOJO.contractorBean;
 import com.app.roshni.notificationBean.notificationBean;
 import com.app.roshni.samplePOJO.sampleBean;
@@ -168,6 +169,17 @@ public interface AllApiIneterface {
     );
 
     @Multipart
+    @POST("roshni/api/update_job2.php")
+    Call<verifyBean> UpdateContractorJob(
+            @Part("id") String id,
+            @Part("job_type") String job_type,
+            @Part("experience") String experience,
+            @Part("days") String days,
+            @Part("rate") String rate,
+            @Part MultipartBody.Part file1
+    );
+
+    @Multipart
     @POST("roshni/api/post_job_contractor.php")
     Call<verifyBean> post_job_contractor(
             @Part("contractor_id") String contractor_id,
@@ -193,12 +205,21 @@ public interface AllApiIneterface {
     );
 
     @Multipart
+    @POST("roshni/api/contractor_ac_inac.php")
+    Call<verifyBean> contractor_ac_inac(
+            @Part("jid") String jid,
+            @Part("status") String status
+    );
+
+    @Multipart
     @POST("roshni/api/worker_acept_reject.php")
     Call<verifyBean> worker_acept_reject(
             @Part("jid") String jid,
             @Part("id") String id,
             @Part("status") String status
     );
+
+
 
     @Multipart
     @POST("roshni/api/update_worker_professional.php")
@@ -250,6 +271,13 @@ public interface AllApiIneterface {
     @Multipart
     @POST("roshni/api/getJobDetailsForWorker.php")
     Call<workerJobDetailBean> getJobDetailForWorker(
+            @Part("user_id") String user_id,
+            @Part("jid") String jid
+    );
+
+    @Multipart
+    @POST("roshni/api/getJobDetailsForContractor.php")
+    Call<contractorJobDetailsBean> getJobDetailsForContractor(
             @Part("user_id") String user_id,
             @Part("jid") String jid
     );
