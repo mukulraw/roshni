@@ -155,6 +155,36 @@ public class Notifications extends AppCompatActivity {
                 }
             });
         }
+        else
+        {
+            Call<notificationBean> call = cr.getContractorNoti(SharePreferenceUtils.getInstance().getString("user_id"));
+
+            call.enqueue(new Callback<notificationBean>() {
+                @Override
+                public void onResponse(Call<notificationBean> call, Response<notificationBean> response) {
+
+                    if (response.body().getData().size() > 0)
+                    {
+                        nodata.setVisibility(View.GONE);
+                    }
+                    else
+                    {
+                        nodata.setVisibility(View.VISIBLE);
+                    }
+
+
+                    adapter.setData(response.body().getData());
+
+                    progress.setVisibility(View.GONE);
+
+                }
+
+                @Override
+                public void onFailure(Call<notificationBean> call, Throwable t) {
+                    progress.setVisibility(View.GONE);
+                }
+            });
+        }
 
 
 

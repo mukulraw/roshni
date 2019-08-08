@@ -52,7 +52,7 @@ public class newjobs2 extends Fragment {
     ImageView nodata;
     TextView date;
     String dd;
-    List<String> sk , lo , ex , jo , ed , sa;
+    List<String> sk , ex;
     FloatingActionButton filter;
 
     @Nullable
@@ -62,11 +62,9 @@ public class newjobs2 extends Fragment {
 
         list = new ArrayList<>();
         sk = new ArrayList<>();
-        lo = new ArrayList<>();
+
         ex = new ArrayList<>();
-        jo = new ArrayList<>();
-        ed = new ArrayList<>();
-        sa = new ArrayList<>();
+
 
         grid = view.findViewById(R.id.grid);
         filter = view.findViewById(R.id.floatingActionButton2);
@@ -177,27 +175,27 @@ public class newjobs2 extends Fragment {
             public void onClick(View view) {
 
                 String skil = TextUtils.join(",", sk);
-                String lcoa = TextUtils.join(",", lo);
+
                 String expe = TextUtils.join(",", ex);
-                String educ = TextUtils.join(",", ed);
-                String jobr = TextUtils.join(",", jo);
-                String sala = TextUtils.join(",", sa);
+
+
+
 
                 Log.d("skills1" , skil);
-                Log.d("location1" , lcoa);
+
                 Log.d("experience1" , expe);
-                Log.d("education1" , educ);
-                Log.d("job_role1" , jobr);
-                Log.d("salary_type1" , sala);
 
 
-                Intent intent = new Intent(getContext() , FilterWorkerJob.class);
+
+
+
+                Intent intent = new Intent(getContext() , FilterContractorJob.class);
                 intent.putExtra("skill" , skil);
-                intent.putExtra("location" , lcoa);
+
                 intent.putExtra("experience" , expe);
-                intent.putExtra("education" , educ);
-                intent.putExtra("job_role" , jobr);
-                intent.putExtra("salary_type" , sala);
+
+
+
                 startActivityForResult(intent , 123);
 
             }
@@ -253,8 +251,11 @@ public class newjobs2 extends Fragment {
 
 
 
+                ex.clear();
+                sk.clear();
 
 
+                list.clear();
 
 
                 list = response.body().getData();
@@ -292,31 +293,7 @@ public class newjobs2 extends Fragment {
 
 
 
-                if (loca1.length() > 0)
-                {
-                    String [] loc1 = loca1.split(",");
-                    lo.addAll(Arrays.asList(loc1));
 
-                    ll2.clear();
-
-                    for (int i = 0 ; i < ll1.size() ; i++)
-                    {
-                        for (int j = 0 ; j < lo.size() ; j++)
-                        {
-                            if (ll1.get(i).getLocation().equals(lo.get(j)))
-                            {
-                                ll2.add(ll1.get(i));
-                            }
-                        }
-                    }
-
-                    ll1 = ll2;
-
-                }
-                else
-                {
-                    lo.clear();
-                }
 
 
 
@@ -348,83 +325,9 @@ public class newjobs2 extends Fragment {
 
 
 
-                if (jobr1.length() > 0)
-                {
-                    String [] job1 = jobr1.split(",");
-                    jo.addAll(Arrays.asList(job1));
 
-                    ll2.clear();
 
-                    for (int i = 0 ; i < ll1.size() ; i++)
-                    {
-                        for (int j = 0 ; j < jo.size() ; j++)
-                        {
-                            if (ll1.get(i).getRole().equals(jo.get(j)))
-                            {
-                                ll2.add(ll1.get(i));
-                            }
-                        }
-                    }
 
-                    ll1 = ll2;
-
-                }
-                else
-                {
-                    jo.clear();
-                }
-
-                if (educ1.length() > 0)
-                {
-                    String [] edu1 = educ1.split(",");
-                    ed.addAll(Arrays.asList(edu1));
-
-                    ll2.clear();
-
-                    for (int i = 0 ; i < ll1.size() ; i++)
-                    {
-                        for (int j = 0 ; j < ed.size() ; j++)
-                        {
-                            if (ll1.get(i).getEducation().equals(ed.get(j)))
-                            {
-                                ll2.add(ll1.get(i));
-                            }
-                        }
-                    }
-
-                    ll1 = ll2;
-
-                }
-                else
-                {
-                    ed.clear();
-                }
-
-                if (sala1.length() > 0)
-                {
-                    String [] sal1 = sala1.split(",");
-                    sa.addAll(Arrays.asList(sal1));
-
-                    ll2.clear();
-
-                    for (int i = 0 ; i < ll1.size() ; i++)
-                    {
-                        for (int j = 0 ; j < sa.size() ; j++)
-                        {
-                            if (ll1.get(i).getSalary().equals(sa.get(j)))
-                            {
-                                ll2.add(ll1.get(i));
-                            }
-                        }
-                    }
-
-                    ll1 = ll2;
-
-                }
-                else
-                {
-                    sa.clear();
-                }
 
                 Log.d("lll1" , String.valueOf(ll1.size()));
 
@@ -517,20 +420,20 @@ public class newjobs2 extends Fragment {
         {
 
             skil1 = data.getStringExtra("skill");
-            loca1 = data.getStringExtra("location");
+
             expe1 = data.getStringExtra("experience");
-            jobr1 = data.getStringExtra("job_role");
-            educ1 = data.getStringExtra("education");
-            sala1 = data.getStringExtra("salary_type");
+
+
+
 
 
 
             Log.d("skills" , skil1);
-            Log.d("location" , loca1);
+
             Log.d("experience" , expe1);
-            Log.d("education" , educ1);
-            Log.d("job_role" , jobr1);
-            Log.d("salary_type" , sala1);
+
+
+
 
 
 
@@ -538,6 +441,6 @@ public class newjobs2 extends Fragment {
         }
     }
 
-    private String skil1 = "" , loca1 = "" , expe1 = "", jobr1 = "", educ1 = "", sala1 = "";
+    private String skil1 = "" , expe1 = "";
 
 }

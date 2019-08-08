@@ -251,7 +251,12 @@ public class newjobs extends Fragment {
                 }
 
 
-
+                sk.clear();
+                lo.clear();
+                ex.clear();
+                jo.clear();
+                ed.clear();
+                sa.clear();
 
 
 

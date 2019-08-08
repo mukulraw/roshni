@@ -176,7 +176,7 @@ public class ContractorApplicants extends AppCompatActivity {
                 @Override
                 public void onClick(View view) {
 
-                    Intent intent = new Intent(context , WorkerApplicantDetails.class);
+                    Intent intent = new Intent(context , ContractorApplicantDetails.class);
                     intent.putExtra("jid" , item.getUserId());
                     intent.putExtra("id" , jid);
                     intent.putExtra("status" , item.getStatus());

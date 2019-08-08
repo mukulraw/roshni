@@ -226,6 +226,14 @@ public interface AllApiIneterface {
             @Part("status") String status
     );
 
+    @Multipart
+    @POST("roshni/api/contractor_acept_reject.php")
+    Call<verifyBean> contractor_acept_reject(
+            @Part("jid") String jid,
+            @Part("id") String id,
+            @Part("status") String status
+    );
+
 
 
     @Multipart
@@ -342,6 +350,12 @@ public interface AllApiIneterface {
     @Multipart
     @POST("roshni/api/getBrandNoti.php")
     Call<notificationBean> getBrandNoti(
+            @Part("user_id") String user_id
+    );
+
+    @Multipart
+    @POST("roshni/api/getContractorNoti.php")
+    Call<notificationBean> getContractorNoti(
             @Part("user_id") String user_id
     );
 
