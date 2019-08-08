@@ -269,8 +269,13 @@ public class contractorActive extends Fragment {
                 @Override
                 public void onClick(View view) {
 
-                    Intent intent = new Intent(context , ContractorJobDetails.class);
+                    Intent intent = new Intent(context , ContractorApplicants.class);
                     intent.putExtra("jid" , item.getId());
+                    intent.putExtra("title" , item.getTitle());
+                    intent.putExtra("category" , item.getRole());
+                    intent.putExtra("salary" , item.getSalary());
+                    intent.putExtra("posted" , item.getCreated());
+                    intent.putExtra("sts" , "Active");
                     startActivity(intent);
 
                 }

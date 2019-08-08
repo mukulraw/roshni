@@ -16,7 +16,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".UpdateContractorJob"></activity>
+        <activity android:name=".ContractorJobByCompany"></activity>
+        <activity android:name=".JobDetails2" />
+        <activity android:name=".ContractorApplicants" />
+        <activity android:name=".UpdateContractorJob" />
         <activity android:name=".ContractorJobDetails" />
         <activity android:name=".SingleContgractor" />
         <activity android:name=".Notifications" />

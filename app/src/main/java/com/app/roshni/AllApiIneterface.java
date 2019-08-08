@@ -198,6 +198,13 @@ public interface AllApiIneterface {
     );
 
     @Multipart
+    @POST("roshni/api/apply_job2.php")
+    Call<verifyBean> apply_job2(
+            @Part("job_id") String job_id,
+            @Part("user_id") String user_id
+    );
+
+    @Multipart
     @POST("roshni/api/worker_ac_inac.php")
     Call<verifyBean> worker_ac_inac(
             @Part("jid") String jid,
@@ -243,6 +250,13 @@ public interface AllApiIneterface {
             @Part("date") String date
     );
 
+    @Multipart
+    @POST("roshni/api/getJobListForContractor.php")
+    Call<workerJobListBean> getJobListForContractor(
+            @Part("user_id") String user_id,
+            @Part("date") String date
+    );
+
 
     @Multipart
     @POST("roshni/api/getAllWorkerJobs.php")
@@ -264,6 +278,13 @@ public interface AllApiIneterface {
     @Multipart
     @POST("roshni/api/getAppliedListForWorker.php")
     Call<workerJobListBean> getAppliedListForWorker(
+            @Part("user_id") String user_id,
+            @Part("date") String date
+    );
+
+    @Multipart
+    @POST("roshni/api/getAppliedListForContractor.php")
+    Call<workerJobListBean> getAppliedListForContractor(
             @Part("user_id") String user_id,
             @Part("date") String date
     );
@@ -303,6 +324,12 @@ public interface AllApiIneterface {
     @Multipart
     @POST("roshni/api/getAppliedWorkers.php")
     Call<workerListBean> getAppliedWorkers(
+            @Part("jid") String jid
+    );
+
+    @Multipart
+    @POST("roshni/api/getAppliedContractors.php")
+    Call<workerListBean> getAppliedContractors(
             @Part("jid") String jid
     );
 

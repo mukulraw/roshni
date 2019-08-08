@@ -21,9 +21,8 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-
-import com.app.roshni.allWorkContrJobListPOJO.Datum;
-import com.app.roshni.allWorkContrJobListPOJO.allWorkContrJobBean;
+import com.app.roshni.workerJobListPOJO.Datum;
+import com.app.roshni.workerJobListPOJO.workerJobListBean;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -38,7 +37,7 @@ import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 import retrofit2.converter.scalars.ScalarsConverterFactory;
 
-public class contractorInActive extends Fragment {
+public class appliedjobs2 extends Fragment {
 
     RecyclerView grid;
     GridLayoutManager manager;
@@ -52,7 +51,7 @@ public class contractorInActive extends Fragment {
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.jobs_layout, container, false);
+        View view = inflater.inflate(R.layout.applied_jobs_layout, container, false);
 
         list = new ArrayList<>();
 
@@ -66,6 +65,7 @@ public class contractorInActive extends Fragment {
 
         grid.setAdapter(adapter);
         grid.setLayoutManager(manager);
+
 
         date.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -118,11 +118,11 @@ public class contractorInActive extends Fragment {
                         AllApiIneterface cr = retrofit.create(AllApiIneterface.class);
 
 
-                        Call<allWorkContrJobBean> call = cr.getAllContractorJobs(SharePreferenceUtils.getInstance().getString("user_id") , "Inactive" , dd);
+                        Call<workerJobListBean> call = cr.getAppliedListForContractor(SharePreferenceUtils.getInstance().getString("user_id") , dd);
 
-                        call.enqueue(new Callback<allWorkContrJobBean>() {
+                        call.enqueue(new Callback<workerJobListBean>() {
                             @Override
-                            public void onResponse(Call<allWorkContrJobBean> call, Response<allWorkContrJobBean> response) {
+                            public void onResponse(Call<workerJobListBean> call, Response<workerJobListBean> response) {
 
                                 if (response.body().getData().size() > 0)
                                 {
@@ -133,7 +133,6 @@ public class contractorInActive extends Fragment {
                                     nodata.setVisibility(View.VISIBLE);
                                 }
 
-
                                 adapter.setData(response.body().getData());
 
                                 progress.setVisibility(View.GONE);
@@ -141,7 +140,7 @@ public class contractorInActive extends Fragment {
                             }
 
                             @Override
-                            public void onFailure(Call<allWorkContrJobBean> call, Throwable t) {
+                            public void onFailure(Call<workerJobListBean> call, Throwable t) {
                                 progress.setVisibility(View.GONE);
                             }
                         });
@@ -187,11 +186,11 @@ public class contractorInActive extends Fragment {
         AllApiIneterface cr = retrofit.create(AllApiIneterface.class);
 
 
-        Call<allWorkContrJobBean> call = cr.getAllContractorJobs(SharePreferenceUtils.getInstance().getString("user_id") , "Inactive" , dd);
+        Call<workerJobListBean> call = cr.getAppliedListForContractor(SharePreferenceUtils.getInstance().getString("user_id") , dd);
 
-        call.enqueue(new Callback<allWorkContrJobBean>() {
+        call.enqueue(new Callback<workerJobListBean>() {
             @Override
-            public void onResponse(Call<allWorkContrJobBean> call, Response<allWorkContrJobBean> response) {
+            public void onResponse(Call<workerJobListBean> call, Response<workerJobListBean> response) {
 
                 if (response.body().getData().size() > 0)
                 {
@@ -202,7 +201,6 @@ public class contractorInActive extends Fragment {
                     nodata.setVisibility(View.VISIBLE);
                 }
 
-
                 adapter.setData(response.body().getData());
 
                 progress.setVisibility(View.GONE);
@@ -210,7 +208,7 @@ public class contractorInActive extends Fragment {
             }
 
             @Override
-            public void onFailure(Call<allWorkContrJobBean> call, Throwable t) {
+            public void onFailure(Call<workerJobListBean> call, Throwable t) {
                 progress.setVisibility(View.GONE);
             }
         });
@@ -237,7 +235,7 @@ public class contractorInActive extends Fragment {
         @Override
         public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
             LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-            View view = inflater.inflate(R.layout.worker_active_list_model, parent, false);
+            View view = inflater.inflate(R.layout.job_list_model, parent, false);
             return new ViewHolder(view);
         }
 
@@ -247,37 +245,17 @@ public class contractorInActive extends Fragment {
             final Datum item = list.get(position);
 
 
-            holder.category.setText("Job category: " + item.getRole());
+            holder.company.setText(item.getBrandName());
             holder.title.setText(item.getTitle());
-            holder.salary.setText("Days for completion: " + item.getSalary());
-            holder.posted.setText("Posted on: " + item.getCreated());
+            holder.salary.setText("Piece rate: " + item.getSalary());
+            holder.address.setText(item.getBrandStreet() + ", " + item.getBrandArea());
 
-            holder.applied.setText(item.getApplied() + " Applied");
-
-
-            holder.details.setOnClickListener(new View.OnClickListener() {
+            holder.itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
 
-                    Intent intent = new Intent(context , ContractorJobDetails.class);
+                    Intent intent = new Intent(context , JobDetails2.class);
                     intent.putExtra("jid" , item.getId());
-                    intent.putExtra("status" , item.getStatus());
-                    startActivity(intent);
-
-                }
-            });
-
-            holder.applicants.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-
-                    Intent intent = new Intent(context , ContractorApplicants.class);
-                    intent.putExtra("jid" , item.getId());
-                    intent.putExtra("title" , item.getTitle());
-                    intent.putExtra("category" , item.getRole());
-                    intent.putExtra("salary" , item.getSalary());
-                    intent.putExtra("posted" , item.getCreated());
-                    intent.putExtra("sts" , "Active");
                     startActivity(intent);
 
                 }
@@ -292,17 +270,14 @@ public class contractorInActive extends Fragment {
 
         class ViewHolder extends RecyclerView.ViewHolder {
 
-            TextView title , category , salary , posted , applied , applicants , details;
+            TextView title , company , address , salary;
 
             ViewHolder(@NonNull View itemView) {
                 super(itemView);
                 title = itemView.findViewById(R.id.textView20);
-                category = itemView.findViewById(R.id.textView26);
-                salary = itemView.findViewById(R.id.textView28);
-                posted = itemView.findViewById(R.id.textView22);
-                applied = itemView.findViewById(R.id.textView29);
-                applicants = itemView.findViewById(R.id.textView38);
-                details = itemView.findViewById(R.id.textView39);
+                company = itemView.findViewById(R.id.textView26);
+                address = itemView.findViewById(R.id.textView28);
+                salary = itemView.findViewById(R.id.textView22);
 
             }
         }

@@ -162,7 +162,7 @@ public class MainActivity3 extends AppCompatActivity {
                     case 1:
                         FragmentManager fm2 = getSupportFragmentManager();
                         FragmentTransaction ft2 = fm2.beginTransaction();
-                        newjobs test2 = new newjobs();
+                        newjobs2 test2 = new newjobs2();
                         ft2.replace(R.id.replace, test2);
                         ft2.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_CLOSE);
                         //ft.addToBackStack(null);
@@ -172,7 +172,7 @@ public class MainActivity3 extends AppCompatActivity {
                     case 2:
                         FragmentManager fm3 = getSupportFragmentManager();
                         FragmentTransaction ft3 = fm3.beginTransaction();
-                        appliedjobs test3 = new appliedjobs();
+                        appliedjobs2 test3 = new appliedjobs2();
                         ft3.replace(R.id.replace, test3);
                         ft3.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_CLOSE);
                         //ft.addToBackStack(null);
