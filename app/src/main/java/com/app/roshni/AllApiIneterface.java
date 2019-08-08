@@ -1,6 +1,7 @@
 package com.app.roshni;
 
 import com.app.roshni.allWorkContrJobListPOJO.allWorkContrJobBean;
+import com.app.roshni.contractorPOJO.contractorBean;
 import com.app.roshni.notificationBean.notificationBean;
 import com.app.roshni.samplePOJO.sampleBean;
 import com.app.roshni.sectorPOJO.sectorBean;
@@ -311,6 +312,12 @@ public interface AllApiIneterface {
     @Multipart
     @POST("roshni/api/deleteSample.php")
     Call<sampleBean> deleteSample(
+            @Part("id") String id
+    );
+
+    @Multipart
+    @POST("roshni/api/getContractorById.php")
+    Call<contractorBean> getContractorById(
             @Part("id") String id
     );
 

@@ -259,8 +259,9 @@ public class contractorInActive extends Fragment {
                 @Override
                 public void onClick(View view) {
 
-                    Intent intent = new Intent(context , JobDetails.class);
+                    Intent intent = new Intent(context , ContractorJobDetails.class);
                     intent.putExtra("jid" , item.getId());
+                    intent.putExtra("status" , item.getStatus());
                     startActivity(intent);
 
                 }
@@ -270,7 +271,7 @@ public class contractorInActive extends Fragment {
                 @Override
                 public void onClick(View view) {
 
-                    Intent intent = new Intent(context , JobDetails.class);
+                    Intent intent = new Intent(context , ContractorJobDetails.class);
                     intent.putExtra("jid" , item.getId());
                     startActivity(intent);
 

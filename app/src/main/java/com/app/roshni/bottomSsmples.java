@@ -1,26 +1,40 @@
 package com.app.roshni;
 
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
+import android.os.Environment;
+import android.provider.MediaStore;
+import android.text.format.DateFormat;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
-import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.fragment.app.Fragment;
-import androidx.recyclerview.widget.GridLayoutManager;
+import androidx.core.content.FileProvider;
 import androidx.recyclerview.widget.RecyclerView;
+import androidx.recyclerview.widget.StaggeredGridLayoutManager;
 
-import com.app.roshni.workerListPOJO.Datum;
-import com.app.roshni.workerListPOJO.workerListBean;
+import com.app.roshni.samplePOJO.Datum;
+import com.app.roshni.samplePOJO.sampleBean;
+import com.google.android.material.bottomsheet.BottomSheetDialogFragment;
+import com.nostra13.universalimageloader.core.DisplayImageOptions;
+import com.nostra13.universalimageloader.core.ImageLoader;
 
+import java.io.File;
+import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
+import java.util.Objects;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -29,31 +43,51 @@ import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 import retrofit2.converter.scalars.ScalarsConverterFactory;
 
-public class contractors extends Fragment {
+public class bottomSsmples extends BottomSheetDialogFragment {
 
     RecyclerView grid;
-    GridLayoutManager manager;
-    JobsAdapter adapter;
-    List<Datum> list;
+    StaggeredGridLayoutManager manager;
+    Button upload , finish;
     ProgressBar progress;
+    List<Datum> list;
+    SampleAdapter adapter;
     ImageView nodata;
+    private Uri uri;
+    private File f1;
+
+    String jid;
+
+    static bottomSsmples newInstance() {
+
+        return new bottomSsmples();
+    }
+
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.jobs_layout2, container, false);
+        View view = inflater.inflate(R.layout.samples_layout , container , false);
+
+        jid = getArguments().getString("jid");
 
         list = new ArrayList<>();
 
         grid = view.findViewById(R.id.grid);
+        upload = view.findViewById(R.id.button16);
+        finish = view.findViewById(R.id.button15);
         progress = view.findViewById(R.id.progressBar3);
         nodata = view.findViewById(R.id.imageView5);
 
-        adapter = new JobsAdapter(getContext() , list);
-        manager = new GridLayoutManager(getContext(), 1);
+        manager = new StaggeredGridLayoutManager(2 , StaggeredGridLayoutManager.VERTICAL);
+        adapter = new SampleAdapter(getContext() , list);
 
         grid.setAdapter(adapter);
         grid.setLayoutManager(manager);
+
+
+
+        finish.setVisibility(View.GONE);
+        upload.setVisibility(View.GONE);
 
         return view;
     }
@@ -63,9 +97,10 @@ public class contractors extends Fragment {
     public void onResume() {
         super.onResume();
 
+
         progress.setVisibility(View.VISIBLE);
 
-        Bean b = (Bean) getContext().getApplicationContext();
+        Bean b = (Bean) getActivity().getApplicationContext();
 
         Retrofit retrofit = new Retrofit.Builder()
                 .baseUrl(b.baseurl)
@@ -75,12 +110,11 @@ public class contractors extends Fragment {
 
         AllApiIneterface cr = retrofit.create(AllApiIneterface.class);
 
+        Call<sampleBean> call = cr.getSamples(jid);
 
-        Call<workerListBean> call = cr.getAllConttractors();
-
-        call.enqueue(new Callback<workerListBean>() {
+        call.enqueue(new Callback<sampleBean>() {
             @Override
-            public void onResponse(Call<workerListBean> call, Response<workerListBean> response) {
+            public void onResponse(Call<sampleBean> call, Response<sampleBean> response) {
 
                 if (response.body().getData().size() > 0)
                 {
@@ -99,19 +133,24 @@ public class contractors extends Fragment {
             }
 
             @Override
-            public void onFailure(Call<workerListBean> call, Throwable t) {
+            public void onFailure(Call<sampleBean> call, Throwable t) {
                 progress.setVisibility(View.GONE);
             }
         });
 
 
+
+
     }
 
-    class JobsAdapter extends RecyclerView.Adapter<JobsAdapter.ViewHolder> {
+    class SampleAdapter extends RecyclerView.Adapter<SampleAdapter.ViewHolder>
+    {
         Context context;
         List<Datum> list = new ArrayList<>();
 
-        JobsAdapter(Context context, List<Datum> list) {
+
+        SampleAdapter(Context context, List<Datum> list)
+        {
             this.context = context;
             this.list = list;
         }
@@ -125,8 +164,8 @@ public class contractors extends Fragment {
         @NonNull
         @Override
         public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-            LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-            View view = inflater.inflate(R.layout.worker_list_model, parent, false);
+            LayoutInflater inflater = (LayoutInflater)context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+            View view = inflater.inflate(R.layout.sample_list_model , parent , false);
             return new ViewHolder(view);
         }
 
@@ -135,25 +174,12 @@ public class contractors extends Fragment {
 
             final Datum item = list.get(position);
 
-
-            holder.name.setText(item.getName());
-            holder.skill.setText(item.getSkills());
-            holder.exp.setText(item.getExperience());
-            holder.emp.setText(item.getEmployment());
-            holder.reg.setText("Reg: " + item.getCreated());
-            holder.address.setText(item.getCstreet() + ", " + item.getCarea() + ", " + item.getCdistrict() + ", " + item.getCstate() + "-" + item.getCpin());
+            DisplayImageOptions options = new DisplayImageOptions.Builder().cacheOnDisk(true).cacheInMemory(true).resetViewBeforeLoading(false).build();
+            ImageLoader loader = ImageLoader.getInstance();
+            loader.displayImage(item.getFile() , holder.image , options);
 
 
-            holder.itemView.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-
-                    Intent intent = new Intent(context , SingleContgractor.class);
-                    intent.putExtra("jid" , item.getUserId());
-                    startActivity(intent);
-
-                }
-            });
+            holder.delete.setVisibility(View.GONE);
 
         }
 
@@ -162,18 +188,17 @@ public class contractors extends Fragment {
             return list.size();
         }
 
-        class ViewHolder extends RecyclerView.ViewHolder {
+        class ViewHolder extends RecyclerView.ViewHolder
+        {
 
-            TextView name , address, skill , exp , emp , reg;
+            ImageView image;
+            ImageButton delete;
 
-            ViewHolder(@NonNull View itemView) {
+            public ViewHolder(@NonNull View itemView) {
                 super(itemView);
-                name = itemView.findViewById(R.id.textView20);
-                address = itemView.findViewById(R.id.textView26);
-                skill = itemView.findViewById(R.id.textView28);
-                exp = itemView.findViewById(R.id.textView34);
-                emp = itemView.findViewById(R.id.textView35);
-                reg = itemView.findViewById(R.id.textView22);
+
+                image = itemView.findViewById(R.id.image);
+                delete = itemView.findViewById(R.id.delete);
 
             }
         }
