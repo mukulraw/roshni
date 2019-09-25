@@ -128,8 +128,28 @@ public class OTP2 extends AppCompatActivity {
                                 SharePreferenceUtils.getInstance().saveString("email" , item.getEmail());
                                 SharePreferenceUtils.getInstance().saveString("website" , item.getWebsite());
                                 SharePreferenceUtils.getInstance().saveString("about", item.getAbout());
+                                SharePreferenceUtils.getInstance().saveString("pin", item.getPin());
 
-                                if (item.getName().length() > 0)
+
+                                if(item.getPin().length() == 0)
+                                {
+
+                                    Toast.makeText(OTP2.this, "Please create a PIN to continue", Toast.LENGTH_SHORT).show();
+
+                                    Intent intent = new Intent(OTP2.this , CreatePIN.class);
+                                    startActivity(intent);
+                                    finishAffinity();
+                                }
+                                else
+                                {
+                                    Toast.makeText(OTP2.this, "Please enter PIN to continue", Toast.LENGTH_SHORT).show();
+
+                                    Intent intent = new Intent(OTP2.this, EnterPIN.class);
+                                    startActivity(intent);
+                                    finishAffinity();
+                                }
+
+                                /*if (item.getName().length() > 0)
                                 {
 
                                     if (response.body().getData().getType().equals("worker"))
@@ -181,7 +201,7 @@ public class OTP2 extends AppCompatActivity {
 
                                     Toast.makeText(OTP2.this, "Please complete your profile to continue", Toast.LENGTH_SHORT).show();
 
-                                }
+                                }*/
 
 
 

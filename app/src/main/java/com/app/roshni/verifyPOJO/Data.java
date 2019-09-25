@@ -173,6 +173,9 @@ public class Data {
     @SerializedName("about")
     @Expose
     private String about;
+    @SerializedName("pin")
+    @Expose
+    private String pin;
 
     public String getId() {
         return id;
@@ -621,4 +624,14 @@ public class Data {
     public void setAbout(String about) {
         this.about = about;
     }
+
+    public String getPin() {
+        return pin;
+    }
+
+    public void setPin(String pin) {
+        this.pin = pin;
+    }
+
 }
+

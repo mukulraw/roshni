@@ -4,11 +4,9 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ProgressBar;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import com.app.roshni.verifyPOJO.Data;
@@ -22,36 +20,33 @@ import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 import retrofit2.converter.scalars.ScalarsConverterFactory;
 
-public class OTP extends AppCompatActivity {
+public class EnterPIN extends AppCompatActivity {
 
-    OtpView otp;
+    OtpView pin;
     Button submit;
-    TextView resend;
     ProgressBar progress;
-    String phone;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_otp);
+        setContentView(R.layout.activity_enter_pin);
 
-        phone = getIntent().getStringExtra("phone");
+        pin = findViewById(R.id.textView5);
 
-        otp = findViewById(R.id.textView5);
         submit = findViewById(R.id.button3);
-        resend = findViewById(R.id.textView6);
         progress = findViewById(R.id.progressBar2);
+
 
         submit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
 
-                String ot = otp.getText().toString();
+                String p = pin.getText().toString();
 
-                Log.d("otp", ot);
 
-                if (ot.length() > 0) {
+                if (p.length() == 4) {
+
 
                     progress.setVisibility(View.VISIBLE);
 
@@ -66,7 +61,7 @@ public class OTP extends AppCompatActivity {
                     AllApiIneterface cr = retrofit.create(AllApiIneterface.class);
 
 
-                    Call<verifyBean> call = cr.verify(phone, ot);
+                    Call<verifyBean> call = cr.verifyPIN(SharePreferenceUtils.getInstance().getString("user_id"), p);
                     call.enqueue(new Callback<verifyBean>() {
                         @Override
                         public void onResponse(Call<verifyBean> call, Response<verifyBean> response) {
@@ -129,80 +124,52 @@ public class OTP extends AppCompatActivity {
                                 SharePreferenceUtils.getInstance().saveString("pin", item.getPin());
 
 
-                                if (item.getPin().length() == 0) {
+                                if (item.getName().length() > 0) {
 
-                                    Toast.makeText(OTP.this, "Please create a PIN to continue", Toast.LENGTH_SHORT).show();
+                                    if (response.body().getData().getType().equals("worker")) {
+                                        Intent intent = new Intent(EnterPIN.this, MainActivity.class);
+                                        startActivity(intent);
+                                        finishAffinity();
 
-                                    Intent intent = new Intent(OTP.this, CreatePIN.class);
-                                    startActivity(intent);
-                                    finishAffinity();
+                                        Toast.makeText(EnterPIN.this, "Welcome " + item.getName(), Toast.LENGTH_SHORT).show();
+                                    } else if (response.body().getData().getType().equals("brand")) {
+                                        Intent intent = new Intent(EnterPIN.this, MainActivity2.class);
+                                        startActivity(intent);
+                                        finishAffinity();
+
+                                        Toast.makeText(EnterPIN.this, "Welcome " + item.getName(), Toast.LENGTH_SHORT).show();
+                                    } else {
+                                        Intent intent = new Intent(EnterPIN.this, MainActivity3.class);
+                                        startActivity(intent);
+                                        finishAffinity();
+
+                                        Toast.makeText(EnterPIN.this, "Welcome " + item.getName(), Toast.LENGTH_SHORT).show();
+                                    }
+
+
                                 } else {
-                                    Toast.makeText(OTP.this, "Please enter PIN to continue", Toast.LENGTH_SHORT).show();
 
-                                    Intent intent = new Intent(OTP.this, EnterPIN.class);
-                                    startActivity(intent);
-                                    finishAffinity();
-                                }
-
-
-                                /*if (item.getName().length() > 0)
-                                {
-
-                                    if (response.body().getData().getType().equals("worker"))
-                                    {
-                                        Intent intent = new Intent(OTP.this , MainActivity.class);
+                                    if (response.body().getData().getType().equals("worker")) {
+                                        Intent intent = new Intent(EnterPIN.this, REgister.class);
                                         startActivity(intent);
                                         finishAffinity();
-
-                                        Toast.makeText(OTP.this, "Welcome " + item.getName(), Toast.LENGTH_SHORT).show();
-                                    }else if (response.body().getData().getType().equals("brand"))
-                                    {
-                                        Intent intent = new Intent(OTP.this , MainActivity2.class);
+                                    } else if (response.body().getData().getType().equals("brand")) {
+                                        Intent intent = new Intent(EnterPIN.this, Register2.class);
                                         startActivity(intent);
                                         finishAffinity();
-
-                                        Toast.makeText(OTP.this, "Welcome " + item.getName(), Toast.LENGTH_SHORT).show();
-                                    }
-                                    else
-                                    {
-                                        Intent intent = new Intent(OTP.this , MainActivity3.class);
+                                    } else {
+                                        Intent intent = new Intent(EnterPIN.this, Register3.class);
                                         startActivity(intent);
                                         finishAffinity();
-
-                                        Toast.makeText(OTP.this, "Welcome " + item.getName(), Toast.LENGTH_SHORT).show();
                                     }
 
-
+                                    Toast.makeText(EnterPIN.this, "Profile is incomplete. Please complete your profile first", Toast.LENGTH_SHORT).show();
 
                                 }
-                                else
-                                {
-
-                                    if (response.body().getData().getType().equals("worker"))
-                                    {
-                                        Intent intent = new Intent(OTP.this , REgister.class);
-                                        startActivity(intent);
-                                        finishAffinity();
-                                    }else if (response.body().getData().getType().equals("brand"))
-                                    {
-                                        Intent intent = new Intent(OTP.this , Register2.class);
-                                        startActivity(intent);
-                                        finishAffinity();
-                                    }
-                                    else
-                                    {
-                                        Intent intent = new Intent(OTP.this , Register3.class);
-                                        startActivity(intent);
-                                        finishAffinity();
-                                    }
-
-                                    Toast.makeText(OTP.this, "Profile is incomplete. Please complete your profile first", Toast.LENGTH_SHORT).show();
-
-                                }*/
 
 
                             } else {
-                                Toast.makeText(OTP.this, response.body().getMessage(), Toast.LENGTH_SHORT).show();
+                                Toast.makeText(EnterPIN.this, response.body().getMessage(), Toast.LENGTH_SHORT).show();
                             }
 
                             progress.setVisibility(View.GONE);
@@ -218,7 +185,7 @@ public class OTP extends AppCompatActivity {
 
 
                 } else {
-                    Toast.makeText(OTP.this, "Please enter a valid OTP", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(EnterPIN.this, "Please enter a valid PIN", Toast.LENGTH_SHORT).show();
                 }
 
 

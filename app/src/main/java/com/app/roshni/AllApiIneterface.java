@@ -42,6 +42,19 @@ public interface AllApiIneterface {
             @Part("otp") String otp
     );
 
+    @Multipart
+    @POST("roshni/api/createPIN.php")
+    Call<verifyBean> createPIN(
+            @Part("user_id") String user_id,
+            @Part("pin") String pin
+    );
+
+    @Multipart
+    @POST("roshni/api/verifyPIN.php")
+    Call<verifyBean> verifyPIN(
+            @Part("user_id") String user_id,
+            @Part("pin") String pin
+    );
 
     @Multipart
     @POST("roshni/api/update_worker_personal.php")

@@ -93,13 +93,14 @@ public class Splash extends AppCompatActivity {
 
         String id = SharePreferenceUtils.getInstance().getString("user_id");
         String name = SharePreferenceUtils.getInstance().getString("name");
+        String pin = SharePreferenceUtils.getInstance().getString("pin");
 
         Log.d("iidd" , id);
 
         if (id.length() > 0)
         {
 
-            if (name.length() > 0)
+            if (name.length() > 0 && pin.length() > 0)
             {
                 String type = SharePreferenceUtils.getInstance().getString("type");
 
@@ -126,7 +127,19 @@ public class Splash extends AppCompatActivity {
             {
                 String type = SharePreferenceUtils.getInstance().getString("type");
 
-                if (type.equals("brand"))
+                timer = new Timer();
+                timer.schedule(new TimerTask() {
+                    @Override
+                    public void run() {
+
+
+                        Intent i = new Intent(Splash.this , Sliders.class);
+                        startActivity(i);
+                        finish();
+
+                    }
+                } , 1500);
+                /*if (type.equals("brand"))
                 {
                     Intent intent = new Intent(Splash.this , Register2.class);
                     startActivity(intent);
@@ -143,7 +156,7 @@ public class Splash extends AppCompatActivity {
                     Intent intent = new Intent(Splash.this , Register3.class);
                     startActivity(intent);
                     finishAffinity();
-                }
+                }*/
             }
 
 
