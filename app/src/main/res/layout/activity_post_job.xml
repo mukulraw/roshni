@@ -37,7 +37,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="16dp"
-                android:text="JOB TITLE *" />
+                android:text="@string/job_title" />
 
             <EditText
                 android:id="@+id/title"
@@ -47,7 +47,7 @@
                 android:layout_marginTop="8dp"
                 android:layout_marginEnd="8dp"
                 android:background="@drawable/white_back_round"
-                android:hint="tap to enter"
+                android:hint="@string/tap_to_enter"
                 android:inputType="textPersonName"
                 android:padding="10dp" />
 
@@ -59,7 +59,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="16dp"
-                android:text="SKILLS *" />
+                android:text="@string/skills1" />
 
             <RelativeLayout
                 android:layout_width="match_parent"
@@ -83,7 +83,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="16dp"
-                android:text="PREFERRED SKILLS (IF ANY)" />
+                android:text="@string/preferred_skills_if_any" />
 
             <EditText
                 android:id="@+id/preferred"
@@ -93,7 +93,7 @@
                 android:layout_marginTop="8dp"
                 android:layout_marginEnd="8dp"
                 android:background="@drawable/white_back_round"
-                android:hint="tap to enter"
+                android:hint="@string/tap_to_enter"
                 android:inputType="textPersonName"
                 android:padding="10dp" />
 
@@ -103,7 +103,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="16dp"
-                android:text="LOCATION *" />
+                android:text="@string/location1" />
 
             <RelativeLayout
                 android:layout_width="match_parent"
@@ -127,7 +127,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="16dp"
-                android:text="EXPERIENCE *" />
+                android:text="@string/experience1" />
 
             <RelativeLayout
                 android:layout_width="match_parent"
@@ -150,7 +150,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="16dp"
-                android:text="JOB ROLE *" />
+                android:text="@string/job_role1" />
 
             <RelativeLayout
                 android:layout_width="match_parent"
@@ -175,7 +175,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="16dp"
-                android:text="GENDER PREFERENCE" />
+                android:text="@string/gender_preference1" />
 
             <RelativeLayout
                 android:layout_width="match_parent"
@@ -199,7 +199,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="16dp"
-                android:text="EDUCATION" />
+                android:text="@string/education1" />
 
             <RelativeLayout
                 android:layout_width="match_parent"
@@ -223,7 +223,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="16dp"
-                android:text="WORKING HOURS *" />
+                android:text="@string/working_hours1" />
 
             <EditText
                 android:id="@+id/hours"
@@ -234,7 +234,7 @@
                 android:focusable="false"
                 android:layout_marginEnd="8dp"
                 android:background="@drawable/white_back_round"
-                android:hint="tap to enter"
+                android:hint="@string/tap_to_enter"
                 android:inputType="textPersonName"
                 android:padding="10dp" />
 
@@ -243,7 +243,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="16dp"
-                android:text="SALARY PACKAGE *" />
+                android:text="@string/salary_package1" />
 
             <EditText
                 android:id="@+id/salary"
@@ -253,7 +253,7 @@
                 android:layout_marginTop="8dp"
                 android:layout_marginEnd="8dp"
                 android:background="@drawable/white_back_round"
-                android:hint="tap to enter"
+                android:hint="@string/tap_to_enter"
                 android:inputType="textCapCharacters"
                 android:padding="10dp" />
 
@@ -264,7 +264,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="8dp"
                     android:layout_marginTop="16dp"
-                    android:text="SALARY TYPE *" />
+                    android:text="@string/salary_type1" />
 
                 <RelativeLayout
                     android:layout_width="match_parent"
@@ -291,7 +291,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
-                android:text="SUBMIT"
+                android:text="@string/submit"
                 android:id="@+id/submit"
                 android:background="@drawable/blue_back_round"
                 android:minWidth="0dp"

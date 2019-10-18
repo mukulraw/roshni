@@ -59,7 +59,7 @@
         android:minHeight="0dp"
         android:paddingTop="8dp"
         android:paddingBottom="8dp"
-        android:text="ACTIVE"
+        android:text="@string/active"
         android:textColor="#ffffff"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/button9"
@@ -78,7 +78,7 @@
         android:minHeight="0dp"
         android:paddingTop="8dp"
         android:paddingBottom="8dp"
-        android:text="EDIT"
+        android:text="@string/edit"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
@@ -113,7 +113,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:padding="10dp"
-                    android:text="Job Type"
+                    android:text="@string/job_type"
                     android:textColor="#000000" />
 
                 <TextView
@@ -149,7 +149,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:padding="10dp"
-                    android:text="Experience"
+                    android:text="@string/experience"
                     android:textColor="#000000" />
 
                 <TextView
@@ -181,7 +181,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:padding="10dp"
-                    android:text="Total Days for Completion"
+                    android:text="@string/total_days_for_completion"
                     android:textColor="#000000" />
 
                 <TextView
@@ -219,7 +219,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="2"
                     android:padding="10dp"
-                    android:text="Design Sample"
+                    android:text="@string/design_sample"
                     android:textColor="#000000" />
 
                 <ImageView
@@ -254,7 +254,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:padding="10dp"
-                    android:text="Piece Rate"
+                    android:text="@string/piece_rate"
                     android:textColor="#000000" />
 
                 <TextView
@@ -281,7 +281,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:padding="10dp"
-                android:text="Company Details"
+                android:text="@string/company_details"
                 android:textColor="@color/colorPrimaryDark"
                 android:visibility="gone" />
 

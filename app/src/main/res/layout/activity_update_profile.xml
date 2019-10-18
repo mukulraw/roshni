@@ -13,7 +13,7 @@
         android:background="?attr/colorPrimary"
         android:minHeight="?attr/actionBarSize"
         app:titleTextColor="#ffffff"
-        app:title="UPDATE YOUR DETAILS"
+        app:title="@string/update_your_details"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />

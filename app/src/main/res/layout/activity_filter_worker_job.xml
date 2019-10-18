@@ -26,7 +26,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="24dp"
         android:layout_marginTop="8dp"
-        android:text="Filter"
+        android:text="@string/filter"
         android:textColor="#000000"
         android:textSize="24sp"
         app:layout_constraintStart_toEndOf="@+id/imageButton4"
@@ -56,7 +56,7 @@
                 android:layout_marginTop="24dp"
                 android:textStyle="bold"
                 android:textColor="@color/colorPrimary"
-                android:text="Skills" />
+                android:text="@string/skills" />
 
             <com.google.android.material.chip.ChipGroup
                 android:id="@+id/skills"
@@ -70,7 +70,7 @@
                 android:layout_marginTop="24dp"
                 android:textStyle="bold"
                 android:textColor="@color/colorPrimary"
-                android:text="Location" />
+                android:text="@string/location" />
 
             <com.google.android.material.chip.ChipGroup
                 android:id="@+id/location"
@@ -84,7 +84,7 @@
                 android:layout_marginTop="24dp"
                 android:textStyle="bold"
                 android:textColor="@color/colorPrimary"
-                android:text="Experience" />
+                android:text="@string/experience" />
 
             <com.google.android.material.chip.ChipGroup
                 android:id="@+id/experience"
@@ -98,7 +98,7 @@
                 android:layout_marginTop="24dp"
                 android:textStyle="bold"
                 android:textColor="@color/colorPrimary"
-                android:text="Job Role" />
+                android:text="@string/job_role" />
 
             <com.google.android.material.chip.ChipGroup
                 android:id="@+id/job_role"
@@ -112,7 +112,7 @@
                 android:layout_marginTop="24dp"
                 android:textStyle="bold"
                 android:textColor="@color/colorPrimary"
-                android:text="Education" />
+                android:text="@string/education" />
 
             <com.google.android.material.chip.ChipGroup
                 android:id="@+id/education"
@@ -126,7 +126,7 @@
                 android:layout_marginTop="24dp"
                 android:textStyle="bold"
                 android:textColor="@color/colorPrimary"
-                android:text="Salary Type" />
+                android:text="@string/salary_type" />
 
             <com.google.android.material.chip.ChipGroup
                 android:id="@+id/salary_type"
@@ -159,7 +159,7 @@
         android:layout_marginStart="4dp"
         android:layout_marginEnd="8dp"
         android:layout_marginBottom="8dp"
-        android:text="FILTER"
+        android:text="@string/filter"
         android:textColor="#ffffff"
         android:minHeight="0dp"
         android:paddingTop="8dp"
@@ -177,7 +177,7 @@
         android:layout_marginStart="8dp"
         android:layout_marginEnd="4dp"
         android:layout_marginBottom="8dp"
-        android:text="CLEAR"
+        android:text="@string/clear"
         android:minHeight="0dp"
         android:paddingTop="8dp"
         android:paddingBottom="8dp"

@@ -1,6 +1,7 @@
 package com.app.roshni;
 
 import com.app.roshni.allWorkContrJobListPOJO.allWorkContrJobBean;
+import com.app.roshni.contWorkerPOJO.contWorkerBeam;
 import com.app.roshni.contractorJobDetailsPOJO.contractorJobDetailsBean;
 import com.app.roshni.contractorPOJO.contractorBean;
 import com.app.roshni.notificationBean.notificationBean;
@@ -40,6 +41,12 @@ public interface AllApiIneterface {
     Call<verifyBean> verify(
             @Part("phone") String client,
             @Part("otp") String otp
+    );
+
+    @Multipart
+    @POST("roshni/api/resend.php")
+    Call<verifyBean> resend(
+            @Part("phone") String client
     );
 
     @Multipart
@@ -338,6 +345,12 @@ public interface AllApiIneterface {
 
     @GET("roshni/api/getAllWorkers.php")
     Call<workerListBean> getAllWorkers();
+
+    @Multipart
+    @POST("roshni/api/getContWorkers.php")
+    Call<contWorkerBeam> getContWorkers(
+            @Part("cuid") String cuid
+    );
 
     @GET("roshni/api/getAllConttractors.php")
     Call<workerListBean> getAllConttractors();

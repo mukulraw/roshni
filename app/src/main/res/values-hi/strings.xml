@@ -1,0 +1,18 @@
+<resources>
+    <string name="app_name">Good Business App</string>
+    <string name="alarm_notification">alarm notification</string>
+    <string name="default_notification_channel_id">123</string>
+    <string name="login">लॉग इन करें</string>
+    <string name="your_contact_number">आपका संपर्क नंबर</string>
+    <string name="tap_to_enter">दर्ज करने के लिए टैप करें</string>
+    <string name="or">या</string>
+    <string name="create_an_account">खाता बनाएं</string>
+    <string name="continue1">जारी रखें</string>
+    <string name="choose_account_type">खाता प्रकार चुनें</string>
+    <string name="business">व्यापार</string>
+    <string name="contractor_sub_contractor">ठेकेदार / उप-ठेकेदार</string>
+    <string name="worker">मज़दूर</string>
+    <string name="sign_up">साइन अप करें</string>
+    <string name="language">भाषा</string>
+    <string name="thanks_for_applying_this_job_n_your_application_has_been_received">इस नौकरी को लागू करने के लिए धन्यवाद !!! आपका आवेदन प्राप्त हो गया है।</string>
+</resources>

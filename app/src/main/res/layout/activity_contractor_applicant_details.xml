@@ -179,7 +179,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="About"
+                android:text="@string/about"
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="16dp"
                 />
@@ -197,7 +197,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Personal Information"
+                android:text="@string/personal_information"
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="16dp"
                 />
@@ -213,7 +213,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:padding="10dp"
-                    android:text="D.O.B."
+                    android:text="@string/d_o_b"
                     android:textColor="#000000" />
 
                 <TextView
@@ -244,7 +244,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:padding="10dp"
-                    android:text="Gender"
+                    android:text="@string/gender"
                     android:textColor="#000000" />
 
                 <TextView
@@ -274,7 +274,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:padding="10dp"
-                    android:text="Current Address"
+                    android:text="@string/current_address"
                     android:textColor="#000000" />
 
                 <TextView
@@ -305,7 +305,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:padding="10dp"
-                    android:text="Permanent Address"
+                    android:text="@string/permanent_address"
                     android:textColor="#000000" />
 
                 <TextView
@@ -335,7 +335,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:padding="10dp"
-                    android:text="Total Home Based Units"
+                    android:text="@string/total_home_based_units"
                     android:textColor="#000000" />
 
                 <TextView
@@ -365,7 +365,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:padding="10dp"
-                    android:text="Home Based Units Location"
+                    android:text="@string/home_based_units_location"
                     android:textColor="#000000" />
 
                 <TextView
@@ -396,7 +396,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:padding="10dp"
-                    android:text="Total Male Workers"
+                    android:text="@string/total_male_workers"
                     android:textColor="#000000" />
 
                 <TextView
@@ -427,7 +427,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:padding="10dp"
-                    android:text="Total Female Workers"
+                    android:text="@string/total_female_workers"
                     android:textColor="#000000" />
 
                 <TextView
@@ -458,7 +458,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:padding="10dp"
-                    android:text="Types of Work"
+                    android:text="@string/types_of_work"
                     android:textColor="#000000" />
 
                 <TextView
@@ -488,7 +488,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:padding="10dp"
-                    android:text="Previous Employer or Brand"
+                    android:text="@string/previous_employer_or_brand"
                     android:textColor="#000000" />
 
                 <TextView
@@ -514,7 +514,7 @@
                 android:layout_height="wrap_content"
                 android:padding="8dp"
                 android:id="@+id/samples"
-                android:text="View Samples"
+                android:text="@string/view_samples"
                 android:textStyle="bold"
                 android:textColor="@color/colorPrimary"
                 />
@@ -530,7 +530,7 @@
         android:layout_marginStart="8dp"
         android:layout_marginEnd="16dp"
         android:layout_marginBottom="8dp"
-        android:text="ACCEPT"
+        android:text="@string/accept"
         android:background="@drawable/blue_back_round"
         android:textColor="#ffffff"
         android:minHeight="0dp"
@@ -548,7 +548,7 @@
         android:layout_marginStart="16dp"
         android:layout_marginEnd="8dp"
         android:layout_marginBottom="8dp"
-        android:text="REJECT"
+        android:text="@string/reject"
         android:background="@drawable/white_back_round"
         android:textColor="@color/colorPrimary"
         android:minHeight="0dp"

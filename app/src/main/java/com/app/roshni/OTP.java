@@ -225,5 +225,45 @@ public class OTP extends AppCompatActivity {
             }
         });
 
+
+        resend.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                progress.setVisibility(View.VISIBLE);
+
+                Bean b = (Bean) getApplicationContext();
+
+                Retrofit retrofit = new Retrofit.Builder()
+                        .baseUrl(b.baseurl)
+                        .addConverterFactory(ScalarsConverterFactory.create())
+                        .addConverterFactory(GsonConverterFactory.create())
+                        .build();
+
+                AllApiIneterface cr = retrofit.create(AllApiIneterface.class);
+
+
+                Call<verifyBean> call = cr.resend(phone);
+
+                call.enqueue(new Callback<verifyBean>() {
+                    @Override
+                    public void onResponse(Call<verifyBean> call, Response<verifyBean> response) {
+                        Toast.makeText(OTP.this, response.body().getMessage(), Toast.LENGTH_SHORT).show();
+
+                        progress.setVisibility(View.GONE);
+
+                    }
+
+                    @Override
+                    public void onFailure(Call<verifyBean> call, Throwable t) {
+                        progress.setVisibility(View.GONE);
+                    }
+                });
+
+
+            }
+        });
+
+
     }
 }

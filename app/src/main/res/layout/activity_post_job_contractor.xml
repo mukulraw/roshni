@@ -40,7 +40,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="8dp"
                     android:layout_marginTop="16dp"
-                    android:text="JOB TYPE *" />
+                    android:text="@string/job_type1" />
 
                 <RelativeLayout
                     android:layout_width="match_parent"
@@ -67,7 +67,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="8dp"
                     android:layout_marginTop="16dp"
-                    android:text="EXPERIENCE *" />
+                    android:text="@string/experience1" />
 
                 <RelativeLayout
                     android:layout_width="match_parent"
@@ -91,7 +91,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="8dp"
                     android:layout_marginTop="16dp"
-                    android:text="NO. OF DAYS FOR COMPLETION *" />
+                    android:text="@string/no_of_days_for_completion" />
 
                 <RelativeLayout
                     android:layout_width="match_parent"
@@ -114,7 +114,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="8dp"
                     android:layout_marginTop="16dp"
-                    android:text="DESIGN/ SAMPLE" />
+                    android:text="@string/design_sample1" />
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -147,7 +147,7 @@
                             android:paddingTop="8dp"
                             android:paddingEnd="20dp"
                             android:paddingBottom="8dp"
-                            android:text="upload/ take photo"
+                            android:text="@string/upload_take_photo"
                             android:textColor="@color/colorPrimary" />
 
                     </RelativeLayout>
@@ -162,7 +162,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="8dp"
                     android:layout_marginTop="16dp"
-                    android:text="PIECE RATE" />
+                    android:text="@string/piece_rate1" />
 
                 <EditText
                     android:id="@+id/rate"
@@ -172,7 +172,7 @@
                     android:layout_marginTop="8dp"
                     android:layout_marginEnd="8dp"
                     android:background="@drawable/white_back_round"
-                    android:hint="tap to enter"
+                    android:hint="@string/tap_to_enter"
                     android:inputType="textCapCharacters"
                     android:padding="10dp" />
 
@@ -185,7 +185,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_horizontal"
-                    android:text="SUBMIT"
+                    android:text="@string/submit"
                     android:id="@+id/submit"
                     android:background="@drawable/blue_back_round"
                     android:minWidth="0dp"

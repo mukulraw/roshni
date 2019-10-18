@@ -152,7 +152,7 @@ public class MainActivity3 extends AppCompatActivity {
                     case 0:
                         FragmentManager fm = getSupportFragmentManager();
                         FragmentTransaction ft = fm.beginTransaction();
-                        workers test = new workers();
+                        workers3 test = new workers3();
                         ft.replace(R.id.replace, test);
                         ft.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_CLOSE);
                         //ft.addToBackStack(null);

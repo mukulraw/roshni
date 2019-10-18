@@ -49,10 +49,9 @@ public class OTP2 extends AppCompatActivity {
 
                 String ot = otp.getText().toString();
 
-                Log.d("otp" , ot);
+                Log.d("otp", ot);
 
-                if (ot.length() > 0)
-                {
+                if (ot.length() > 0) {
 
                     progress.setVisibility(View.VISIBLE);
 
@@ -67,81 +66,77 @@ public class OTP2 extends AppCompatActivity {
                     AllApiIneterface cr = retrofit.create(AllApiIneterface.class);
 
 
-                    Call<verifyBean> call = cr.verify(phone , ot);
+                    Call<verifyBean> call = cr.verify(phone, ot);
                     call.enqueue(new Callback<verifyBean>() {
                         @Override
                         public void onResponse(Call<verifyBean> call, Response<verifyBean> response) {
 
 
-                            if (response.body().getStatus().equals("1"))
-                            {
+                            if (response.body().getStatus().equals("1")) {
 
 
                                 Data item = response.body().getData();
 
-                                SharePreferenceUtils.getInstance().saveString("id" , item.getId());
-                                SharePreferenceUtils.getInstance().saveString("type" , item.getType());
-                                SharePreferenceUtils.getInstance().saveString("user_id" , item.getUserId());
-                                SharePreferenceUtils.getInstance().saveString("name" , item.getName());
-                                SharePreferenceUtils.getInstance().saveString("photo" , item.getPhoto());
-                                SharePreferenceUtils.getInstance().saveString("dob" , item.getDob());
-                                SharePreferenceUtils.getInstance().saveString("gender" , item.getGender());
-                                SharePreferenceUtils.getInstance().saveString("phone" , item.getPhone());
-                                SharePreferenceUtils.getInstance().saveString("cpin" , item.getCpin());
-                                SharePreferenceUtils.getInstance().saveString("cstate" , item.getCstate());
-                                SharePreferenceUtils.getInstance().saveString("cdistrict" , item.getCdistrict());
-                                SharePreferenceUtils.getInstance().saveString("carea" , item.getCarea());
-                                SharePreferenceUtils.getInstance().saveString("cstreet" , item.getCstreet());
-                                SharePreferenceUtils.getInstance().saveString("ppin" , item.getPpin());
-                                SharePreferenceUtils.getInstance().saveString("pstate" , item.getPstate());
-                                SharePreferenceUtils.getInstance().saveString("pdistrict" , item.getPdistrict());
-                                SharePreferenceUtils.getInstance().saveString("parea" , item.getParea());
-                                SharePreferenceUtils.getInstance().saveString("pstreet" , item.getPstreet());
-                                SharePreferenceUtils.getInstance().saveString("category" , item.getCategory());
-                                SharePreferenceUtils.getInstance().saveString("religion" , item.getReligion());
-                                SharePreferenceUtils.getInstance().saveString("educational" , item.getEducational());
-                                SharePreferenceUtils.getInstance().saveString("marital" , item.getMarital());
-                                SharePreferenceUtils.getInstance().saveString("children" , item.getChildren());
-                                SharePreferenceUtils.getInstance().saveString("belowsix" , item.getBelowsix());
-                                SharePreferenceUtils.getInstance().saveString("sixtofourteen" , item.getSixtofourteen());
-                                SharePreferenceUtils.getInstance().saveString("fifteentoeighteen" , item.getFifteentoeighteen());
-                                SharePreferenceUtils.getInstance().saveString("goingtoschool" , item.getGoingtoschool());
-                                SharePreferenceUtils.getInstance().saveString("sector" , item.getSector());
-                                SharePreferenceUtils.getInstance().saveString("skills" , item.getSkills());
-                                SharePreferenceUtils.getInstance().saveString("experience" , item.getExperience());
-                                SharePreferenceUtils.getInstance().saveString("employment" , item.getEmployment());
-                                SharePreferenceUtils.getInstance().saveString("employer" , item.getEmployer());
-                                SharePreferenceUtils.getInstance().saveString("home" , item.getHome());
-                                SharePreferenceUtils.getInstance().saveString("workers" , item.getWorkers());
-                                SharePreferenceUtils.getInstance().saveString("looms" , item.getLooms());
-                                SharePreferenceUtils.getInstance().saveString("location" , item.getLocation());
+                                SharePreferenceUtils.getInstance().saveString("id", item.getId());
+                                SharePreferenceUtils.getInstance().saveString("type", item.getType());
+                                SharePreferenceUtils.getInstance().saveString("user_id", item.getUserId());
+                                SharePreferenceUtils.getInstance().saveString("name", item.getName());
+                                SharePreferenceUtils.getInstance().saveString("photo", item.getPhoto());
+                                SharePreferenceUtils.getInstance().saveString("dob", item.getDob());
+                                SharePreferenceUtils.getInstance().saveString("gender", item.getGender());
+                                SharePreferenceUtils.getInstance().saveString("phone", item.getPhone());
+                                SharePreferenceUtils.getInstance().saveString("cpin", item.getCpin());
+                                SharePreferenceUtils.getInstance().saveString("cstate", item.getCstate());
+                                SharePreferenceUtils.getInstance().saveString("cdistrict", item.getCdistrict());
+                                SharePreferenceUtils.getInstance().saveString("carea", item.getCarea());
+                                SharePreferenceUtils.getInstance().saveString("cstreet", item.getCstreet());
+                                SharePreferenceUtils.getInstance().saveString("ppin", item.getPpin());
+                                SharePreferenceUtils.getInstance().saveString("pstate", item.getPstate());
+                                SharePreferenceUtils.getInstance().saveString("pdistrict", item.getPdistrict());
+                                SharePreferenceUtils.getInstance().saveString("parea", item.getParea());
+                                SharePreferenceUtils.getInstance().saveString("pstreet", item.getPstreet());
+                                SharePreferenceUtils.getInstance().saveString("category", item.getCategory());
+                                SharePreferenceUtils.getInstance().saveString("religion", item.getReligion());
+                                SharePreferenceUtils.getInstance().saveString("educational", item.getEducational());
+                                SharePreferenceUtils.getInstance().saveString("marital", item.getMarital());
+                                SharePreferenceUtils.getInstance().saveString("children", item.getChildren());
+                                SharePreferenceUtils.getInstance().saveString("belowsix", item.getBelowsix());
+                                SharePreferenceUtils.getInstance().saveString("sixtofourteen", item.getSixtofourteen());
+                                SharePreferenceUtils.getInstance().saveString("fifteentoeighteen", item.getFifteentoeighteen());
+                                SharePreferenceUtils.getInstance().saveString("goingtoschool", item.getGoingtoschool());
+                                SharePreferenceUtils.getInstance().saveString("sector", item.getSector());
+                                SharePreferenceUtils.getInstance().saveString("skills", item.getSkills());
+                                SharePreferenceUtils.getInstance().saveString("experience", item.getExperience());
+                                SharePreferenceUtils.getInstance().saveString("employment", item.getEmployment());
+                                SharePreferenceUtils.getInstance().saveString("employer", item.getEmployer());
+                                SharePreferenceUtils.getInstance().saveString("home", item.getHome());
+                                SharePreferenceUtils.getInstance().saveString("workers", item.getWorkers());
+                                SharePreferenceUtils.getInstance().saveString("looms", item.getLooms());
+                                SharePreferenceUtils.getInstance().saveString("location", item.getLocation());
 
-                                SharePreferenceUtils.getInstance().saveString("logo" , item.getLogo());
-                                SharePreferenceUtils.getInstance().saveString("registration_number" , item.getRegistrationNumber());
-                                SharePreferenceUtils.getInstance().saveString("contact_person" , item.getContactPerson());
-                                SharePreferenceUtils.getInstance().saveString("manufacturing_units" , item.getManufacturingUnits());
-                                SharePreferenceUtils.getInstance().saveString("factory_outlet" , item.getFactoryOutlet());
-                                SharePreferenceUtils.getInstance().saveString("products" , item.getProducts());
-                                SharePreferenceUtils.getInstance().saveString("country" , item.getCountry());
-                                SharePreferenceUtils.getInstance().saveString("certification" , item.getCertification());
-                                SharePreferenceUtils.getInstance().saveString("expiry" , item.getExpiry());
-                                SharePreferenceUtils.getInstance().saveString("email" , item.getEmail());
-                                SharePreferenceUtils.getInstance().saveString("website" , item.getWebsite());
+                                SharePreferenceUtils.getInstance().saveString("logo", item.getLogo());
+                                SharePreferenceUtils.getInstance().saveString("registration_number", item.getRegistrationNumber());
+                                SharePreferenceUtils.getInstance().saveString("contact_person", item.getContactPerson());
+                                SharePreferenceUtils.getInstance().saveString("manufacturing_units", item.getManufacturingUnits());
+                                SharePreferenceUtils.getInstance().saveString("factory_outlet", item.getFactoryOutlet());
+                                SharePreferenceUtils.getInstance().saveString("products", item.getProducts());
+                                SharePreferenceUtils.getInstance().saveString("country", item.getCountry());
+                                SharePreferenceUtils.getInstance().saveString("certification", item.getCertification());
+                                SharePreferenceUtils.getInstance().saveString("expiry", item.getExpiry());
+                                SharePreferenceUtils.getInstance().saveString("email", item.getEmail());
+                                SharePreferenceUtils.getInstance().saveString("website", item.getWebsite());
                                 SharePreferenceUtils.getInstance().saveString("about", item.getAbout());
                                 SharePreferenceUtils.getInstance().saveString("pin", item.getPin());
 
 
-                                if(item.getPin().length() == 0)
-                                {
+                                if (item.getPin().length() == 0) {
 
                                     Toast.makeText(OTP2.this, "Please create a PIN to continue", Toast.LENGTH_SHORT).show();
 
-                                    Intent intent = new Intent(OTP2.this , CreatePIN.class);
+                                    Intent intent = new Intent(OTP2.this, CreatePIN.class);
                                     startActivity(intent);
                                     finishAffinity();
-                                }
-                                else
-                                {
+                                } else {
                                     Toast.makeText(OTP2.this, "Please enter PIN to continue", Toast.LENGTH_SHORT).show();
 
                                     Intent intent = new Intent(OTP2.this, EnterPIN.class);
@@ -204,11 +199,7 @@ public class OTP2 extends AppCompatActivity {
                                 }*/
 
 
-
-
-                            }
-                            else
-                            {
+                            } else {
                                 Toast.makeText(OTP2.this, response.body().getMessage(), Toast.LENGTH_SHORT).show();
                             }
 
@@ -224,13 +215,47 @@ public class OTP2 extends AppCompatActivity {
                     });
 
 
-
-
-                }
-                else
-                {
+                } else {
                     Toast.makeText(OTP2.this, "Please enter a valid OTP", Toast.LENGTH_SHORT).show();
                 }
+
+
+            }
+        });
+
+        resend.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                progress.setVisibility(View.VISIBLE);
+
+                Bean b = (Bean) getApplicationContext();
+
+                Retrofit retrofit = new Retrofit.Builder()
+                        .baseUrl(b.baseurl)
+                        .addConverterFactory(ScalarsConverterFactory.create())
+                        .addConverterFactory(GsonConverterFactory.create())
+                        .build();
+
+                AllApiIneterface cr = retrofit.create(AllApiIneterface.class);
+
+
+                Call<verifyBean> call = cr.resend(phone);
+
+                call.enqueue(new Callback<verifyBean>() {
+                    @Override
+                    public void onResponse(Call<verifyBean> call, Response<verifyBean> response) {
+                        Toast.makeText(OTP2.this, response.body().getMessage(), Toast.LENGTH_SHORT).show();
+
+                        progress.setVisibility(View.GONE);
+
+                    }
+
+                    @Override
+                    public void onFailure(Call<verifyBean> call, Throwable t) {
+                        progress.setVisibility(View.GONE);
+                    }
+                });
 
 
             }
