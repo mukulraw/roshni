@@ -3,10 +3,12 @@ package com.app.roshni;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
+import android.app.Dialog;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.view.Window;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
@@ -31,6 +33,8 @@ public class SingleContgractor extends AppCompatActivity {
     ProgressBar progress;
 
     String id;
+
+    String mw , fw;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -102,6 +106,9 @@ public class SingleContgractor extends AppCompatActivity {
                 ImageLoader loader = ImageLoader.getInstance();
                 loader.displayImage(item.getPhoto() , image , options);
 
+                mw = item.getWorkersMale();
+                fw = item.getWorkersFemale();
+
                 name.setText(item.getName());
                 phone.setText("+" + item.getPhone());
                 total.setText(String.valueOf(Integer.parseInt(item.getWorkersMale()) + Integer.parseInt(item.getWorkersFemale())) + " workers");
@@ -128,6 +135,27 @@ public class SingleContgractor extends AppCompatActivity {
             @Override
             public void onFailure(Call<contractorBean> call, Throwable t) {
                 progress.setVisibility(View.GONE);
+            }
+        });
+
+
+
+        total.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                Dialog dialog = new Dialog(SingleContgractor.this);
+                dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
+                dialog.setCancelable(true);
+                dialog.setContentView(R.layout.worker_dialog);
+                dialog.show();
+
+                TextView mmww = dialog.findViewById(R.id.textView44);
+                TextView ffww = dialog.findViewById(R.id.textView46);
+
+                mmww.setText(mw);
+                ffww.setText(fw);
+
             }
         });
 
