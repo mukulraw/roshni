@@ -13,7 +13,7 @@
         android:minHeight="?attr/actionBarSize"
         app:titleTextColor="#ffffff"
         android:visibility="gone"
-        app:title="ENTER YOUR DETAILS"
+        app:title="@string/enter_your_details"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />

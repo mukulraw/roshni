@@ -23,7 +23,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="8dp"
-                android:text="YOUR NAME *" />
+                android:text="@string/your_name" />
 
             <EditText
                 android:id="@+id/editText"
@@ -33,7 +33,7 @@
                 android:layout_marginTop="8dp"
                 android:layout_marginEnd="8dp"
                 android:background="@drawable/white_back_round"
-                android:hint="tap to enter"
+                android:hint="@string/tap_to_enter"
                 android:inputType="textPersonName"
                 android:padding="10dp" />
 
@@ -43,7 +43,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="16dp"
-                android:text="YOUR PHOTO" />
+                android:text="@string/your_photo" />
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -76,7 +76,7 @@
                         android:paddingTop="8dp"
                         android:paddingEnd="20dp"
                         android:paddingBottom="8dp"
-                        android:text="upload/ take photo"
+                        android:text="@string/upload_take_photo"
                         android:textColor="@color/colorPrimary" />
 
                 </RelativeLayout>
@@ -90,7 +90,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="16dp"
-                android:text="YOUR D.O.B. *" />
+                android:text="@string/your_d_o_b" />
 
             <EditText
                 android:id="@+id/dob"
@@ -101,7 +101,7 @@
                 android:layout_marginEnd="8dp"
                 android:background="@drawable/white_back_round"
                 android:focusable="false"
-                android:hint="tap to enter"
+                android:hint="@string/tap_to_enter"
                 android:inputType="textPersonName"
                 android:padding="10dp" />
 
@@ -111,7 +111,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="16dp"
-                android:text="YOUR GENDER *" />
+                android:text="@string/your_gender" />
 
             <RelativeLayout
                 android:id="@+id/view2"
@@ -135,7 +135,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="16dp"
-                android:text="ABOUT" />
+                android:text="@string/about1" />
 
             <EditText
                 android:id="@+id/about"
@@ -145,7 +145,7 @@
                 android:layout_marginTop="8dp"
                 android:layout_marginEnd="8dp"
                 android:background="@drawable/white_back_round"
-                android:hint="tap to enter"
+                android:hint="@string/tap_to_enter"
                 android:lines="3"
                 android:gravity="start"
                 android:padding="10dp" />
@@ -156,7 +156,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="16dp"
-                android:text="NAME OF BUSINESS (IF ANY)" />
+                android:text="@string/name_of_business_if_any" />
 
             <EditText
                 android:id="@+id/business"
@@ -166,7 +166,7 @@
                 android:layout_marginTop="8dp"
                 android:layout_marginEnd="8dp"
                 android:background="@drawable/white_back_round"
-                android:hint="tap to enter"
+                android:hint="@string/tap_to_enter"
                 android:inputType="textPersonName"
                 android:padding="10dp" />
 
@@ -176,7 +176,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="16dp"
-                android:text="YEAR OF ESTABLISHMENT" />
+                android:text="@string/year_of_establishment" />
 
             <RelativeLayout
                 android:layout_width="match_parent"
@@ -201,7 +201,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="24dp"
-                android:text="YOUR CURRENT ADDRESS *"
+                android:text="@string/your_current_address1"
                 android:textColor="#000000" />
 
             <TextView
@@ -210,7 +210,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="16dp"
-                android:text="PIN CODE *" />
+                android:text="@string/pin_code" />
 
             <EditText
                 android:id="@+id/editText3"
@@ -220,7 +220,7 @@
                 android:layout_marginTop="8dp"
                 android:layout_marginEnd="8dp"
                 android:background="@drawable/white_back_round"
-                android:hint="tap to enter"
+                android:hint="@string/tap_to_enter"
                 android:inputType="number"
                 android:padding="10dp" />
 
@@ -230,7 +230,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="16dp"
-                android:text="STATE *" />
+                android:text="@string/state" />
 
             <EditText
                 android:id="@+id/editText4"
@@ -240,7 +240,7 @@
                 android:layout_marginTop="8dp"
                 android:layout_marginEnd="8dp"
                 android:background="@drawable/white_back_round"
-                android:hint="tap to enter"
+                android:hint="@string/tap_to_enter"
                 android:inputType="textPersonName"
                 android:padding="10dp" />
 
@@ -250,7 +250,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="16dp"
-                android:text="DISTRICT *" />
+                android:text="@string/district" />
 
             <EditText
                 android:id="@+id/editText5"
@@ -260,7 +260,7 @@
                 android:layout_marginTop="8dp"
                 android:layout_marginEnd="8dp"
                 android:background="@drawable/white_back_round"
-                android:hint="tap to enter"
+                android:hint="@string/tap_to_enter"
                 android:inputType="textPersonName"
                 android:padding="10dp" />
 
@@ -270,7 +270,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="16dp"
-                android:text="VILLAGE/ TOWN/ AREA *" />
+                android:text="@string/village_town_area" />
 
             <EditText
                 android:id="@+id/editText6"
@@ -280,7 +280,7 @@
                 android:layout_marginTop="8dp"
                 android:layout_marginEnd="8dp"
                 android:background="@drawable/white_back_round"
-                android:hint="tap to enter"
+                android:hint="@string/tap_to_enter"
                 android:inputType="textPersonName"
                 android:padding="10dp" />
 
@@ -290,7 +290,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="16dp"
-                android:text="STREET *" />
+                android:text="@string/street" />
 
             <EditText
                 android:id="@+id/editText7"
@@ -300,7 +300,7 @@
                 android:layout_marginTop="8dp"
                 android:layout_marginEnd="8dp"
                 android:background="@drawable/white_back_round"
-                android:hint="tap to enter"
+                android:hint="@string/tap_to_enter"
                 android:inputType="textPostalAddress"
                 android:padding="10dp" />
 
@@ -310,7 +310,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="24dp"
-                android:text="YOUR PERMANENT ADDRESS *"
+                android:text="@string/your_permanent_address"
                 android:textColor="#000000" />
 
             <CheckBox
@@ -318,7 +318,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
-                android:text="same as above" />
+                android:text="@string/same_as_above" />
 
             <LinearLayout
                 android:id="@+id/permanent"
@@ -333,7 +333,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="8dp"
                     android:layout_marginTop="16dp"
-                    android:text="PIN CODE *" />
+                    android:text="@string/pin_code" />
 
                 <EditText
                     android:id="@+id/editText20"
@@ -343,7 +343,7 @@
                     android:layout_marginTop="8dp"
                     android:layout_marginEnd="8dp"
                     android:background="@drawable/white_back_round"
-                    android:hint="tap to enter"
+                    android:hint="@string/tap_to_enter"
                     android:inputType="number"
                     android:padding="10dp" />
 
@@ -353,7 +353,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="8dp"
                     android:layout_marginTop="16dp"
-                    android:text="STATE *" />
+                    android:text="@string/state" />
 
                 <EditText
                     android:id="@+id/editText22"
@@ -363,7 +363,7 @@
                     android:layout_marginTop="8dp"
                     android:layout_marginEnd="8dp"
                     android:background="@drawable/white_back_round"
-                    android:hint="tap to enter"
+                    android:hint="@string/tap_to_enter"
                     android:inputType="textPersonName"
                     android:padding="10dp" />
 
@@ -373,7 +373,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="8dp"
                     android:layout_marginTop="16dp"
-                    android:text="DISTRICT *" />
+                    android:text="@string/district" />
 
                 <EditText
                     android:id="@+id/editText24"
@@ -383,7 +383,7 @@
                     android:layout_marginTop="8dp"
                     android:layout_marginEnd="8dp"
                     android:background="@drawable/white_back_round"
-                    android:hint="tap to enter"
+                    android:hint="@string/tap_to_enter"
                     android:inputType="textPersonName"
                     android:padding="10dp" />
 
@@ -393,7 +393,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="8dp"
                     android:layout_marginTop="16dp"
-                    android:text="VILLAGE/ TOWN/ AREA *" />
+                    android:text="@string/village_town_area" />
 
                 <EditText
                     android:id="@+id/editText26"
@@ -403,7 +403,7 @@
                     android:layout_marginTop="8dp"
                     android:layout_marginEnd="8dp"
                     android:background="@drawable/white_back_round"
-                    android:hint="tap to enter"
+                    android:hint="@string/tap_to_enter"
                     android:inputType="textPersonName"
                     android:padding="10dp" />
 
@@ -413,7 +413,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="8dp"
                     android:layout_marginTop="16dp"
-                    android:text="STREET *" />
+                    android:text="@string/street" />
 
                 <EditText
                     android:id="@+id/editText28"
@@ -423,7 +423,7 @@
                     android:layout_marginTop="8dp"
                     android:layout_marginEnd="8dp"
                     android:background="@drawable/white_back_round"
-                    android:hint="tap to enter"
+                    android:hint="@string/tap_to_enter"
                     android:inputType="textPostalAddress"
                     android:padding="10dp" />
 
@@ -435,7 +435,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="16dp"
-                android:text="NO. OF HOME BASED UNITS *" />
+                android:text="@string/no_of_home_based_units" />
 
             <EditText
                 android:id="@+id/home_based"
@@ -445,7 +445,7 @@
                 android:layout_marginTop="8dp"
                 android:layout_marginEnd="8dp"
                 android:background="@drawable/white_back_round"
-                android:hint="tap to enter"
+                android:hint="@string/tap_to_enter"
                 android:inputType="number"
                 android:digits="0123456789"
                 android:padding="10dp" />
@@ -455,7 +455,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="16dp"
-                android:text="LOCATION OF HOME BASED UNITS *" />
+                android:text="@string/location_of_home_based_units" />
 
             <mabbas007.tagsedittext.TagsEditText
                 android:id="@+id/location"
@@ -466,7 +466,7 @@
                 android:layout_marginEnd="8dp"
                 android:background="@drawable/white_back_round"
                 android:gravity="center_vertical"
-                android:hint="hit enter to add products"
+                android:hint="@string/hit_enter_to_add_products"
                 android:inputType="textPostalAddress"
                 android:padding="10dp"
                 app:allowSpaceInTag="true"
@@ -484,7 +484,7 @@
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="16dp"
                 android:textColor="#000000"
-                android:text="TOTAL WORKERS *" />
+                android:text="@string/total_workers1" />
 
 
             <LinearLayout
@@ -508,7 +508,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:gravity="center_vertical"
-                        android:text="MALE"
+                        android:text="@string/male"
                         android:layout_marginBottom="8dp"
                         />
 
@@ -517,7 +517,7 @@
                         android:layout_height="wrap_content"
                         android:id="@+id/male"
                         android:background="@drawable/white_back_round"
-                        android:hint="tap to enter"
+                        android:hint="@string/tap_to_enter"
                         android:digits="0123456789"
                         android:inputType="number"
                         android:padding="10dp"
@@ -537,7 +537,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:gravity="center_vertical"
-                        android:text="FEMALE"
+                        android:text="@string/female"
                         android:layout_marginBottom="8dp"
                         />
 
@@ -546,7 +546,7 @@
                         android:layout_height="wrap_content"
                         android:id="@+id/female"
                         android:background="@drawable/white_back_round"
-                        android:hint="tap to enter"
+                        android:hint="@string/tap_to_enter"
                         android:digits="0123456789"
                         android:inputType="number"
                         android:padding="10dp"
@@ -562,7 +562,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="16dp"
-                android:text="EXPERIENCE *" />
+                android:text="@string/experience1" />
 
             <RelativeLayout
                 android:layout_width="match_parent"
@@ -586,7 +586,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="16dp"
-                android:text="TYPES OF WORK *" />
+                android:text="@string/types_of_work1" />
 
             <RelativeLayout
                 android:layout_width="match_parent"
@@ -609,7 +609,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="16dp"
-                android:text="AVAILABILITY *" />
+                android:text="@string/availability" />
 
             <RelativeLayout
                 android:layout_width="match_parent"
@@ -632,7 +632,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="16dp"
-                android:text="PREVIOUS EMPLOYER OR BRANDS" />
+                android:text="@string/previous_employer_or_brands" />
 
             <EditText
                 android:id="@+id/employer"
@@ -642,7 +642,7 @@
                 android:layout_marginTop="8dp"
                 android:layout_marginEnd="8dp"
                 android:background="@drawable/white_back_round"
-                android:hint="tap to enter"
+                android:hint="@string/tap_to_enter"
                 android:inputType="textPostalAddress"
                 android:padding="10dp" />
 
@@ -662,7 +662,7 @@
                 android:paddingTop="8dp"
                 android:paddingEnd="20dp"
                 android:paddingBottom="8dp"
-                android:text="SUBMIT"
+                android:text="@string/submit"
                 android:textColor="#ffffff" />
 
 

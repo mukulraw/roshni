@@ -59,7 +59,7 @@
         android:minHeight="0dp"
         android:paddingTop="8dp"
         android:paddingBottom="8dp"
-        android:text="ACTIVE"
+        android:text="@string/active"
         android:textColor="#ffffff"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/button9"
@@ -78,7 +78,7 @@
         android:minHeight="0dp"
         android:paddingTop="8dp"
         android:paddingBottom="8dp"
-        android:text="EDIT"
+        android:text="@string/edit"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
@@ -113,7 +113,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:padding="10dp"
-                    android:text="Skills"
+                    android:text="@string/skills"
                     android:textColor="#000000" />
 
                 <TextView
@@ -144,7 +144,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:padding="10dp"
-                    android:text="Preferred Skill set"
+                    android:text="@string/preferred_skill_set"
                     android:textColor="#000000" />
 
                 <TextView
@@ -177,7 +177,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:padding="10dp"
-                    android:text="Location"
+                    android:text="@string/location"
                     android:textColor="#000000" />
 
                 <TextView
@@ -209,7 +209,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:padding="10dp"
-                    android:text="Experience"
+                    android:text="@string/experience"
                     android:textColor="#000000" />
 
                 <TextView
@@ -241,7 +241,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:padding="10dp"
-                    android:text="Job Role"
+                    android:text="@string/job_role"
                     android:textColor="#000000" />
 
                 <TextView
@@ -273,7 +273,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:padding="10dp"
-                    android:text="Gender Preference"
+                    android:text="@string/gender_preference"
                     android:textColor="#000000" />
 
                 <TextView
@@ -305,7 +305,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:padding="10dp"
-                    android:text="Education"
+                    android:text="@string/education"
                     android:textColor="#000000" />
 
                 <TextView
@@ -337,7 +337,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:padding="10dp"
-                    android:text="Working Hours"
+                    android:text="@string/working_hours"
                     android:textColor="#000000" />
 
                 <TextView
@@ -369,7 +369,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:padding="10dp"
-                    android:text="Salary Package"
+                    android:text="@string/salary_package"
                     android:textColor="#000000" />
 
                 <TextView
@@ -401,7 +401,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:padding="10dp"
-                    android:text="Salary Type"
+                    android:text="@string/salary_type"
                     android:textColor="#000000" />
 
                 <TextView
@@ -428,7 +428,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:padding="10dp"
-                android:text="Company Details"
+                android:text="@string/company_details"
                 android:textColor="@color/colorPrimaryDark"
                 android:visibility="gone" />
 

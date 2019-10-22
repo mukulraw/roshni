@@ -26,7 +26,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
             android:layout_marginTop="16dp"
-            android:text="YOUR SECTOR *" />
+            android:text="@string/your_sector" />
 
         <RelativeLayout
             android:id="@+id/view2"
@@ -51,7 +51,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
             android:layout_marginTop="16dp"
-            android:text="YOUR SKILLS *" />
+            android:text="@string/your_skills" />
 
         <RelativeLayout
             android:layout_width="match_parent"
@@ -74,7 +74,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
             android:layout_marginTop="16dp"
-            android:text="YOUR EXPERIENCE *" />
+            android:text="@string/your_experience" />
 
         <RelativeLayout
             android:layout_width="match_parent"
@@ -97,7 +97,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
             android:layout_marginTop="16dp"
-            android:text="YOUR EMPLOYMENT STATUS *" />
+            android:text="@string/your_employment_status" />
 
         <RelativeLayout
             android:layout_width="match_parent"
@@ -122,7 +122,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
             android:layout_marginTop="16dp"
-            android:text="YOUR EMPLOYER (PREVIOUS/ CURRENT)" />
+            android:text="@string/your_employer_previous_current" />
 
         <EditText
             android:id="@+id/employer"
@@ -132,7 +132,7 @@
             android:layout_marginTop="8dp"
             android:layout_marginEnd="8dp"
             android:background="@drawable/white_back_round"
-            android:hint="tap to enter"
+            android:hint="@string/tap_to_enter"
             android:inputType="textPersonName"
             android:padding="10dp" />
 
@@ -142,7 +142,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
             android:layout_marginTop="16dp"
-            android:text="OWNS A HOME BASED UNIT *" />
+            android:text="@string/owns_a_home_based_unit1" />
 
         <RelativeLayout
             android:layout_width="match_parent"
@@ -173,7 +173,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="16dp"
-                android:text="NUMBER OF WORKERS *" />
+                android:text="@string/number_of_workers" />
 
             <RelativeLayout
                 android:layout_width="match_parent"
@@ -196,7 +196,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="16dp"
-                android:text="NUMBER OF LOOMS *" />
+                android:text="@string/number_of_looms" />
 
             <RelativeLayout
                 android:layout_width="match_parent"
@@ -223,7 +223,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
             android:layout_marginTop="16dp"
-            android:text="PREFERRED LOCATION FOR WORK *" />
+            android:text="@string/preferred_location_for_work" />
 
         <RelativeLayout
             android:layout_width="match_parent"
@@ -246,7 +246,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
-            android:text="SUBMIT"
+            android:text="@string/submit"
             android:id="@+id/submit"
             android:background="@drawable/blue_back_round"
             android:minWidth="0dp"

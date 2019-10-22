@@ -58,7 +58,7 @@
             android:layout_marginStart="8dp"
             android:layout_marginTop="8dp"
             android:layout_marginEnd="8dp"
-            android:text="Specialized in "
+            android:text="@string/specialized_in"
             app:layout_constraintEnd_toStartOf="@+id/imageView6"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textView30" />
@@ -70,7 +70,7 @@
             android:layout_marginStart="8dp"
             android:layout_marginTop="8dp"
             android:layout_marginEnd="8dp"
-            android:text="Certified by Goodweave"
+            android:text="@string/certified_by_goodweave"
             app:layout_constraintEnd_toStartOf="@+id/imageView6"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textView31" />
@@ -83,7 +83,7 @@
             android:layout_marginTop="8dp"
             android:layout_marginEnd="8dp"
             android:layout_marginBottom="8dp"
-            android:text="View all jobs posted by the company"
+            android:text="@string/view_all_jobs_posted_by_the_company"
             android:textStyle="bold"
             android:textColor="@color/colorPrimaryDark"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -101,7 +101,7 @@
         android:layout_marginStart="4dp"
         android:layout_marginEnd="4dp"
         android:layout_marginBottom="4dp"
-        android:text="APPLY NOW"
+        android:text="@string/apply_now"
         android:background="@drawable/blue_back_round"
         android:textColor="#ffffff"
         android:minHeight="0dp"
@@ -141,7 +141,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:padding="10dp"
-                    android:text="Reg. No."
+                    android:text="@string/reg_no"
                     android:textColor="#000000" />
 
                 <TextView
@@ -172,7 +172,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:padding="10dp"
-                    android:text="Contact Person"
+                    android:text="@string/contact_person"
                     android:textColor="#000000" />
 
                 <TextView
@@ -205,7 +205,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:padding="10dp"
-                    android:text="Contact No."
+                    android:text="@string/contact_no"
                     android:textColor="#000000" />
 
                 <TextView
@@ -237,7 +237,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:padding="10dp"
-                    android:text="Address"
+                    android:text="@string/address"
                     android:textColor="#000000" />
 
                 <TextView
@@ -269,7 +269,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:padding="10dp"
-                    android:text="Head Office"
+                    android:text="@string/head_office"
                     android:textColor="#000000" />
 
                 <TextView
@@ -301,7 +301,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:padding="10dp"
-                    android:text="Manufacturing Units"
+                    android:text="@string/manufacturing_units"
                     android:textColor="#000000" />
 
                 <TextView
@@ -333,7 +333,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:padding="10dp"
-                    android:text="Factory Outlet"
+                    android:text="@string/factory_outlet"
                     android:textColor="#000000" />
 
                 <TextView
@@ -365,7 +365,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:padding="10dp"
-                    android:text="Importing Countries"
+                    android:text="@string/importing_countries"
                     android:textColor="#000000" />
 
                 <TextView
@@ -397,7 +397,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:padding="10dp"
-                    android:text="Total Workers"
+                    android:text="@string/total_workers"
                     android:textColor="#000000" />
 
                 <TextView
@@ -429,7 +429,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:padding="10dp"
-                    android:text="Website"
+                    android:text="@string/website"
                     android:textColor="#000000" />
 
                 <TextView
@@ -461,7 +461,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:padding="10dp"
-                    android:text="Email address"
+                    android:text="@string/email_address"
                     android:textColor="#000000" />
 
                 <TextView

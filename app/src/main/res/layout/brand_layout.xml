@@ -23,7 +23,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="8dp"
-                android:text="YOUR NAME *" />
+                android:text="@string/your_name" />
 
             <EditText
                 android:id="@+id/editText"
@@ -33,7 +33,7 @@
                 android:layout_marginTop="8dp"
                 android:layout_marginEnd="8dp"
                 android:background="@drawable/white_back_round"
-                android:hint="tap to enter"
+                android:hint="@string/tap_to_enter"
                 android:inputType="textPersonName"
                 android:padding="10dp" />
 
@@ -43,7 +43,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="16dp"
-                android:text="YOUR LOGO" />
+                android:text="@string/your_logo" />
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -76,7 +76,7 @@
                         android:paddingTop="8dp"
                         android:paddingEnd="20dp"
                         android:paddingBottom="8dp"
-                        android:text="upload/ take photo"
+                        android:text="@string/upload_take_photo"
                         android:textColor="@color/colorPrimary" />
 
                 </RelativeLayout>
@@ -90,7 +90,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="16dp"
-                android:text="REGISTRATION NO. (IF ANY)" />
+                android:text="@string/registration_no_if_any" />
 
             <EditText
                 android:id="@+id/editText2"
@@ -100,7 +100,7 @@
                 android:layout_marginTop="8dp"
                 android:layout_marginEnd="8dp"
                 android:background="@drawable/white_back_round"
-                android:hint="tap to enter"
+                android:hint="@string/tap_to_enter"
                 android:inputType="textCapCharacters"
                 android:padding="10dp" />
 
@@ -110,7 +110,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="16dp"
-                android:text="CONTACT PERSON *" />
+                android:text="@string/contact_person1" />
 
             <EditText
                 android:id="@+id/person"
@@ -120,7 +120,7 @@
                 android:layout_marginTop="8dp"
                 android:layout_marginEnd="8dp"
                 android:background="@drawable/white_back_round"
-                android:hint="tap to enter"
+                android:hint="@string/tap_to_enter"
                 android:inputType="textPersonName"
                 android:padding="10dp" />
 
@@ -131,7 +131,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="24dp"
-                android:text="YOUR CURRENT ADDRESS *"
+                android:text="@string/your_current_address1"
                 android:textColor="#000000" />
 
             <TextView
@@ -140,7 +140,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="16dp"
-                android:text="PIN CODE *" />
+                android:text="@string/pin_code" />
 
             <EditText
                 android:id="@+id/editText3"
@@ -150,7 +150,7 @@
                 android:layout_marginTop="8dp"
                 android:layout_marginEnd="8dp"
                 android:background="@drawable/white_back_round"
-                android:hint="tap to enter"
+                android:hint="@string/tap_to_enter"
                 android:inputType="number"
                 android:padding="10dp" />
 
@@ -160,7 +160,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="16dp"
-                android:text="STATE *" />
+                android:text="@string/state" />
 
             <EditText
                 android:id="@+id/editText4"
@@ -170,7 +170,7 @@
                 android:layout_marginTop="8dp"
                 android:layout_marginEnd="8dp"
                 android:background="@drawable/white_back_round"
-                android:hint="tap to enter"
+                android:hint="@string/tap_to_enter"
                 android:inputType="textPersonName"
                 android:padding="10dp" />
 
@@ -180,7 +180,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="16dp"
-                android:text="DISTRICT *" />
+                android:text="@string/district" />
 
             <EditText
                 android:id="@+id/editText5"
@@ -190,7 +190,7 @@
                 android:layout_marginTop="8dp"
                 android:layout_marginEnd="8dp"
                 android:background="@drawable/white_back_round"
-                android:hint="tap to enter"
+                android:hint="@string/tap_to_enter"
                 android:inputType="textPersonName"
                 android:padding="10dp" />
 
@@ -200,7 +200,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="16dp"
-                android:text="VILLAGE/ TOWN/ AREA *" />
+                android:text="@string/village_town_area" />
 
             <EditText
                 android:id="@+id/editText6"
@@ -210,7 +210,7 @@
                 android:layout_marginTop="8dp"
                 android:layout_marginEnd="8dp"
                 android:background="@drawable/white_back_round"
-                android:hint="tap to enter"
+                android:hint="@string/tap_to_enter"
                 android:inputType="textPersonName"
                 android:padding="10dp" />
 
@@ -220,7 +220,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="16dp"
-                android:text="STREET *" />
+                android:text="@string/street" />
 
             <EditText
                 android:id="@+id/editText7"
@@ -230,7 +230,7 @@
                 android:layout_marginTop="8dp"
                 android:layout_marginEnd="8dp"
                 android:background="@drawable/white_back_round"
-                android:hint="tap to enter"
+                android:hint="@string/tap_to_enter"
                 android:inputType="textPostalAddress"
                 android:padding="10dp" />
 
@@ -240,7 +240,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="24dp"
-                android:text="HEAD OFFICE ADDRESS *"
+                android:text="@string/head_office_address"
                 android:textColor="#000000" />
 
             <CheckBox
@@ -248,7 +248,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
-                android:text="same as above" />
+                android:text="@string/same_as_above" />
 
             <LinearLayout
                 android:id="@+id/permanent"
@@ -263,7 +263,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="8dp"
                     android:layout_marginTop="16dp"
-                    android:text="PIN CODE *" />
+                    android:text="@string/pin_code" />
 
                 <EditText
                     android:id="@+id/editText20"
@@ -273,7 +273,7 @@
                     android:layout_marginTop="8dp"
                     android:layout_marginEnd="8dp"
                     android:background="@drawable/white_back_round"
-                    android:hint="tap to enter"
+                    android:hint="@string/tap_to_enter"
                     android:inputType="number"
                     android:padding="10dp" />
 
@@ -283,7 +283,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="8dp"
                     android:layout_marginTop="16dp"
-                    android:text="STATE *" />
+                    android:text="@string/state" />
 
                 <EditText
                     android:id="@+id/editText22"
@@ -293,7 +293,7 @@
                     android:layout_marginTop="8dp"
                     android:layout_marginEnd="8dp"
                     android:background="@drawable/white_back_round"
-                    android:hint="tap to enter"
+                    android:hint="@string/tap_to_enter"
                     android:inputType="textPersonName"
                     android:padding="10dp" />
 
@@ -303,7 +303,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="8dp"
                     android:layout_marginTop="16dp"
-                    android:text="DISTRICT *" />
+                    android:text="@string/district" />
 
                 <EditText
                     android:id="@+id/editText24"
@@ -313,7 +313,7 @@
                     android:layout_marginTop="8dp"
                     android:layout_marginEnd="8dp"
                     android:background="@drawable/white_back_round"
-                    android:hint="tap to enter"
+                    android:hint="@string/tap_to_enter"
                     android:inputType="textPersonName"
                     android:padding="10dp" />
 
@@ -323,7 +323,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="8dp"
                     android:layout_marginTop="16dp"
-                    android:text="VILLAGE/ TOWN/ AREA *" />
+                    android:text="@string/village_town_area" />
 
                 <EditText
                     android:id="@+id/editText26"
@@ -333,7 +333,7 @@
                     android:layout_marginTop="8dp"
                     android:layout_marginEnd="8dp"
                     android:background="@drawable/white_back_round"
-                    android:hint="tap to enter"
+                    android:hint="@string/tap_to_enter"
                     android:inputType="textPersonName"
                     android:padding="10dp" />
 
@@ -343,7 +343,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="8dp"
                     android:layout_marginTop="16dp"
-                    android:text="STREET *" />
+                    android:text="@string/street" />
 
                 <EditText
                     android:id="@+id/editText28"
@@ -353,7 +353,7 @@
                     android:layout_marginTop="8dp"
                     android:layout_marginEnd="8dp"
                     android:background="@drawable/white_back_round"
-                    android:hint="tap to enter"
+                    android:hint="@string/tap_to_enter"
                     android:inputType="textPostalAddress"
                     android:padding="10dp" />
 
@@ -365,7 +365,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="16dp"
-                android:text="MANUFACTURING UNITS *" />
+                android:text="@string/manufacturing_units" />
 
             <RelativeLayout
                 android:layout_width="match_parent"
@@ -389,7 +389,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="16dp"
-                android:text="FACTORY OUTLET" />
+                android:text="@string/factory_outlet" />
 
             <EditText
                 android:id="@+id/factory"
@@ -399,7 +399,7 @@
                 android:layout_marginTop="8dp"
                 android:layout_marginEnd="8dp"
                 android:background="@drawable/white_back_round"
-                android:hint="tap to enter"
+                android:hint="@string/tap_to_enter"
                 android:inputType="text"
                 android:padding="10dp" />
 
@@ -409,7 +409,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="16dp"
-                android:text="TYPES OF PRODUCTS *" />
+                android:text="@string/types_of_products" />
 
             <mabbas007.tagsedittext.TagsEditText
                 android:id="@+id/products"
@@ -420,7 +420,7 @@
                 android:layout_marginEnd="8dp"
                 android:background="@drawable/white_back_round"
                 android:gravity="center_vertical"
-                android:hint="hit enter to add products"
+                android:hint="@string/hit_enter_to_add_products"
                 android:inputType="textPostalAddress"
                 android:padding="10dp"
                 app:allowSpaceInTag="true"
@@ -437,7 +437,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="16dp"
-                android:text="IMPORTING COUNTRIES *" />
+                android:text="@string/importing_countries" />
 
             <mabbas007.tagsedittext.TagsEditText
                 android:id="@+id/countries"
@@ -448,7 +448,7 @@
                 android:layout_marginEnd="8dp"
                 android:background="@drawable/white_back_round"
                 android:gravity="center_vertical"
-                android:hint="hit enter to add countries"
+                android:hint="@string/hit_enter_to_add_countries"
                 android:inputType="textPostalAddress"
                 android:padding="10dp"
                 app:allowSpaceInTag="true"
@@ -466,7 +466,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="16dp"
-                android:text="TOTAL WORKERS *" />
+                android:text="@string/total_workers1" />
 
             <EditText
                 android:id="@+id/workers"
@@ -477,7 +477,7 @@
                 android:layout_marginEnd="8dp"
                 android:background="@drawable/white_back_round"
                 android:digits="0123456789"
-                android:hint="tap to enter"
+                android:hint="@string/tap_to_enter"
                 android:inputType="number"
                 android:padding="10dp" />
 
@@ -487,7 +487,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="16dp"
-                android:text="GOODWEAVE CERTIFICATION *" />
+                android:text="@string/goodweave_certification" />
 
             <RelativeLayout
                 android:layout_width="match_parent"
@@ -517,7 +517,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="8dp"
                     android:layout_marginTop="16dp"
-                    android:text="CERTIFICATE EXPIRY DATE *" />
+                    android:text="@string/certificate_expiry_date" />
 
                 <EditText
                     android:id="@+id/expiry"
@@ -528,7 +528,7 @@
                     android:layout_marginEnd="8dp"
                     android:background="@drawable/white_back_round"
                     android:focusable="false"
-                    android:hint="tap to enter"
+                    android:hint="@string/tap_to_enter"
                     android:inputType="text"
                     android:padding="10dp" />
 
@@ -540,7 +540,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="16dp"
-                android:text="WEBSITE ADDRESS *" />
+                android:text="@string/website_address" />
 
             <EditText
                 android:id="@+id/website"
@@ -550,7 +550,7 @@
                 android:layout_marginTop="8dp"
                 android:layout_marginEnd="8dp"
                 android:background="@drawable/white_back_round"
-                android:hint="tap to enter"
+                android:hint="@string/tap_to_enter"
                 android:inputType="textWebEmailAddress"
                 android:padding="10dp" />
 
@@ -560,7 +560,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="16dp"
-                android:text="EMAIL ADDRESS *" />
+                android:text="@string/email_address1" />
 
             <EditText
                 android:id="@+id/email"
@@ -570,7 +570,7 @@
                 android:layout_marginTop="8dp"
                 android:layout_marginEnd="8dp"
                 android:background="@drawable/white_back_round"
-                android:hint="tap to enter"
+                android:hint="@string/tap_to_enter"
                 android:inputType="textEmailAddress"
                 android:padding="10dp" />
 
@@ -589,7 +589,7 @@
                 android:paddingTop="8dp"
                 android:paddingEnd="20dp"
                 android:paddingBottom="8dp"
-                android:text="SUBMIT"
+                android:text="@string/submit"
                 android:textColor="#ffffff" />
 
 
