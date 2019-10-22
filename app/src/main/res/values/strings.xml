@@ -36,10 +36,8 @@
     <string name="active">ACTIVE</string>
     <string name="edit">EDIT</string>
     <string name="job_type">Job Type</string>
-    <string name="total_days_for_completion">Total Days for Completion</string>
     <string name="design_sample">Design Sample</string>
     <string name="piece_rate">Piece Rate</string>
-    <string name="company_details">Company Details</string>
     <string name="enter_pin">ENTER PIN</string>
     <string name="re_enter_pin">RE-ENTER PIN</string>
     <string name="create_pin_to_continue">CREATE PIN TO CONTINUE</string>
@@ -59,8 +57,6 @@
     <string name="salary_package">Salary Package</string>
     <string name="company_details">Company Details</string>
     <string name="total_days_for_completion">Total Days for Completion</string>
-    <string name="design_sample">Design Sample</string>
-    <string name="piece_rate">Piece Rate</string>
     <string name="job_title">JOB TITLE *</string>
     <string name="skills1">SKILLS *</string>
     <string name="preferred_skills_if_any">PREFERRED SKILLS (IF ANY)</string>
@@ -75,9 +71,9 @@
     <string name="submit">SUBMIT</string>
     <string name="job_type1">JOB TYPE *</string>
     <string name="no_of_days_for_completion">NO. OF DAYS FOR COMPLETION *</string>
-    <string name="design_sample1">DESIGN/ SAMPLE</string>
+
     <string name="upload_take_photo">upload/ take photo</string>
-    <string name="piece_rate1">PIECE RATE</string>
+
     <string name="enter_your_details">ENTER YOUR DETAILS</string>
     <string name="category">Category</string>
     <string name="religion">Religion</string>
@@ -130,8 +126,6 @@
     <string name="your_permanent_address">YOUR PERMANENT ADDRESS *</string>
     <string name="no_of_home_based_units">NO. OF HOME BASED UNITS *</string>
     <string name="location_of_home_based_units">LOCATION OF HOME BASED UNITS *</string>
-    <string name="hit_enter_to_add_products">hit enter to add products</string>
-    <string name="total_workers1">TOTAL WORKERS *</string>
     <string name="male">MALE</string>
     <string name="female">FEMALE</string>
     <string name="types_of_work1">TYPES OF WORK *</string>
@@ -150,7 +144,6 @@
     <string name="job_title_goes_here">JOB TITLE GOES HERE</string>
     <string name="salary">Salary</string>
     <string name="company_name">Company Name</string>
-    <string name="address">Address</string>
     <string name="view_details"><![CDATA[View Details >]]></string>
     <string name="posted_on">Posted on</string>
     <string name="your_category">YOUR CATEGORY *</string>
@@ -179,4 +172,6 @@
     <string name="job_category">Job category</string>
     <string name="applied">applied</string>
     <string name="applicants">Applicants</string>
+    <string name="design_sample1">DESIGN/ SAMPLE</string>
+    <string name="piece_rate1">PIECE RATE</string>
 </resources>
