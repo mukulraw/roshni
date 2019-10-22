@@ -72,7 +72,7 @@ public class SingleContgractor extends AppCompatActivity {
         });
 
         toolbar.setTitleTextColor(Color.WHITE);
-        toolbar.setTitle("CONTRACTOR DETAILS");
+        toolbar.setTitle(getString(R.string.cont_details));
 
         progress.setVisibility(View.VISIBLE);
 

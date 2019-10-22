@@ -6,8 +6,11 @@ import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentStatePagerAdapter;
 import androidx.viewpager.widget.ViewPager;
 
+import android.content.res.Configuration;
 import android.os.Bundle;
 import android.view.ViewPropertyAnimator;
+
+import java.util.Locale;
 
 import me.relex.circleindicator.CircleIndicator;
 
@@ -21,6 +24,12 @@ public class Sliders extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        String languageToLoad  = SharePreferenceUtils.getInstance().getString("lang"); // your language
+        Locale locale = new Locale(languageToLoad);
+        Locale.setDefault(locale);
+        Configuration config = new Configuration();
+        config.locale = locale;
+        getBaseContext().getResources().updateConfiguration(config, getBaseContext().getResources().getDisplayMetrics());
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sliders);
         pager = findViewById(R.id.pager);

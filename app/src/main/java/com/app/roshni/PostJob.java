@@ -93,7 +93,7 @@ public class PostJob extends AppCompatActivity implements TimePickerDialog.OnTim
         });
 
         toolbar.setTitleTextColor(Color.WHITE);
-        toolbar.setTitle("POST JOB");
+        toolbar.setTitle(getString(R.string.post_job));
 
         hours.setOnClickListener(new View.OnClickListener() {
             @Override

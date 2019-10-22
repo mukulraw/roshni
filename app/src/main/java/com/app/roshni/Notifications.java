@@ -67,7 +67,7 @@ public class Notifications extends AppCompatActivity {
         });
 
         toolbar.setTitleTextColor(Color.WHITE);
-        toolbar.setTitle("Notifications");
+        toolbar.setTitle(getString(R.string.notifications));
 
         adapter = new JobsAdapter(this , list);
         manager = new GridLayoutManager(this, 1);

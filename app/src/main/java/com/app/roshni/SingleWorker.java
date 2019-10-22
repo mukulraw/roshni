@@ -70,7 +70,7 @@ public class SingleWorker extends AppCompatActivity {
         });
 
         toolbar.setTitleTextColor(Color.WHITE);
-        toolbar.setTitle("WORKER DETAILS");
+        toolbar.setTitle(getString(R.string.worker_details));
 
         progress.setVisibility(View.VISIBLE);
 

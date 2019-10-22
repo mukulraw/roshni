@@ -30,8 +30,8 @@ public class jobsContractors extends Fragment {
         pager = view.findViewById(R.id.pager);
 
 
-        tabs.addTab(tabs.newTab().setText("ACTIVE"));
-        tabs.addTab(tabs.newTab().setText("INACTIVE"));
+        tabs.addTab(tabs.newTab().setText(getString(R.string.act)));
+        tabs.addTab(tabs.newTab().setText(getString(R.string.inact)));
 
 
         PagerAdapter adapter = new PagerAdapter(getChildFragmentManager());
@@ -41,8 +41,8 @@ public class jobsContractors extends Fragment {
         pager.setPagingEnabled(true);
 
 
-        tabs.getTabAt(0).setText("ACTIVE");
-        tabs.getTabAt(1).setText("INACTIVE");
+        tabs.getTabAt(0).setText(getString(R.string.act));
+        tabs.getTabAt(1).setText(getString(R.string.inact));
 
 
 

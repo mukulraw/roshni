@@ -30,8 +30,8 @@ public class jobsbrand extends Fragment {
         pager = view.findViewById(R.id.pager);
         add = view.findViewById(R.id.floatingActionButton);
 
-        tabs.addTab(tabs.newTab().setText("WORKERS"));
-        tabs.addTab(tabs.newTab().setText("CONTRACTORS"));
+        tabs.addTab(tabs.newTab().setText(getString(R.string.workers)));
+        tabs.addTab(tabs.newTab().setText(getString(R.string.contractors)));
 
 
         PagerAdapter adapter = new PagerAdapter(getChildFragmentManager());
@@ -41,8 +41,8 @@ public class jobsbrand extends Fragment {
         pager.setPagingEnabled(true);
 
 
-        tabs.getTabAt(0).setText("WORKERS");
-        tabs.getTabAt(1).setText("CONTRACTORS");
+        tabs.getTabAt(0).setText(getString(R.string.workers));
+        tabs.getTabAt(1).setText(getString(R.string.contractors));
 
         add.setOnClickListener(new View.OnClickListener() {
             @Override

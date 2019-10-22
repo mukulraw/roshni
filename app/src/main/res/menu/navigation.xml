@@ -3,17 +3,17 @@
     <item
         android:id="@+id/newjobs"
         android:icon="@drawable/ic_old_fashion_briefcase"
-        android:title="New Jobs" />
+        android:title="@string/new_jobs" />
 
 
     <item
         android:id="@+id/applied"
         android:icon="@drawable/ic_resume"
-        android:title="Applied Jobs" />
+        android:title="@string/applied_jobs" />
 
 
     <item
         android:id="@+id/profile"
         android:icon="@drawable/ic_man_user"
-        android:title="Profile" />
+        android:title="@string/profile" />
 </menu>

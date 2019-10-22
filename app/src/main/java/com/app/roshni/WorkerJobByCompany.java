@@ -70,7 +70,7 @@ public class WorkerJobByCompany extends AppCompatActivity {
         });
 
         toolbar.setTitleTextColor(Color.WHITE);
-        toolbar.setTitle("COMPANY JOBS");
+        toolbar.setTitle(getString(R.string.comp_jobs));
 
         adapter = new JobsAdapter(this , list);
         manager = new GridLayoutManager(this, 1);

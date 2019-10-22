@@ -3,22 +3,22 @@
     <item
         android:id="@+id/workers"
         android:icon="@drawable/ic_clerk_with_tie"
-        android:title="Workers" />
+        android:title="@string/workers" />
 
     <item
         android:id="@+id/contractors"
         android:icon="@drawable/ic_carpenter"
-        android:title="Contractors" />
+        android:title="@string/contractors" />
 
 
     <item
         android:id="@+id/jobs"
         android:icon="@drawable/ic_old_fashion_briefcase"
-        android:title="Jobs" />
+        android:title="@string/jobs" />
 
 
     <item
         android:id="@+id/profile"
         android:icon="@drawable/ic_man_user"
-        android:title="Profile" />
+        android:title="@string/profile" />
 </menu>

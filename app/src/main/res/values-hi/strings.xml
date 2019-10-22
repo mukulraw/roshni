@@ -33,7 +33,7 @@
     <string name="view_samples">नमूने देखें</string>
     <string name="accept">स्वीकार करना</string>
     <string name="reject">अस्वीकार</string>
-    <string name="active">सक्रिय</string>
+    <string name="active">ACTIVE</string>
     <string name="edit">संपादित करें</string>
     <string name="job_type">कार्य का प्रकार</string>
     <string name="design_sample">"डिज़ाइन/ सैंपल "</string>
@@ -174,4 +174,17 @@
     <string name="applicants">आवेदक</string>
     <string name="design_sample1">"डिज़ाइन/ सैंपल "</string>
     <string name="piece_rate1">"पीस दर "</string>
+    <string name="new_jobs">नयी नौकरी</string>
+    <string name="applied_jobs">लागू नौकरियां</string>
+    <string name="profile">प्रोफाइल</string>
+    <string name="workers">कर्मी</string>
+    <string name="contractors">ठेकेदार</string>
+    <string name="jobs">नौकरियां</string>
+    <string name="notifications">सूचनाएं</string>
+    <string name="worker_details">कर्मी विवरण</string>
+    <string name="cont_details">ठेकेदार विवरण</string>
+    <string name="act">सक्रिय</string>
+    <string name="inact">निष्क्रिय</string>
+    <string name="post_job">पोस्ट जॉब</string>
+    <string name="comp_jobs">कंपनी जॉब्स</string>
 </resources>

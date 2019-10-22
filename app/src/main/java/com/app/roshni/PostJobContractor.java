@@ -100,7 +100,7 @@ public class PostJobContractor extends AppCompatActivity {
         });
 
         toolbar.setTitleTextColor(Color.WHITE);
-        toolbar.setTitle("POST JOB");
+        toolbar.setTitle(getString(R.string.post_job));
 
         exp.add("Select one --- ");
         exp.add("0 to 2 years");

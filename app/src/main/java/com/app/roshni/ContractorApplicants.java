@@ -74,7 +74,7 @@ public class ContractorApplicants extends AppCompatActivity {
         });
 
         toolbar.setTitleTextColor(Color.WHITE);
-        toolbar.setTitle("APPLICANTS");
+        toolbar.setTitle(getString(R.string.applicants));
 
 
         adapter = new JobsAdapter(this , list);

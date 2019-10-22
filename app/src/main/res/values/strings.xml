@@ -174,4 +174,17 @@
     <string name="applicants">Applicants</string>
     <string name="design_sample1">DESIGN/ SAMPLE</string>
     <string name="piece_rate1">PIECE RATE</string>
+    <string name="new_jobs">New Jobs</string>
+    <string name="applied_jobs">Applied Jobs</string>
+    <string name="profile">Profile</string>
+    <string name="workers">Workers</string>
+    <string name="contractors">Contractors</string>
+    <string name="jobs">Jobs</string>
+    <string name="notifications">Notifications</string>
+    <string name="worker_details">WORKER DETAILS</string>
+    <string name="cont_details">CONTRACTOR DETAILS</string>
+    <string name="act">ACTIVE</string>
+    <string name="inact">INACTIVE</string>
+    <string name="post_job">POST JOB</string>
+    <string name="comp_jobs">COMPANY JOBS</string>
 </resources>
