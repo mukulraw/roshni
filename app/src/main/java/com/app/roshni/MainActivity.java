@@ -44,6 +44,8 @@ public class MainActivity extends AppCompatActivity {
     CircleImageView image;
     TextView edit;
 
+    TextView about , faq , policies , terms , support;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         String languageToLoad  = SharePreferenceUtils.getInstance().getString("lang"); // your language
@@ -62,6 +64,12 @@ public class MainActivity extends AppCompatActivity {
         logout = findViewById(R.id.textView25);
         image = findViewById(R.id.imageView1);
         edit = findViewById(R.id.textView56);
+
+        about = findViewById(R.id.textView59);
+        faq = findViewById(R.id.textView60);
+        policies = findViewById(R.id.textView61);
+        terms = findViewById(R.id.textView62);
+        support = findViewById(R.id.textView24);
 
         toggle.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -144,6 +152,73 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+
+        about.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Intent intent = new Intent(MainActivity.this , Web.class);
+                intent.putExtra("title" ,  getString(R.string.about_us));
+                intent.putExtra("url" , "https://mrtecks.com/roshni/about.php");
+                startActivity(intent);
+                drawer.closeDrawer(GravityCompat.START);
+
+            }
+        });
+
+        faq.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Intent intent = new Intent(MainActivity.this , Web.class);
+                intent.putExtra("title" , getString(R.string.faqs));
+                intent.putExtra("url" , "https://mrtecks.com/roshni/faq.php");
+                startActivity(intent);
+                drawer.closeDrawer(GravityCompat.START);
+
+            }
+        });
+
+
+        policies.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Intent intent = new Intent(MainActivity.this , Web.class);
+                intent.putExtra("title" , getString(R.string.policies));
+                intent.putExtra("url" , "https://mrtecks.com/roshni/policies.php");
+                startActivity(intent);
+                drawer.closeDrawer(GravityCompat.START);
+
+            }
+        });
+
+        terms.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Intent intent = new Intent(MainActivity.this , Web.class);
+                intent.putExtra("title" , getString(R.string.terms_amp_conditions));
+                intent.putExtra("url" , "https://mrtecks.com/roshni/terms.php");
+                startActivity(intent);
+                drawer.closeDrawer(GravityCompat.START);
+
+            }
+        });
+
+
+        support.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Intent intent = new Intent(MainActivity.this , Web.class);
+                intent.putExtra("title" , getString(R.string.support_help));
+                intent.putExtra("url" , "https://mrtecks.com/roshni/support.php");
+                startActivity(intent);
+                drawer.closeDrawer(GravityCompat.START);
+
+            }
+        });
 
         bottom.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
