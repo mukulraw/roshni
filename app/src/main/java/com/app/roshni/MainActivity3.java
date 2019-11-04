@@ -12,6 +12,8 @@ import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
+import android.content.res.Configuration;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -27,6 +29,7 @@ import com.nostra13.universalimageloader.core.DisplayImageOptions;
 import com.nostra13.universalimageloader.core.ImageLoader;
 
 import java.io.IOException;
+import java.util.Locale;
 import java.util.Objects;
 
 import de.hdodenhof.circleimageview.CircleImageView;
@@ -41,7 +44,7 @@ public class MainActivity3 extends AppCompatActivity {
     CircleImageView image;
     TextView edit;
 
-    TextView about , faq , policies , terms , support;
+    TextView about , faq , policies , terms , support , language;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -61,6 +64,7 @@ public class MainActivity3 extends AppCompatActivity {
         policies = findViewById(R.id.textView61);
         terms = findViewById(R.id.textView62);
         support = findViewById(R.id.textView24);
+        language = findViewById(R.id.textView58);
 
         bottom.setBehaviorTranslationEnabled(false);
         bottom.setTitleState(AHBottomNavigation.TitleState.ALWAYS_SHOW);
@@ -215,6 +219,89 @@ public class MainActivity3 extends AppCompatActivity {
                 intent.putExtra("url" , "https://mrtecks.com/roshni/support.php");
                 startActivity(intent);
                 drawer.closeDrawer(GravityCompat.START);
+
+            }
+        });
+
+        language.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                drawer.closeDrawer(GravityCompat.START);
+
+                Dialog dialog = new Dialog(MainActivity3.this);
+                dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
+                dialog.setCancelable(true);
+                dialog.setContentView(R.layout.language_dialog);
+                dialog.show();
+
+                final Button en = dialog.findViewById(R.id.button17);
+                final Button hi = dialog.findViewById(R.id.button18);
+
+                String l = SharePreferenceUtils.getInstance().getString("lang");
+
+                if (l.equals("en"))
+                {
+                    en.setBackground(getResources().getDrawable(R.drawable.green_back_round));
+                    hi.setBackground(getResources().getDrawable(R.drawable.white_back_round));
+                    en.setTextColor(Color.WHITE);
+                    hi.setTextColor(Color.BLACK);
+                }
+                else
+                {
+                    en.setBackground(getResources().getDrawable(R.drawable.white_back_round));
+                    hi.setBackground(getResources().getDrawable(R.drawable.green_back_round));
+                    en.setTextColor(Color.BLACK);
+                    hi.setTextColor(Color.WHITE);
+                }
+
+                en.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+
+                        en.setBackground(getResources().getDrawable(R.drawable.green_back_round));
+                        hi.setBackground(getResources().getDrawable(R.drawable.white_back_round));
+                        en.setTextColor(Color.WHITE);
+                        hi.setTextColor(Color.BLACK);
+
+                        String languageToLoad  = "en"; // your language
+                        Locale locale = new Locale(languageToLoad);
+                        Locale.setDefault(locale);
+                        Configuration config = new Configuration();
+                        config.locale = locale;
+                        getBaseContext().getResources().updateConfiguration(config,
+                                getBaseContext().getResources().getDisplayMetrics());
+
+                        SharePreferenceUtils.getInstance().saveString("lang" , languageToLoad);
+
+                        recreate();
+
+                    }
+                });
+
+                hi.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+
+                        en.setBackground(getResources().getDrawable(R.drawable.white_back_round));
+                        hi.setBackground(getResources().getDrawable(R.drawable.green_back_round));
+                        en.setTextColor(Color.BLACK);
+                        hi.setTextColor(Color.WHITE);
+
+                        String languageToLoad  = "hi"; // your language
+                        Locale locale = new Locale(languageToLoad);
+                        Locale.setDefault(locale);
+                        Configuration config = new Configuration();
+                        config.locale = locale;
+                        getBaseContext().getResources().updateConfiguration(config,
+                                getBaseContext().getResources().getDisplayMetrics());
+
+                        SharePreferenceUtils.getInstance().saveString("lang" , languageToLoad);
+
+                        recreate();
+
+                    }
+                });
 
             }
         });
