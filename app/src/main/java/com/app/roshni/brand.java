@@ -182,7 +182,6 @@ public class brand extends Fragment {
 
                     if (certi.equals("Yes")) {
                         cert.setVisibility(View.VISIBLE);
-                        expiry.setText("");
                     } else {
                         cert.setVisibility(View.GONE);
                         expiry.setText("---");
