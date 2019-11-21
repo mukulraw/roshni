@@ -1,6 +1,7 @@
 package com.app.roshni;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.view.GravityCompat;
 
 import android.app.Dialog;
 import android.content.Intent;
@@ -13,6 +14,7 @@ import android.view.Window;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ProgressBar;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.app.roshni.verifyPOJO.verifyBean;
@@ -33,6 +35,7 @@ public class SignupLogin extends AppCompatActivity {
     CountryCodePicker code;
     EditText phone;
     ProgressBar progress;
+    TextView language;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,6 +54,7 @@ public class SignupLogin extends AppCompatActivity {
         code = findViewById(R.id.code);
         phone = findViewById(R.id.phone);
         progress = findViewById(R.id.progressBar);
+        language = findViewById(R.id.textView47);
 
         code.registerPhoneNumberTextView(phone);
 
@@ -134,6 +138,89 @@ public class SignupLogin extends AppCompatActivity {
             });
 
         }
+
+        language.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+
+
+                Dialog dialog = new Dialog(SignupLogin.this);
+                dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
+                dialog.setCancelable(true);
+                dialog.setContentView(R.layout.language_dialog);
+                dialog.show();
+
+                final Button en = dialog.findViewById(R.id.button17);
+                final Button hi = dialog.findViewById(R.id.button18);
+
+                String l = SharePreferenceUtils.getInstance().getString("lang");
+
+                if (l.equals("en"))
+                {
+                    en.setBackground(getResources().getDrawable(R.drawable.green_back_round));
+                    hi.setBackground(getResources().getDrawable(R.drawable.white_back_round));
+                    en.setTextColor(Color.WHITE);
+                    hi.setTextColor(Color.BLACK);
+                }
+                else
+                {
+                    en.setBackground(getResources().getDrawable(R.drawable.white_back_round));
+                    hi.setBackground(getResources().getDrawable(R.drawable.green_back_round));
+                    en.setTextColor(Color.BLACK);
+                    hi.setTextColor(Color.WHITE);
+                }
+
+                en.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+
+                        en.setBackground(getResources().getDrawable(R.drawable.green_back_round));
+                        hi.setBackground(getResources().getDrawable(R.drawable.white_back_round));
+                        en.setTextColor(Color.WHITE);
+                        hi.setTextColor(Color.BLACK);
+
+                        String languageToLoad  = "en"; // your language
+                        Locale locale = new Locale(languageToLoad);
+                        Locale.setDefault(locale);
+                        Configuration config = new Configuration();
+                        config.locale = locale;
+                        getBaseContext().getResources().updateConfiguration(config,
+                                getBaseContext().getResources().getDisplayMetrics());
+
+                        SharePreferenceUtils.getInstance().saveString("lang" , languageToLoad);
+
+                        recreate();
+
+                    }
+                });
+
+                hi.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+
+                        en.setBackground(getResources().getDrawable(R.drawable.white_back_round));
+                        hi.setBackground(getResources().getDrawable(R.drawable.green_back_round));
+                        en.setTextColor(Color.BLACK);
+                        hi.setTextColor(Color.WHITE);
+
+                        String languageToLoad  = "hi"; // your language
+                        Locale locale = new Locale(languageToLoad);
+                        Locale.setDefault(locale);
+                        Configuration config = new Configuration();
+                        config.locale = locale;
+                        getBaseContext().getResources().updateConfiguration(config,
+                                getBaseContext().getResources().getDisplayMetrics());
+
+                        SharePreferenceUtils.getInstance().saveString("lang" , languageToLoad);
+
+                        recreate();
+
+                    }
+                });
+
+            }
+        });
 
         login.setOnClickListener(new View.OnClickListener() {
             @Override

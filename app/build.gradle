@@ -59,4 +59,6 @@ dependencies {
     implementation 'com.aurelhubert:ahbottomnavigation:2.3.4'
 
     implementation 'com.borax12.materialdaterangepicker:library:1.9'
+
+    compile 'com.github.qiugang:EditTag:v1.2.4-beta2'
 }

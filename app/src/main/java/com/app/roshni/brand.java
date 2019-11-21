@@ -48,12 +48,14 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
 import java.util.Objects;
 
 import de.hdodenhof.circleimageview.CircleImageView;
 import mabbas007.tagsedittext.TagsEditText;
+import me.originqiu.library.EditTag;
 import okhttp3.MediaType;
 import okhttp3.MultipartBody;
 import okhttp3.RequestBody;
@@ -74,7 +76,8 @@ public class brand extends Fragment {
 
     private EditText name, regi, person, cpin, cstate, cdistrict, carea, cstreet, ppin, pstate, pdistrict, parea, pstreet, factory, workers, expiry, website, email;
 
-    TagsEditText products, countries;
+
+    EditTag products, countries;
 
     private CircleImageView image;
 
@@ -333,12 +336,12 @@ public class brand extends Fragment {
 
                 String f = factory.getText().toString();
 
-                List<String> pro = products.getTags();
+                List<String> pro = products.getTagList();
 
 
                 String pr = TextUtils.join(",", pro);
 
-                List<String> cou = countries.getTags();
+                List<String> cou = countries.getTagList();
 
 
                 String co = TextUtils.join(",", cou);
@@ -767,8 +770,8 @@ public class brand extends Fragment {
         String ppp = SharePreferenceUtils.getInstance().getString("products");
         String ccc = SharePreferenceUtils.getInstance().getString("country");
 
-        products.setTags(ppp.split(","));
-        countries.setTags(ccc.split(","));
+        products.setTagList(Arrays.asList(ppp.split(",")));
+        countries.setTagList(Arrays.asList(ccc.split(",")));
 
 
         expiry.setText(SharePreferenceUtils.getInstance().getString("expiry"));

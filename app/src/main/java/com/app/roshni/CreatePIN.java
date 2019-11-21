@@ -127,6 +127,15 @@ public class CreatePIN extends AppCompatActivity {
                                     SharePreferenceUtils.getInstance().saveString("about", item.getAbout());
                                     SharePreferenceUtils.getInstance().saveString("pin", item.getPin());
 
+                                    SharePreferenceUtils.getInstance().saveString("business_name", item.getBusiness_name());
+                                    SharePreferenceUtils.getInstance().saveString("establishment_year", item.getEstablishment_year());
+                                    SharePreferenceUtils.getInstance().saveString("home_units", item.getHome_units());
+                                    SharePreferenceUtils.getInstance().saveString("home_location", item.getHome_location());
+                                    SharePreferenceUtils.getInstance().saveString("workers_male", item.getWorkers_male());
+                                    SharePreferenceUtils.getInstance().saveString("workers_female", item.getWorkers_female());
+                                    SharePreferenceUtils.getInstance().saveString("work_type", item.getWork_type());
+                                    SharePreferenceUtils.getInstance().saveString("availability", item.getAvailability());
+
 
 
 

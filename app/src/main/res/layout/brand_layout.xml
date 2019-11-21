@@ -411,26 +411,17 @@
                 android:layout_marginTop="16dp"
                 android:text="@string/types_of_products" />
 
-            <mabbas007.tagsedittext.TagsEditText
+            <me.originqiu.library.EditTag
                 android:id="@+id/products"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="8dp"
                 android:layout_marginEnd="8dp"
-                android:background="@drawable/white_back_round"
-                android:gravity="center_vertical"
-                android:hint="@string/hit_enter_to_add_products"
-                android:inputType="textPostalAddress"
+                app:tag_layout="@layout/view_sample_tag"
                 android:padding="10dp"
-                app:allowSpaceInTag="false"
-                app:tagsBackground="@drawable/blue_back_round"
-                app:tagsPaddingBottom="5dp"
-                app:tagsPaddingLeft="20dp"
-                app:tagsPaddingRight="20dp"
-                app:tagsPaddingTop="5dp"
-                app:tagsTextColor="#ffffff"
-                app:tagsTextSize="12sp" />
+                android:background="@drawable/white_back_round"
+                />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -439,26 +430,19 @@
                 android:layout_marginTop="16dp"
                 android:text="@string/importing_countries" />
 
-            <mabbas007.tagsedittext.TagsEditText
+            <me.originqiu.library.EditTag
                 android:id="@+id/countries"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="8dp"
                 android:layout_marginEnd="8dp"
+                app:tag_layout="@layout/view_sample_tag"
                 android:background="@drawable/white_back_round"
                 android:gravity="center_vertical"
                 android:hint="@string/hit_enter_to_add_countries"
                 android:inputType="textPostalAddress"
-                android:padding="10dp"
-                app:allowSpaceInTag="false"
-                app:tagsBackground="@drawable/blue_back_round"
-                app:tagsPaddingBottom="5dp"
-                app:tagsPaddingLeft="20dp"
-                app:tagsPaddingRight="20dp"
-                app:tagsPaddingTop="5dp"
-                app:tagsTextColor="#ffffff"
-                app:tagsTextSize="12sp" />
+                android:padding="10dp" />
 
 
             <TextView
