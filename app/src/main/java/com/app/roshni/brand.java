@@ -40,6 +40,8 @@ import androidx.localbroadcastmanager.content.LocalBroadcastManager;
 
 import com.app.roshni.verifyPOJO.Data;
 import com.app.roshni.verifyPOJO.verifyBean;
+import com.hootsuite.nachos.NachoTextView;
+import com.hootsuite.nachos.terminator.ChipTerminatorHandler;
 import com.nostra13.universalimageloader.core.DisplayImageOptions;
 import com.nostra13.universalimageloader.core.ImageLoader;
 
@@ -77,7 +79,7 @@ public class brand extends Fragment {
     private EditText name, regi, person, cpin, cstate, cdistrict, carea, cstreet, ppin, pstate, pdistrict, parea, pstreet, factory, workers, expiry, website, email;
 
 
-    EditTag products, countries;
+    NachoTextView products, countries;
 
     private CircleImageView image;
 
@@ -142,6 +144,15 @@ public class brand extends Fragment {
         manufacturing = view.findViewById(R.id.manufacturing);
         certification = view.findViewById(R.id.certification);
 
+
+        products.addChipTerminator('\n', ChipTerminatorHandler.BEHAVIOR_CHIPIFY_CURRENT_TOKEN);
+        products.addChipTerminator(' ', ChipTerminatorHandler.BEHAVIOR_CHIPIFY_CURRENT_TOKEN);
+        products.addChipTerminator(',', ChipTerminatorHandler.BEHAVIOR_CHIPIFY_CURRENT_TOKEN);
+
+
+        countries.addChipTerminator('\n', ChipTerminatorHandler.BEHAVIOR_CHIPIFY_CURRENT_TOKEN);
+        countries.addChipTerminator(' ', ChipTerminatorHandler.BEHAVIOR_CHIPIFY_CURRENT_TOKEN);
+        countries.addChipTerminator(',', ChipTerminatorHandler.BEHAVIOR_CHIPIFY_CURRENT_TOKEN);
 
         cer.add("Select one --- ");
         cer.add("Yes");
@@ -335,12 +346,12 @@ public class brand extends Fragment {
 
                 String f = factory.getText().toString();
 
-                List<String> pro = products.getTagList();
+                List<String> pro = products.getChipAndTokenValues();
 
 
                 String pr = TextUtils.join(",", pro);
 
-                List<String> cou = countries.getTagList();
+                List<String> cou = countries.getChipAndTokenValues();
 
 
                 String co = TextUtils.join(",", cou);
@@ -394,6 +405,10 @@ public class brand extends Fragment {
                                                                                         if (e.length() > 0) {
                                                                                             if (we.length() > 0) {
                                                                                                 if (em.length() > 0) {
+
+
+                                                                                                    Log.d("asdasdasd" , products.toString());
+
 
 
                                                                                                     MultipartBody.Part body = null;
@@ -769,8 +784,10 @@ public class brand extends Fragment {
         String ppp = SharePreferenceUtils.getInstance().getString("products");
         String ccc = SharePreferenceUtils.getInstance().getString("country");
 
-        products.setTagList(Arrays.asList(ppp.split(",")));
-        countries.setTagList(Arrays.asList(ccc.split(",")));
+
+
+        products.setText(Arrays.asList(ppp.split(",")));
+        countries.setText(Arrays.asList(ccc.split(",")));
 
 
         expiry.setText(SharePreferenceUtils.getInstance().getString("expiry"));

@@ -411,15 +411,19 @@
                 android:layout_marginTop="16dp"
                 android:text="@string/types_of_products" />
 
-            <me.originqiu.library.EditTag
+            <com.hootsuite.nachos.NachoTextView
                 android:id="@+id/products"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="8dp"
                 android:layout_marginEnd="8dp"
-                app:tag_layout="@layout/view_sample_tag"
-                android:padding="10dp"
+                app:chipBackground="@color/colorAccent"
+                app:chipHeight="30dp"
+                app:chipTextColor="#ffffff"
+                app:chipTextSize="16dp"
+                android:padding="5dp"
+                app:chipVerticalSpacing="3dp"
                 android:background="@drawable/white_back_round"
                 />
 
@@ -430,19 +434,23 @@
                 android:layout_marginTop="16dp"
                 android:text="@string/importing_countries" />
 
-            <me.originqiu.library.EditTag
+            <com.hootsuite.nachos.NachoTextView
                 android:id="@+id/countries"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="8dp"
                 android:layout_marginEnd="8dp"
-                app:tag_layout="@layout/view_sample_tag"
+                app:chipBackground="@color/colorAccent"
+                app:chipHeight="30dp"
+                app:chipTextColor="#ffffff"
+                app:chipTextSize="16dp"
+                app:chipVerticalSpacing="3dp"
                 android:background="@drawable/white_back_round"
                 android:gravity="center_vertical"
                 android:hint="@string/hit_enter_to_add_countries"
                 android:inputType="textPostalAddress"
-                android:padding="10dp" />
+                android:padding="5dp" />
 
 
             <TextView
